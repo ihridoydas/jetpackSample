@@ -1,5 +1,9 @@
 package com.ihridoydas.simpleapp.ui
 
+/**
+ * Created By Hridoy Chandra Das
+ */
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
