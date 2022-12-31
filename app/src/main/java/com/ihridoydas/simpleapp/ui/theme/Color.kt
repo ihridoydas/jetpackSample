@@ -7,6 +7,9 @@ val Secondary40 = Color(0xFF002d30) //Secondary
 val Tertiary40 = Color(0xFF00c3f1) //Tertiary
 val Neutral40 = Color(0xFF8e918e) //Neutral [Used for background and surfaces]
 
+// Checkout for learn UI Theme
+// https://www.w3schools.com/colors/colors_picker.asp (For Color picker)
+// https://m3.material.io/theme-builder#/custom (custom Theme builder)
 
 val md_theme_light_primary = Color(0xFF006C4F)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
