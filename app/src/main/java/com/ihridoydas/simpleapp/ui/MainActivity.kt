@@ -4,9 +4,11 @@ package com.ihridoydas.simpleapp.ui
  * Created By Hridoy Chandra Das
  */
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -18,9 +20,15 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.ihridoydas.simpleapp.navigation.HomeScreenSpec.route
+import com.ihridoydas.simpleapp.navigation.MainNavHost
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
+import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +39,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun MyApp(windowSizeClass: WindowSizeClass) {
     SimpleAppTheme {
@@ -39,30 +48,15 @@ fun MyApp(windowSizeClass: WindowSizeClass) {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            when (windowSizeClass.widthSizeClass) {
-                WindowWidthSizeClass.Compact -> {
-                    Greeting("Android")
-                }
-                else -> {
-                    Greeting("Android")
-                }
-            }
+            val navController = rememberNavController()
+            val systemUiController = rememberSystemUiController()
+            MainNavHost(
+                windowSizeClass = windowSizeClass,
+                navController = navController,
+                systemUiController = systemUiController,
+                startDestination = route
+            )
         }
     }
 
-}
-
-
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SimpleAppTheme {
-        Greeting("Android")
-    }
 }
