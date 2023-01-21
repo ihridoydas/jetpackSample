@@ -208,6 +208,9 @@ dependencies {
     //Constraint Layout Compose
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 
+    //Google Fonts in Jetpack Compose
+    implementation "androidx.compose.ui:ui-text-google-fonts:1.4.0-alpha04"
+
     //Support palette //https://medium.com/jetpack-composers/how-to-use-palette-api-with-jetpack-compose-a7028143d3c2
     implementation('androidx.palette:palette:1.0.0')
 

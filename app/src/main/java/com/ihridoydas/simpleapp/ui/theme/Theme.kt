@@ -12,6 +12,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.font.FontFamily
 import androidx.core.view.WindowCompat
 
 private val LightColorPalette = lightColorScheme(
@@ -80,7 +81,11 @@ private val DarkColorPalette = darkColorScheme(
 )
 
 @Composable
-fun SimpleAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun SimpleAppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    fontFamily: FontFamily = fonts,
+    content: @Composable () -> Unit
+) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
@@ -100,16 +105,19 @@ fun SimpleAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composa
     val dimensions = if (configuration.screenWidthDp <= 360) smallDimensions else sw360Dimensions
     //val typography = if (configuration.screenWidthDp <= 360) smallTypography else sw360Typography
 
+    //By Default for whole Application(Noto sans japanese)
+    //You can download from Google Fonts
+    val typography = getTypography(fontFamily)
 
     ProvideDimens(dimensions = dimensions) {
         MaterialTheme(
             colorScheme = colors,
+            typography = typography,
             content = content
         )
     }
 
 }
-
 
 private tailrec fun Context.findActivity(): Activity =
     when (this) {
