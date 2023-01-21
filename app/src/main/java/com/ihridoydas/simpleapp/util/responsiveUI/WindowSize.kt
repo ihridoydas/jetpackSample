@@ -6,28 +6,8 @@
 package com.ihridoydas.simpleapp.util.responsiveUI
 
 import android.content.res.Configuration
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.awaitFirstDown
-import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.gestures.waitForUpOrCancellation
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.material.Text
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextLayoutResult
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
 
 
 data class WindowSize(
@@ -35,7 +15,7 @@ data class WindowSize(
     val height: WindowType
 )
 
-enum class WindowType { Compact, Small }
+enum class WindowType { Normal, Small }
 
 
 @Composable
@@ -76,24 +56,24 @@ fun rememberWindowSize(): WindowSize {
 
 // ORIENTATION PORTRAIT のため
 fun getScreenWidth(width: Int): WindowType = when {
-    width > 338 -> WindowType.Compact
+    width > 338 -> WindowType.Normal
     else -> WindowType.Small
 
 }
 
 fun getScreenHeight(height: Int): WindowType = when {
-    height > 774 -> WindowType.Compact
+    height > 774 -> WindowType.Normal
     else -> WindowType.Small
 }
 
 // ORIENTATION LANDSCAPE のため
 fun getScreenWidthLand(width: Int): WindowType = when {
-    width >= 716 -> WindowType.Compact
+    width >= 716 -> WindowType.Normal
     else -> WindowType.Small
 
 }
 
 fun getScreenHeightLand(height: Int): WindowType = when {
-    height >= 320 -> WindowType.Compact
+    height >= 320 -> WindowType.Normal
     else -> WindowType.Small
 }

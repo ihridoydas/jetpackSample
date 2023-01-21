@@ -64,7 +64,7 @@ fun ShowGotoSettingsDialog(
                     text = title,
                     color= Color.Black,
                     fontSize = when (window.width) {
-                        WindowType.Compact -> dpToSp(18.dp)
+                        WindowType.Normal -> dpToSp(18.dp)
                         else -> dpToSp(15.dp)
                     },
                     fontWeight = FontWeight.Bold,
@@ -77,7 +77,7 @@ fun ShowGotoSettingsDialog(
                     color= Color.Black,
                     fontWeight = FontWeight.Medium,
                     fontSize = when (window.width) {
-                        WindowType.Compact -> dpToSp(14.dp)
+                        WindowType.Normal -> dpToSp(14.dp)
                         else -> dpToSp(12.dp)
                     })
 
@@ -117,7 +117,7 @@ fun ShowGotoSettingsDialog(
                             text = stringResource(id = R.string.cancel),
                             color = Color.Black,
                             fontSize = when (window.width) {
-                                WindowType.Compact -> dpToSp(16.dp)
+                                WindowType.Normal -> dpToSp(16.dp)
                                 else -> dpToSp(12.dp)
                             }
                         )
@@ -138,7 +138,7 @@ fun ShowGotoSettingsDialog(
                             text = stringResource(id = R.string.settings),
                             color = Color.White,
                             fontSize = when (window.width) {
-                                WindowType.Compact -> dpToSp(16.dp)
+                                WindowType.Normal -> dpToSp(16.dp)
                                 else -> dpToSp(12.dp)
                             }
                         )
