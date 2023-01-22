@@ -27,6 +27,7 @@ import com.ihridoydas.simpleapp.util.showcase.onBoarding.OnBoardingViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
+//https://blog.canopas.com/intro-showcase-view-in-jetpack-compose-ac044cd3bf28
 
 @Composable
 fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavController, onBoardingViewModel: OnBoardingViewModel) {

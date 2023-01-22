@@ -1,8 +1,10 @@
 package com.ihridoydas.simpleapp.navigation
 
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
@@ -41,7 +43,7 @@ object HomeScreenSpec : MainNavScreenSpec {
 
     override val route = "home_screen"
 
-    fun requestNavigationRoute() = route
+   // fun requestNavigationRoute() = route
 
     @RequiresApi(33)
     @Composable
@@ -72,7 +74,19 @@ object ProfileScreenSpec : MainNavScreenSpec {
         navBackStackEntry: NavBackStackEntry,
         systemUiController: SystemUiController
     ) {
+        val context = LocalContext.current
 
-        ProfileScreen(windowSizeClass = windowSizeClass, navController = navController)
+        ProfileScreen(
+            windowSizeClass = windowSizeClass,
+            navController = navController,
+            onBackPress = {
+                Toast.makeText(context,"Hello",Toast.LENGTH_LONG).show()
+                navController?.navigate(HomeScreenSpec.route) {
+                    popUpTo(ProfileScreenSpec.route) {
+                        inclusive = true
+                    }
+                }
+            }
+        )
     }
 }

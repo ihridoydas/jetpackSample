@@ -16,12 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
-import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProfileScreen(windowSizeClass: WindowSizeClass,navController: NavController) {
+fun ProfileScreen(windowSizeClass: WindowSizeClass,navController: NavController,onBackPress : ()->Unit) {
 
     // スクロールの行動 (scrollBehavior)
     val topAppBarState = rememberTopAppBarState()
@@ -35,13 +33,7 @@ fun ProfileScreen(windowSizeClass: WindowSizeClass,navController: NavController)
                     contentDescription = "Back",
                     modifier = Modifier
                         .padding(16.dp)
-                        .clickable {
-                            navController?.navigate(HomeScreenSpec.requestNavigationRoute()) {
-                                popUpTo(ProfileScreenSpec.route) {
-                                    inclusive = true
-                                }
-                            }
-                        }
+                        .clickable { onBackPress() }
                 )
             }
         },
