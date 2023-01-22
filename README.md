@@ -1,8 +1,13 @@
 # jetpackSample
 
+## MVVM patterns follow
 ## Implement Jetpack BOM
 ## Importantly Util
-## Resposive UI
-## Tap Terget View
-## Material 3 
-## MVVM patterns follow
+## Responsive UI
+## Tap Target View
+## Navigation With Animation
+## Material 3
+## Dagger Hilt implementation With Co-routines
+## Implement Preference DataStore
+## Higher Production Level setup(Environment)-> Develop,Staging,Production(release)
+
