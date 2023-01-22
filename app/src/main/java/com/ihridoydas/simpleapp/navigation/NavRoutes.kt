@@ -51,7 +51,6 @@ object HomeScreenSpec : MainNavScreenSpec {
         navBackStackEntry: NavBackStackEntry,
         systemUiController: SystemUiController
     ) {
-
         HomeScreen(windowSizeClass = windowSizeClass, navController = navController)
     }
 }
