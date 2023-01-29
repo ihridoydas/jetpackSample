@@ -1,9 +1,3 @@
-/*
- * Created by yusuf on 2022/09/01
- * Last modified 9/1/22, 2:48 PM
- * Copyright © 2022 Cognivision Inc. All rights reserved.
- */
-
 package com.ihridoydas.simpleapp.util.responsiveUI
 
 import android.content.Context
