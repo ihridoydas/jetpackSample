@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI.text
+package com.ihridoydas.simpleapp.util.responsiveUI.component.text
 
 
 import androidx.compose.ui.graphics.Color
