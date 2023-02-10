@@ -23,7 +23,7 @@ private const val TEXT_SCALE_REDUCTION_INTERVAL = 0.9f
  * Responsive Custom Text
  */
 @Composable
-fun ResponsiveText(
+fun ResponsiveCustomText(
     modifier: Modifier = Modifier,
     text: AnnotatedString,
     color: Color,
