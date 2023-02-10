@@ -106,7 +106,7 @@ fun NumberPlateAlertDialog(
                     Button(
                         onClick = {
                             // キャンセルをタップしたとき
-                            button2Action.invoke()
+                            button1Action.invoke()
                         },
                         Modifier
                             .fillMaxWidth()
@@ -134,7 +134,7 @@ fun NumberPlateAlertDialog(
                     Button(
                         onClick = {
                             // 削除ボタン：アラートを表示する
-                            button1Action.invoke()
+                            button2Action.invoke()
                         },
                         Modifier
                             .fillMaxWidth()
