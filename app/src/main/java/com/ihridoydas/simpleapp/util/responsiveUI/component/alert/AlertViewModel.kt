@@ -2,6 +2,7 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.alert
 
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.ihridoydas.simpleapp.util.common.EmptyParamsNoReturnFun
 import com.ihridoydas.simpleapp.util.common.EmptyParamsNoReturnNullableFun
@@ -22,10 +23,13 @@ class AlertViewModel @Inject constructor() : ViewModel() {
     var title by mutableStateOf("")
     var text by mutableStateOf("")
     var button1Text by mutableStateOf("")
+    var button1TextColor : Color = Color.Unspecified
     var button1Action: EmptyParamsNoReturnFun = {}
     var button2Text by mutableStateOf("")
+    var button2TextColor : Color = Color.Unspecified
     var button2Action: EmptyParamsNoReturnFun = {}
     var button3Text by mutableStateOf("")
+    var button3TextColor : Color = Color.Unspecified
     var button3Action: EmptyParamsNoReturnFun = {}
 
     /** Called before showing dialog */
@@ -124,6 +128,40 @@ class AlertViewModel @Inject constructor() : ViewModel() {
         this.title = title
         this.button1Text = button1Text
         this.button1Action = button1Action
+        this.backAction = backAction
+    }
+
+
+    /**
+     * ボタンのテキストカラー設定可能
+     */
+    fun showWithButtonTextColor(
+        title: String,
+        text: String,
+        button1Text: String,
+        button1TextColor: Color = Color.Unspecified,
+        button1Action: () -> Unit,
+        button2Text: String = "",
+        button2TextColor: Color = Color.Unspecified,
+        button2Action: () -> Unit = {},
+        button3Text: String = "",
+        button3TextColor: Color = Color.Unspecified,
+        button3Action: () -> Unit = {},
+        backAction: ButtonActions? = null
+    ) {
+        showHook?.let { it() }
+
+        this.title = title
+        this.text = text
+        this.button1Text = button1Text
+        this.button1TextColor = button1TextColor
+        this.button1Action = button1Action
+        this.button2Text = button2Text
+        this.button2TextColor = button2TextColor
+        this.button2Action = button2Action
+        this.button3Text = button3Text
+        this.button3TextColor = button3TextColor
+        this.button3Action = button3Action
         this.backAction = backAction
     }
 }

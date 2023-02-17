@@ -41,7 +41,7 @@ fun Alert(isPreview: Boolean = false) {
     // window Size
     val window = rememberWindowSize()
 
-    if (viewModel.alertInstance.isVisible && viewModel.title.isNotEmpty()) {
+    if (viewModel.title.isNotEmpty()) {
         AlertDialog(
             modifier = Modifier
                 .padding(8.dp)
