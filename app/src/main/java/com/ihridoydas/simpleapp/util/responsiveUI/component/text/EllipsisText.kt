@@ -15,6 +15,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.text.TextLayoutResult
@@ -46,82 +47,18 @@ fun MiddleEllipsisText(
     softWrap: Boolean = true,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     style: TextStyle = LocalTextStyle.current,
-    ellipsisChar: Char = '.',
-    ellipsisCharCount: Int = 3
 ) {
-
-    var textLayoutResult: TextLayoutResult? = null
-    val ellipsisText = ellipsisChar.toString().repeat(ellipsisCharCount)
-
+    // some letters, like "r", will have less width when placed right before "."
+    // adding a space to prevent such case
+    val layoutText = remember(text) { "$text $ellipsisText" }
+    val textLayoutResultState = remember(layoutText) {
+        mutableStateOf<TextLayoutResult?>(null)
+    }
     SubcomposeLayout(modifier) { constraints ->
-        subcompose("MiddleEllipsisText_calculate") {
-            Text(
-                text = text + ellipsisChar,
-                color = color,
-                fontSize = fontSize,
-                fontStyle = fontStyle,
-                fontWeight = fontWeight,
-                fontFamily = fontFamily,
-                letterSpacing = letterSpacing,
-                textDecoration = textDecoration,
-                textAlign = textAlign,
-                lineHeight = lineHeight,
-                softWrap = softWrap,
-                onTextLayout = { textLayoutResult = it },
-                style = style
-            )
-        }[0].measure(Constraints())
-
-        textLayoutResult ?: return@SubcomposeLayout layout(0, 0) {}
-
-        val placeable = subcompose("MiddleEllipsisText_apply") {
-            val combinedText = remember(text, ellipsisText, textLayoutResult) {
-                if (textLayoutResult!!.getBoundingBox(text.lastIndex).right <= constraints.maxWidth) {
-                    text
-                } else {
-                    val textWidth = textLayoutResult!!.getBoundingBox(text.lastIndex + 1).width
-                    val ellipsisTextWidth: Float = textWidth * ellipsisCharCount
-                    val remainingWidth = constraints.maxWidth - ellipsisTextWidth
-                    val textFromStart = mutableListOf<Char>()
-                    val textFromEnd = mutableListOf<Char>()
-                    var leftPoint = 0
-                    var rightPoint = 0
-                    var leftTextWidth = 0F
-                    var rightTextWidth = 0F
-
-                    kotlin.run {
-                        repeat(text.lastIndex) {
-                            val leftPosition = leftPoint
-                            val rightPosition = text.lastIndex - rightPoint
-                            val leftTextBoundingBox =
-                                textLayoutResult!!.getBoundingBox(leftPosition)
-                            val rightTextBoundingBox =
-                                textLayoutResult!!.getBoundingBox(rightPosition)
-
-                            // For multibyte string handling
-                            if (leftTextWidth <= rightTextWidth && leftTextWidth + leftTextBoundingBox.width + rightTextWidth <= remainingWidth) {
-                                val leftChar = text[leftPosition]
-                                textFromStart.add(leftChar)
-                                leftTextWidth += leftTextBoundingBox.width
-                                leftPoint += 1
-                            } else if (leftTextWidth >= rightTextWidth && leftTextWidth + rightTextWidth + rightTextBoundingBox.width <= remainingWidth) {
-                                val rightChar = text[rightPosition]
-                                textFromEnd.add(rightChar)
-                                rightTextWidth += rightTextBoundingBox.width
-                                rightPoint += 1
-                            } else {
-                                return@run
-                            }
-                        }
-                    }
-                    textFromStart.joinToString(separator = "") + ellipsisText + textFromEnd.reversed()
-                        .joinToString(
-                            separator = ""
-                        )
-                }
-            }
-            Text(
-                text = combinedText,
+        // result is ignored - we only need to fill our textLayoutResult
+        subcompose("measure") {
+            androidx.compose.material3.Text(
+                text = layoutText,
                 color = color,
                 fontSize = fontSize,
                 fontStyle = fontStyle,
@@ -133,16 +70,117 @@ fun MiddleEllipsisText(
                 lineHeight = lineHeight,
                 softWrap = softWrap,
                 maxLines = 1,
+                onTextLayout = { textLayoutResultState.value = it },
+                style = style,
+            )
+        }.first().measure(Constraints())
+        // to allow smart cast
+        val textLayoutResult = textLayoutResultState.value
+            ?: // shouldn't happen - onTextLayout is called before subcompose finishes
+            return@SubcomposeLayout layout(0, 0) {}
+        val placeable = subcompose("visible") {
+            val finalText = remember(text, textLayoutResult, constraints.maxWidth) {
+                if (text.isEmpty() || textLayoutResult.getBoundingBox(text.indices.last).right <= constraints.maxWidth) {
+                    // text not including ellipsis fits on the first line.
+                    return@remember text
+                }
+
+                val ellipsisWidth = layoutText.indices.toList()
+                    .takeLast(ellipsisCharactersCount)
+                    .let widthLet@{ indices ->
+                        // fix this bug: https://issuetracker.google.com/issues/197146630
+                        // in this case width is invalid
+                        for (i in indices) {
+                            val width = textLayoutResult.getBoundingBox(i).width
+                            if (width > 0) {
+                                return@widthLet width * ellipsisCharactersCount
+                            }
+                        }
+                        // this should not happen, because
+                        // this error occurs only for the last character in the string
+                        throw IllegalStateException("all ellipsis chars have invalid width")
+                    }
+                val availableWidth = constraints.maxWidth - ellipsisWidth
+                val startCounter = BoundCounter(text, textLayoutResult) { it }
+                val endCounter = BoundCounter(text, textLayoutResult) { text.indices.last - it }
+
+                while (availableWidth - startCounter.width - endCounter.width > 0) {
+                    val possibleEndWidth = endCounter.widthWithNextChar()
+                    if (
+                        startCounter.width >= possibleEndWidth
+                        && availableWidth - startCounter.width - possibleEndWidth >= 0
+                    ) {
+                        endCounter.addNextChar()
+                    } else if (availableWidth - startCounter.widthWithNextChar() - endCounter.width >= 0) {
+                        startCounter.addNextChar()
+                    } else {
+                        break
+                    }
+                }
+                startCounter.string.trimEnd() + ellipsisText + endCounter.string.reversed().trimStart()
+            }
+            androidx.compose.material3.Text(
+                text = finalText,
+                color = color,
+                fontSize = fontSize,
+                fontStyle = fontStyle,
+                fontWeight = fontWeight,
+                fontFamily = fontFamily,
+                letterSpacing = letterSpacing,
+                textDecoration = textDecoration,
+                textAlign = textAlign,
+                lineHeight = lineHeight,
+                softWrap = softWrap,
                 onTextLayout = onTextLayout,
-                style = style
+                style = style,
             )
         }[0].measure(constraints)
-
         layout(placeable.width, placeable.height) {
             placeable.place(0, 0)
         }
     }
 }
+
+private const val ellipsisCharactersCount = 3
+private const val ellipsisCharacter = '.'
+private val ellipsisText = List(ellipsisCharactersCount) { ellipsisCharacter }.joinToString(separator = "")
+
+private class BoundCounter(
+    private val text: String,
+    private val textLayoutResult: TextLayoutResult,
+    private val charPosition: (Int) -> Int,
+) {
+    var string = ""
+        private set
+    var width = 0f
+        private set
+
+    private var _nextCharWidth: Float? = null
+    private var invalidCharsCount = 0
+
+    fun widthWithNextChar(): Float =
+        width + nextCharWidth()
+
+    private fun nextCharWidth(): Float =
+        _nextCharWidth ?: run {
+            var boundingBox: Rect
+            // invalidCharsCount fixes this bug: https://issuetracker.google.com/issues/197146630
+            invalidCharsCount--
+            do {
+                boundingBox = textLayoutResult
+                    .getBoundingBox(charPosition(string.count() + ++invalidCharsCount))
+            } while (boundingBox.right == 0f)
+            _nextCharWidth = boundingBox.width
+            boundingBox.width
+        }
+
+    fun addNextChar() {
+        string += text[charPosition(string.count())]
+        width += nextCharWidth()
+        _nextCharWidth = null
+    }
+}
+
 
 
 
