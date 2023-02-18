@@ -7,10 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,9 +24,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import kotlin.math.roundToInt
 
 @Composable
 fun MiddleEllipsisText(
@@ -192,8 +192,28 @@ private fun PreviewMiddleEllipsisText() {
             Modifier.padding(16.dp),
             border = BorderStroke(1.dp, MaterialTheme.colors.onSurface),
         ) {
-            MiddleEllipsisText("vjhgvjhvjhcvjhcjgchgchgchgfxhfxgfxzgdfxzfdxxgfxgfxgfxgfxgfxgf",
-            modifier = Modifier.padding(5.dp))
+            val text = remember { LoremIpsum(100).values.first().replace("\n", " ") }
+            var length by remember { mutableStateOf(77) }
+            var width by remember { mutableStateOf(0.5f) }
+            Column {
+                MiddleEllipsisText(
+                    text.take(length),
+                    fontSize = 30.sp,
+                    modifier = Modifier
+                        .background(Color.LightGray)
+                        .padding(10.dp)
+                        .fillMaxWidth(width)
+                )
+                Slider(
+                    value = length.toFloat(),
+                    onValueChange = { length = it.roundToInt() },
+                    valueRange = 2f..text.length.toFloat()
+                )
+                Slider(
+                    value = width,
+                    onValueChange = { width = it },
+                )
+            }
         }
     }
 }
