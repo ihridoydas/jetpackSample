@@ -53,7 +53,7 @@ fun ProfileScreen(windowSizeClass: WindowSizeClass,navController: NavController,
 
              //   ThreeButtons1()
 
-                OnBoarding(onBackPress)
+                OnBoarding(onBackPress,navController)
 
             }
         }

@@ -25,19 +25,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
+import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
+import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import kotlinx.coroutines.launch
 
 @ExperimentalPagerApi
 @Composable
-fun OnBoarding(onBackPress : ()->Unit) {
+fun OnBoarding(onBackPress : ()->Unit,navController: NavController) {
 
     val scope= rememberCoroutineScope()
 
     Column(Modifier.fillMaxSize()) {
-        TopSection(onBackPress)
+        TopSection(onBackPress,navController)
 
         val items=OnBoardingItem.get()
         val state= rememberPagerState(initialPage = 0)
@@ -66,7 +70,7 @@ fun OnBoarding(onBackPress : ()->Unit) {
 }
 
 @Composable
-fun TopSection(onBackPress : ()->Unit) {
+fun TopSection(onBackPress : ()->Unit,navController: NavController) {
     Box(
         modifier= Modifier
             .fillMaxWidth()
@@ -83,7 +87,13 @@ fun TopSection(onBackPress : ()->Unit) {
 
         //skip button
         TextButton(
-            onClick = {},
+            onClick = {
+                navController?.navigate(WebViewSpec.requestNavigationRoute()) {
+                    popUpTo(HomeScreenSpec.route) {
+                        inclusive = true
+                    }
+                }
+            },
             modifier=Modifier.align(Alignment.CenterEnd)
         ) {
             Text("Skip",color=MaterialTheme.colors.onBackground)

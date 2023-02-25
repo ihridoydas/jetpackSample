@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.profileScreen.ProfileScreen
+import com.ihridoydas.simpleapp.util.responsiveUI.component.webView.WebBrowser
 
 sealed interface MainNavScreenSpec {
 
@@ -18,6 +19,7 @@ sealed interface MainNavScreenSpec {
         fun getAllMainNavScreenSpec() = listOf(
             HomeScreenSpec,
             ProfileScreenSpec,
+            WebViewSpec
         )
     }
 
@@ -87,6 +89,32 @@ object ProfileScreenSpec : MainNavScreenSpec {
                     }
                 }
             }
+        )
+    }
+}
+
+/**
+ * WebView画面ナビゲーション仕様
+ */
+object WebViewSpec : MainNavScreenSpec {
+
+    override val route = "web_view"
+
+    fun requestNavigationRoute() = route
+
+    @RequiresApi(33)
+    @Composable
+    override fun Content(
+        windowSizeClass: WindowSizeClass,
+        navController: NavController,
+        navBackStackEntry: NavBackStackEntry,
+        systemUiController: SystemUiController
+    ) {
+        val context = LocalContext.current
+
+        WebBrowser(
+            windowSizeClass = windowSizeClass,
+            navController = navController,
         )
     }
 }
