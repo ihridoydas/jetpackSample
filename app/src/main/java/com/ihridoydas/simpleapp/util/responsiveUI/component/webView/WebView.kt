@@ -8,15 +8,19 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.google.accompanist.web.*
+import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
+import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
 
 @Composable
-fun WebBrowser() {
+fun WebBrowser(windowSizeClass: WindowSizeClass, navController: NavController) {
     var url by remember { mutableStateOf("https://facebook.com") }
     val state = rememberWebViewState(url = url)
     val navigator = rememberWebViewNavigator()
@@ -26,29 +30,53 @@ fun WebBrowser() {
 
     Column {
         TopAppBar {
-            IconButton(onClick = { navigator.navigateBack() }) {
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "Back"
+            Row(
+                modifier = Modifier.weight(1f),
+                horizontalArrangement = Arrangement.Start){
+                IconButton(onClick = {
+                    navController?.navigate(HomeScreenSpec.route) {
+                        popUpTo(ProfileScreenSpec.route) {
+                            inclusive = true
+                        }
+                    }
+                }) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back"
+                    )
+                }
+            }
+            Row(
+                modifier = Modifier.weight(1f),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "Web Browser", style = TextStyle(
+                        color = Color.White,
+                        fontSize = MaterialTheme.typography.h6.fontSize,
+                        fontWeight = MaterialTheme.typography.h6.fontWeight
+                    )
                 )
             }
-            IconButton(onClick = { navigator.navigateForward() }) {
-                Icon(
-                    imageVector = Icons.Default.ArrowForward,
-                    contentDescription = "Forward"
-                )
-            }
-            Text(
-                text = "Web Browser", style = TextStyle(
-                    color = Color.White,
-                    fontSize = MaterialTheme.typography.h6.fontSize,
-                    fontWeight = MaterialTheme.typography.h6.fontWeight
-                )
-            )
+
             Row(
                 modifier = Modifier.weight(1f),
                 horizontalArrangement = Arrangement.End
             ) {
+                IconButton(onClick = { navigator.navigateBack() }) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back"
+                    )
+                }
+                IconButton(
+                    modifier = Modifier.padding(start = 10.dp),
+                    onClick = { navigator.navigateForward() }) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowForward,
+                        contentDescription = "Forward"
+                    )
+                }
                 IconButton(onClick = { navigator.reload() }) {
                     Icon(
                         imageVector = Icons.Default.Refresh,
