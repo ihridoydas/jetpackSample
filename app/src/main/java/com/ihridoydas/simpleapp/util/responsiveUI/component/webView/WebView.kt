@@ -29,6 +29,7 @@ import com.google.accompanist.web.*
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
 import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
+import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import com.ihridoydas.simpleapp.ui.theme.md_theme_light_onPrimary
 import com.ihridoydas.simpleapp.ui.theme.md_theme_light_primary
 import com.ihridoydas.simpleapp.util.constants.BROWSER_LINK
@@ -60,8 +61,8 @@ fun WebBrowser(windowSizeClass: WindowSizeClass, navController: NavController) {
                         horizontalArrangement = Arrangement.Start
                     ) {
                         IconButton(onClick = {
-                            navController?.navigate(HomeScreenSpec.route) {
-                                popUpTo(ProfileScreenSpec.route) {
+                            navController?.navigate(ProfileScreenSpec.route) {
+                                popUpTo(WebViewSpec.route) {
                                     inclusive = true
                                 }
                             }
