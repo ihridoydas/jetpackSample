@@ -6,6 +6,7 @@ package com.ihridoydas.simpleapp.ui
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,14 +27,24 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ihridoydas.simpleapp.navigation.HomeScreenSpec.route
 import com.ihridoydas.simpleapp.navigation.MainNavHost
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
+import com.ihridoydas.simpleapp.util.common.RootUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    companion object {
+        private val Tag = MainActivity::class.java.simpleName
+    }
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (RootUtil.isDeviceRooted()) {
+            Log.e(Tag, "onCreate - Rooted device.")
+            finish()
+            return
+        }
+        Log.d(Tag, "onCreate")
         installSplashScreen()
         setContent {
             val windowSizeClass = calculateWindowSizeClass(this)
