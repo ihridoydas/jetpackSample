@@ -20,7 +20,6 @@ import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -28,6 +27,7 @@ import com.ihridoydas.simpleapp.navigation.HomeScreenSpec.route
 import com.ihridoydas.simpleapp.navigation.MainNavHost
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
+import com.ihridoydas.simpleapp.util.extensions.showFeedBackDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,6 +46,8 @@ class MainActivity : ComponentActivity() {
         }
         Log.d(Tag, "onCreate")
         installSplashScreen()
+        //Show FeedBack Review
+        //showFeedBackDialog(context = applicationContext, activity = this)
         setContent {
             val windowSizeClass = calculateWindowSizeClass(this)
             MyApp(windowSizeClass = windowSizeClass)
@@ -82,6 +84,10 @@ fun MyApp(windowSizeClass: WindowSizeClass) {
         ) {
             val navController = rememberAnimatedNavController()
             val systemUiController = rememberSystemUiController()
+            /**
+            // when use Auto Logout && Fixed time to navigate another screen
+                AutoLogoutColumn(navController = navController) { // implement your navHost }
+             */
             MainNavHost(
                 windowSizeClass = windowSizeClass,
                 navController = navController,
