@@ -19,4 +19,16 @@
 
     <string name="onBoardingTitle3">Play the beat</string>
     <string name="onBoardingText3">Most beginner producers learn make \n creating by simple beats</string>
+
+    <!--Validation -->
+    <string name="validation_0000">\"0000\"は入力はできません。削除しました。</string>
+    <string name="validation_only_numbers_can_be_entered">数字のみ入力できます。入力できない文字は削除しました。</string>
+    <string name="validation_focus_lost_series_number">\"%1$s\"は入力できません。削除しました。</string>
+    <string name="validation_focus_lost_letter_number_only">全角・半角英数字のみ入力できます。入力できない文字は削除しました。</string>
+    <string name="validation_focus_lost_fullwidth_only">全角文字のみ入力できます。入力できない文字は削除しました。</string>
+    <string name="validation_empty">値を入力してください</string>
+    <string name="cannot_enter_only_spaces_and_space_removed">スペースのみの入力はできません。スペースを削除しました。</string>
+    <string name="validation_field_too_long">フィールドが長すぎます</string>
+    <string name="validation_focus_lost_free_invalid_chars">入力できない文字は削除しました。\n(番号:2007)</string>
+    <string name="validation_focus_lost_number_only">半角英数字のみ入力できます。入力できない文字は削除しました。</string>
 </resources>
