@@ -25,9 +25,9 @@
 -keep class okio.** { *; }
 -keep class okhttp3.** { *; }
 -keep class retrofit2.** { *; }
--keep class jp.cognivision.cpbmobile.data.remote.endpoint.** { *; }
--keep class jp.cognivision.cpbmobile.util.converter.** { *; }
--keep class jp.cognivision.cpbmobile.data.models.api.** { *; }
+-keep class com.ihridoydas.simpleapp.data.remote.endpoint.** { *; }
+-keep class jcom.ihridoydas.simpleapp.util.converter.** { *; }
+-keep class com.ihridoydas.simpleapp.data.models.api.** { *; }
 -keep class retrofit2.converter.gson.** { *; }
 
 -keep class com.google.gson.** { *; }
