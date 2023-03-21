@@ -1,7 +1,6 @@
 /*
  * Created by hridoydas on 2023/02/10
  * Last modified 2/10/23, 10:13 PM
- * Copyright © 2023 Cognivision Inc. All rights reserved.
  */
 
 package com.ihridoydas.simpleapp.util.responsiveUI.component.dialog
@@ -69,28 +68,34 @@ fun NumberPlateAlertDialog(
             }
         },
         text={
-            Text(
-                text = textBody,
-                textAlign = TextAlign.Center,
-                color = md_theme_light_onPrimaryContainer,
-                maxLines = Int.MAX_VALUE,
-                style = TextStyle(
-                    lineHeight = 1.8.em,
-                    platformStyle = PlatformTextStyle(
-                        includeFontPadding = false
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                Text(
+                    text = textBody,
+                    textAlign = TextAlign.Center,
+                    color = md_theme_light_onPrimaryContainer,
+                    maxLines = Int.MAX_VALUE,
+                    style = TextStyle(
+                        lineHeight = 1.8.em,
+                        platformStyle = PlatformTextStyle(
+                            includeFontPadding = false
+                        ),
+                        fontWeight = FontWeight.Medium,
+                        fontSize = when (window.width) {
+                            WindowType.Normal -> dpToSp(14.dp)
+                            else -> dpToSp(12.dp)
+                        },
+                        lineHeightStyle = LineHeightStyle(
+                            alignment = LineHeightStyle.Alignment.Center,
+                            trim = LineHeightStyle.Trim.None
+                        )
                     ),
-                    fontWeight = FontWeight.Medium,
-                    fontSize = when (window.width) {
-                        WindowType.Normal -> dpToSp(14.dp)
-                        else -> dpToSp(12.dp)
-                    },
-                    lineHeightStyle = LineHeightStyle(
-                        alignment = LineHeightStyle.Alignment.Center,
-                        trim = LineHeightStyle.Trim.None
-                    )
-                ),
-                overflow = TextOverflow.Visible,
-            )
+                    overflow = TextOverflow.Visible,
+                )
+            }
 
         },
         buttons = {

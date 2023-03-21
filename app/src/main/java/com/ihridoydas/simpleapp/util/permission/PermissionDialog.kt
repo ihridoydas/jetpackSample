@@ -126,7 +126,7 @@ fun ShowGotoSettingsDialog(
                         contentAlignment = Alignment.Center,
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.svg_camera_and_media_image_access_permission_guide_image_android),
+                            painter = painterResource(id = R.drawable.svg_camera_and_media_image_access_permission_guide_image_android_jp),
                             contentDescription = "Camera and media access permission guide image",
                             modifier = Modifier.size(width = 200.dp, height = 80.dp),
                             contentScale = ContentScale.FillBounds
