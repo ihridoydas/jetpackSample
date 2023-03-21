@@ -223,6 +223,10 @@ dependencies {
     // For Kotlin users also add the Kotlin extensions library for Play In-App Review:
     implementation 'com.google.android.play:review-ktx:2.0.1'
 
+    //video player
+    implementation 'androidx.media3:media3-exoplayer:1.0.0-rc02'
+    implementation 'androidx.media3:media3-ui:1.0.0-rc02'
+
     // Local unit tests
     testImplementation "androidx.test:core:1.5.0"
     testImplementation "androidx.arch.core:core-testing:2.1.0"

@@ -3,7 +3,7 @@
  * Last modified 12/20/22, 11:50 AM
  */
 
-package com.ihridoydas.simpleapp.util.responsiveUI
+package com.ihridoydas.simpleapp.util.responsiveUI.component.text
 
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text

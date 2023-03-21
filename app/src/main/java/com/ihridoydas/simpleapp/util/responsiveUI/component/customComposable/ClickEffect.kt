@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI
+package com.ihridoydas.simpleapp.util.responsiveUI.component.customComposable
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.clickable
