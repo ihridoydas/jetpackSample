@@ -86,7 +86,7 @@ val ThemeColor = Color(0xFFFF7373)
 @Composable
 fun SimpleAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    fontFamily: FontFamily = fonts,
+    fontFamily: FontFamily = fonts,// MontserratFontFamily //<= You can use google provider fonts
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
