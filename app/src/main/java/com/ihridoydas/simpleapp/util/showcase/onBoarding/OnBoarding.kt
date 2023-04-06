@@ -30,6 +30,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
+import com.ihridoydas.simpleapp.navigation.MainScreenSpec
 import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
 import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import kotlinx.coroutines.launch
@@ -88,7 +89,7 @@ fun TopSection(onBackPress : ()->Unit,navController: NavController) {
         //skip button
         TextButton(
             onClick = {
-                navController?.navigate(WebViewSpec.requestNavigationRoute()) {
+                navController?.navigate(MainScreenSpec.requestNavigationRoute()) {
                     popUpTo(HomeScreenSpec.route) {
                         inclusive = true
                     }
