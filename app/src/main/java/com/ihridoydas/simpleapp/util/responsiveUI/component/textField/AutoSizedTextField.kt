@@ -1,9 +1,8 @@
-package com.ihridoydas.simpleapp.util.responsiveUI.component.text
+package com.ihridoydas.simpleapp.util.responsiveUI.component.textField
 
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
