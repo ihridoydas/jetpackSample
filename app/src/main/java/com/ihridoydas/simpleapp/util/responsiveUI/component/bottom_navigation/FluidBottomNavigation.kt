@@ -11,27 +11,12 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.FloatingActionButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.CalendarToday
-import androidx.compose.material.icons.filled.Group
-import androidx.compose.material.icons.filled.PhotoCamera
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,10 +31,15 @@ import androidx.compose.ui.graphics.asComposeRenderEffect
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
+import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
+import com.ihridoydas.simpleapp.navigation.MainScreenSpec
+import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import com.ihridoydas.simpleapp.ui.theme.*
 import com.ihridoydas.simpleapp.util.common.times
 import com.ihridoydas.simpleapp.util.common.transform
@@ -80,7 +70,7 @@ private fun getRenderEffect(): RenderEffect {
 }
 
 @Composable
-fun BottomNavigationFluid() {
+fun BottomNavigationFluid(navController: NavController,) {
     val isMenuExtended = remember { mutableStateOf(false) }
 
     val fabAnimationProgress by animateFloatAsState(
@@ -106,6 +96,7 @@ fun BottomNavigationFluid() {
     }
 
     BottomNavigationFluid(
+        navController = navController,
         renderEffect = renderEffect,
         fabAnimationProgress = fabAnimationProgress,
         clickAnimationProgress = clickAnimationProgress
@@ -116,6 +107,7 @@ fun BottomNavigationFluid() {
 
 @Composable
 fun BottomNavigationFluid(
+    navController: NavController,
     renderEffect: androidx.compose.ui.graphics.RenderEffect?,
     fabAnimationProgress: Float = 0f,
     clickAnimationProgress: Float = 0f,
@@ -133,8 +125,9 @@ fun BottomNavigationFluid(
             animationProgress = 0.5f
         )
 
-        FabGroup(renderEffect = renderEffect, animationProgress = fabAnimationProgress)
+        FabGroup(navController,renderEffect = renderEffect, animationProgress = fabAnimationProgress)
         FabGroup(
+            navController,
             renderEffect = null,
             animationProgress = fabAnimationProgress,
             toggleAnimation = toggleAnimation
@@ -186,9 +179,10 @@ fun CustomBottomNavigation() {
 
 @Composable
 fun FabGroup(
+    navController: NavController,
     animationProgress: Float = 0f,
     renderEffect: androidx.compose.ui.graphics.RenderEffect? = null,
-    toggleAnimation: () -> Unit = { }
+    toggleAnimation: () -> Unit = {}
 ) {
     Box(
         Modifier
@@ -222,13 +216,22 @@ fun FabGroup(
 
         AnimatedFab(
             icon = Icons.Default.ShoppingCart,
-            modifier = Modifier.padding(
-                PaddingValues(
-                    bottom = 72.dp,
-                    start = 210.dp
-                ) * FastOutSlowInEasing.transform(0.2f, 1.0f, animationProgress)
-            ),
-            opacity = LinearEasing.transform(0.4f, 0.9f, animationProgress)
+            modifier = Modifier
+                .padding(
+                    PaddingValues(
+                        bottom = 72.dp,
+                        start = 210.dp
+                    ) * FastOutSlowInEasing.transform(0.2f, 1.0f, animationProgress)
+                ),
+            opacity = LinearEasing.transform(0.4f, 0.9f, animationProgress),
+            onClick = {
+                navController?.navigate(WebViewSpec.requestNavigationRoute()) {
+                    popUpTo(HomeScreenSpec.route) {
+                        inclusive = true
+                    }
+                }
+
+            }
         )
 
         AnimatedFab(
@@ -278,6 +281,6 @@ fun AnimatedFab(
 @Preview(device = "id:pixel_4a", showBackground = true, backgroundColor = 0xFFFFFFFF)
 private fun MainScreenPreview() {
     SimpleAppTheme() {
-        BottomNavigationFluid()
+        BottomNavigationFluid(navController = NavController(context = LocalContext.current))
     }
 }

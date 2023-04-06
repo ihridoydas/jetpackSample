@@ -4,6 +4,7 @@ package com.ihridoydas.simpleapp.ui
  * Created By Hridoy Chandra Das
  */
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -12,14 +13,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -27,9 +35,10 @@ import com.ihridoydas.simpleapp.navigation.HomeScreenSpec.route
 import com.ihridoydas.simpleapp.navigation.MainNavHost
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
-import com.ihridoydas.simpleapp.util.extensions.showFeedBackDialog
-import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
+import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.NavDrawer
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -51,7 +60,9 @@ class MainActivity : ComponentActivity() {
         //showFeedBackDialog(context = applicationContext, activity = this)
         setContent {
             val windowSizeClass = calculateWindowSizeClass(this)
-            MyApp(windowSizeClass = windowSizeClass)
+            val state = rememberScaffoldState()
+            val coroutineScope = rememberCoroutineScope()
+            MyApp(windowSizeClass = windowSizeClass,state,coroutineScope)
         }
     }
 
@@ -73,29 +84,49 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun MyApp(windowSizeClass: WindowSizeClass) {
+fun MyApp(windowSizeClass: WindowSizeClass,state:ScaffoldState,coroutineScope:CoroutineScope) {
     SimpleAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            val navController = rememberAnimatedNavController()
-            val systemUiController = rememberSystemUiController()
-            /**
-            // when use Auto Logout && Fixed time to navigate another screen
-                AutoLogoutColumn(navController = navController) { // implement your navHost }
-             */
-            MainNavHost(
-                windowSizeClass = windowSizeClass,
-                navController = navController,
-                systemUiController = systemUiController,
-                startDestination = route
+
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = { Text(text = "Navigation Demo") },
+                        navigationIcon = {
+                            IconButton(onClick = {
+                                coroutineScope.launch { state.drawerState.open() }
+                            }) {
+                                Icon(Icons.Default.Menu, contentDescription = null)
+                            }
+                        }
+                    )
+                },
+                drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
+                drawerContent = { NavDrawer(state, coroutineScope) },
+                content = {
+                    //
+                    val navController = rememberAnimatedNavController()
+                    val systemUiController = rememberSystemUiController()
+                    /**
+                    // when use Auto Logout && Fixed time to navigate another screen
+                    AutoLogoutColumn(navController = navController) { // implement your navHost }
+                     */
+                    MainNavHost(
+                        windowSizeClass = windowSizeClass,
+                        navController = navController,
+                        systemUiController = systemUiController,
+                        startDestination = route
+                    )
+                }
             )
-            BottomNavigationFluid()
         }
     }
 
