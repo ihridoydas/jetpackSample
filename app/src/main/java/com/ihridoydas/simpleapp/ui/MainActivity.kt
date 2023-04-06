@@ -28,6 +28,7 @@ import com.ihridoydas.simpleapp.navigation.MainNavHost
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
 import com.ihridoydas.simpleapp.util.extensions.showFeedBackDialog
+import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -94,6 +95,7 @@ fun MyApp(windowSizeClass: WindowSizeClass) {
                 systemUiController = systemUiController,
                 startDestination = route
             )
+            BottomNavigationFluid()
         }
     }
 
