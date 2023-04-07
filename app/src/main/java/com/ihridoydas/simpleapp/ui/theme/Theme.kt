@@ -3,20 +3,21 @@ package com.ihridoydas.simpleapp.ui.theme
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
+import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.font.FontFamily
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 
-private val LightColorPalette = lightColorScheme(
+private val LightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
     primaryContainer = md_theme_light_primaryContainer,
@@ -49,7 +50,7 @@ private val LightColorPalette = lightColorScheme(
 )
 
 
-private val DarkColorPalette = darkColorScheme(
+private val DarkColorScheme = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,
     primaryContainer = md_theme_dark_primaryContainer,
@@ -86,21 +87,24 @@ val ThemeColor = Color(0xFFFF7373)
 @Composable
 fun SimpleAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
     fontFamily: FontFamily = fonts,// MontserratFontFamily //<= You can use google provider fonts
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
 
+    val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+        darkTheme -> DarkColorScheme
+        else -> LightColorScheme
+    }
     val view = LocalView.current
-    val context = LocalContext.current
     if (!view.isInEditMode) {
         SideEffect {
-            WindowCompat.getInsetsController(context.findActivity().window, view)
-                .isAppearanceLightStatusBars = !darkTheme
+            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
+            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
         }
     }
 
@@ -114,7 +118,7 @@ fun SimpleAppTheme(
 
     ProvideDimens(dimensions = dimensions) {
         MaterialTheme(
-            colorScheme = colors,
+            colorScheme = colorScheme,
             typography = typography,
             content = content
         )
