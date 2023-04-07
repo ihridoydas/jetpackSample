@@ -28,6 +28,20 @@ fun MainScreen(
     navController: NavController,
 ) {
     Scaffold(
+//        topBar = {
+//            TopAppBar(
+//                title = { Text(text = "Navigation Demo") },
+//                navigationIcon = {
+//                    IconButton(onClick = {
+//                        coroutineScope.launch { state.drawerState.open() }
+//                    }) {
+//                        Icon(Icons.Default.Menu, contentDescription = null)
+//                    }
+//                }
+//            )
+//        },
+        drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
+        drawerContent = { NavDrawer(state, coroutineScope) },
         content = {
             Column (modifier = Modifier.padding(it)){
                 BottomNavigationFluid(navController = navController)
