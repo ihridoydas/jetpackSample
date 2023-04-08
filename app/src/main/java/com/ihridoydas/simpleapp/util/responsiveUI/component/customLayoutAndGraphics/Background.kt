@@ -12,7 +12,7 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.ShaderBrush
-import com.ihridoydas.simpleapp.ui.theme.Green
+import com.ihridoydas.simpleapp.ui.theme.GreenColor
 import com.ihridoydas.simpleapp.ui.theme.GreenVarient
 import org.intellij.lang.annotations.Language
 
@@ -40,7 +40,7 @@ fun Modifier.greenBackground(): Modifier = this.composed {
             // Pass the color to support color space automatically
             shader.setColorUniform(
                 "iColor",
-                Color.valueOf(Green.red, Green.green, Green.blue, Green.alpha)
+                Color.valueOf(GreenColor.red, GreenColor.green, GreenColor.blue, GreenColor.alpha)
             )
             onDrawBehind {
                 drawRect(shaderBrush)
@@ -48,7 +48,7 @@ fun Modifier.greenBackground(): Modifier = this.composed {
         }
     } else {
         Modifier.drawWithCache {
-            val gradientBrush = Brush.verticalGradient(listOf(Green, GreenVarient, White))
+            val gradientBrush = Brush.verticalGradient(listOf(GreenColor, GreenVarient, White))
             onDrawBehind {
                 drawRect(gradientBrush)
             }
