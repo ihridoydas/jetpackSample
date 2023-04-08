@@ -77,5 +77,17 @@ val md_theme_dark_scrim = Color(0xFF000000)
 val seed = Color(0xFF00CC99)
 
 //Others
-val Green = Color(0xFF55A456)
+val GreenColor = Color(0xFF55A456)
 val GreenVarient = Color(0xFFB3D5B3)
+
+//ForDynamic Island
+val Green = Color(0xFF6EE228)
+val Orange = Color(0xFFFFAD57)
+val White = Color(0xffFFFFFF)
+val Blue = Color(0xFF2CADF1)
+
+//LoadingAnimation
+
+val SwatchA = Color(0xFFFFA987)
+val SwatchB = Color(0xFFD85151)
+val SwatchC = Color(0xFFF2DDA4)
