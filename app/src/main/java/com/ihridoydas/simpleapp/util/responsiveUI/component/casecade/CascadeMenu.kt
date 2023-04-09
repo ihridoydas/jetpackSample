@@ -21,15 +21,15 @@ import androidx.compose.ui.unit.dp
 val MAX_WIDTH = 192.dp
 
 @ExperimentalAnimationApi
-fun <T> AnimatedContentScope<T>.animateToPrevious(): ContentTransform {
-    return slideIntoContainer(AnimatedContentScope.SlideDirection.Right) with
-            slideOutOfContainer(AnimatedContentScope.SlideDirection.Right)
+fun <T> AnimatedContentTransitionScope<T>.animateToPrevious(): ContentTransform {
+    return slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right) with
+            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
 }
 
 @ExperimentalAnimationApi
-fun <T> AnimatedContentScope<T>.animateToNext(): ContentTransform {
-    return slideIntoContainer(AnimatedContentScope.SlideDirection.Left) with
-            slideOutOfContainer(AnimatedContentScope.SlideDirection.Left)
+fun <T> AnimatedContentTransitionScope<T>.animateToNext(): ContentTransform {
+    return slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left) with
+            slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left)
 }
 
 fun <T : Any> isNavigatingBack(
