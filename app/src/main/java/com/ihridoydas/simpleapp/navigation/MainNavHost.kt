@@ -2,7 +2,7 @@ package com.ihridoydas.simpleapp.navigation
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
@@ -35,16 +35,16 @@ fun MainNavHost(
                 arguments = spec.arguments,
                 deepLinks =  listOf(NavDeepLink("deeplink://${spec.route}")),
                 enterTransition = {
-                    slideIntoContainer(AnimatedContentScope.SlideDirection.Left,animationSpec = tween(700))
+                    slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left, animationSpec = tween(700))
                 },
                 exitTransition = {
-                    slideOutOfContainer(AnimatedContentScope.SlideDirection.Left,animationSpec = tween(700))
+                    slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Left, animationSpec = tween(700))
                 },
                 popEnterTransition = {
-                    slideIntoContainer(AnimatedContentScope.SlideDirection.Right,animationSpec = tween(700))
+                    slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Right, animationSpec = tween(700))
                 },
                 popExitTransition = {
-                    slideOutOfContainer(AnimatedContentScope.SlideDirection.Right,animationSpec = tween(700))
+                    slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right, animationSpec = tween(700))
                 }
             ) {
                 spec.Content(

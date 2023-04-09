@@ -5,7 +5,7 @@ buildscript {
         room_version = "2.5.0"
         retrofitVersion = '2.9.0'
         kotlin_version = '1.8.0'
-        accompanist_version = '0.28.0'
+        accompanist_version = '0.31.0-alpha'
         lifecycle_version = "2.5.1"
         material3_version = "1.0.1"
         ktx_coroutine_version = '1.6.4'
