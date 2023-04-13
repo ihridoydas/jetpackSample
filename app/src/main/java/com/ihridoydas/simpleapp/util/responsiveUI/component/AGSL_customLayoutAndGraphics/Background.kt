@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI.component.customLayoutAndGraphics
+package com.ihridoydas.simpleapp.util.responsiveUI.component.AGSL_customLayoutAndGraphics
 
 import android.graphics.Color
 import android.graphics.RuntimeShader
@@ -22,7 +22,7 @@ val Green = Color(0xFF55A456)
 val GreenVarient = Color(0xFFB3D5B3)
  */
 
-fun Modifier.greenBackground(): Modifier = this.composed {
+fun Modifier.BackgroundByAGSL(): Modifier = this.composed {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         // produce updating time in seconds variable to pass into shader
         val time by produceState(0f) {
