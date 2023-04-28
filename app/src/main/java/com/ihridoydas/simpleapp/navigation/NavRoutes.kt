@@ -11,6 +11,7 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.SystemUiController
+import com.ihridoydas.simpleapp.ui.screens.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.mainScreen.MainScreen
 import com.ihridoydas.simpleapp.ui.screens.profileScreen.ProfileScreen

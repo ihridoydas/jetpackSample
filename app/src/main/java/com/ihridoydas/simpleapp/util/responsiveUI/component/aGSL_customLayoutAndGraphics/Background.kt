@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI.component.AGSL_customLayoutAndGraphics
+package com.ihridoydas.simpleapp.util.responsiveUI.component.aGSL_customLayoutAndGraphics
 
 import android.graphics.Color
 import android.graphics.RuntimeShader
