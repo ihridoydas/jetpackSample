@@ -5,7 +5,6 @@ package com.ihridoydas.simpleapp.controll
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import androidx.compose.foundation.layout.Column
@@ -20,11 +19,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.data.local.PrefDataStore
-import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
-import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
 import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import com.ihridoydas.simpleapp.ui.MainActivity
-import com.ihridoydas.simpleapp.util.common.OnLifecycleEvent
+import com.ihridoydas.simpleapp.util.common.OnComposeLifecycleEvent
 import com.ihridoydas.simpleapp.util.extensions.detectTaps
 import com.ihridoydas.simpleapp.util.responsiveUI.component.alert.AlertViewModel
 import kotlinx.coroutines.*
@@ -98,7 +95,7 @@ fun AutoLogoutColumn(
      * アプリインストールして初期起動の時デバイス登録画面上で、RuntimePermissionを要求しているところにこのコードの影響を防止するためデバイス登録フラグを使用する。
      */
 
-    OnLifecycleEvent { _, event ->
+    OnComposeLifecycleEvent { _, event ->
         if(autoLogoutViewModel.getIfIsShowCaseCompleted()){
             when (event) {
                 Lifecycle.Event.ON_RESUME -> {

@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.Constraints
 import com.ihridoydas.simpleapp.ui.theme.Blue
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 
+//https://medium.com/@gautier.louis/tab-row-made-easy-in-jetpack-compose-8eaa5a602744
 enum class SubComposeID {
     PRE_CALCULATE_ITEM,
     ITEM,
