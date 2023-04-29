@@ -8,6 +8,10 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import com.ihridoydas.simpleapp.data.local.PrefDataStore
 import com.ihridoydas.simpleapp.data.repository.camera.CustomCameraRepo
 import com.ihridoydas.simpleapp.data.repository.camera.CustomCameraRepoImpl
@@ -15,6 +19,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -83,6 +88,30 @@ object AppModule {
             imageAnalysis,
             imageCapture
         )
+    }
+
+    //Bar Code Scanner
+    //@ViewModelScoped
+    @Provides
+    @Singleton
+    fun provideContext(app:Application):Context{
+        return app.applicationContext
+    }
+
+   // @ViewModelScoped
+    @Provides
+    @Singleton
+    fun provideBarCodeOptions() : GmsBarcodeScannerOptions {
+        return GmsBarcodeScannerOptions.Builder()
+            .setBarcodeFormats(Barcode.FORMAT_ALL_FORMATS)
+            .build()
+    }
+
+   // @ViewModelScoped
+    @Provides
+    @Singleton
+    fun provideBarCodeScanner(context: Context,options: GmsBarcodeScannerOptions): GmsBarcodeScanner {
+        return GmsBarcodeScanning.getClient(context, options)
     }
 
 }

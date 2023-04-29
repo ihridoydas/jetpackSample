@@ -40,6 +40,9 @@
         <activity
             android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
             android:label="InstrumentationActivityInvoker$BootstrapActivity" />
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="barcode_ui"/>
     </application>
 
 </manifest>
