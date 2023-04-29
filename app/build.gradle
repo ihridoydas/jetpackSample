@@ -232,6 +232,9 @@ dependencies {
     implementation 'com.google.maps.android:maps-compose:2.10.0'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
+    //bar code scanner
+    implementation 'com.google.android.gms:play-services-code-scanner:16.0.0'
+
 
     // Local unit tests
     testImplementation "androidx.test:core:1.5.0"
