@@ -2,7 +2,7 @@ package com.ihridoydas.simpleapp.ui.screens.barCodeScanner
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ihridoydas.simpleapp.domain.BarCodeMainRepo
+import com.ihridoydas.simpleapp.domain.barCode.BarCodeMainRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

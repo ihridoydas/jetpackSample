@@ -27,6 +27,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ihridoydas.simpleapp.navigation.HomeScreenSpec.route
 import com.ihridoydas.simpleapp.navigation.MainNavHost
+import com.ihridoydas.simpleapp.ui.screens.ocr.OCRScreen
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
 import dagger.hilt.android.AndroidEntryPoint
