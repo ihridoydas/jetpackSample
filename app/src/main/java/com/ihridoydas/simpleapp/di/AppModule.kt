@@ -1,6 +1,7 @@
 package com.ihridoydas.simpleapp.di
 
 import android.app.Application
+import android.content.ClipboardManager
 import android.content.Context
 import androidx.camera.core.AspectRatio
 import androidx.camera.core.CameraSelector
@@ -12,14 +13,18 @@ import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.TextRecognizer
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import com.ihridoydas.simpleapp.data.local.PrefDataStore
 import com.ihridoydas.simpleapp.data.repository.camera.CustomCameraRepo
 import com.ihridoydas.simpleapp.data.repository.camera.CustomCameraRepoImpl
+import com.ihridoydas.simpleapp.data.repository.ocr.OCRMainRepoImpl
+import com.ihridoydas.simpleapp.domain.ocr.OCRRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -28,11 +33,14 @@ import javax.inject.Singleton
 object AppModule {
 
     //Preference DataStore
+    //----------------------
     @Singleton
     @Provides
     fun providePreferencesDatastore(@ApplicationContext appContext: Context): PrefDataStore = PrefDataStore(appContext)
+    //-------------------
 
     //Camera Provide
+    //-----------------
     @Provides
     @Singleton
     fun provideCameraSelector(): CameraSelector {
@@ -89,12 +97,14 @@ object AppModule {
             imageCapture
         )
     }
+    //-------------------
 
-    //Bar Code Scanner
+    //For Bar Code Scanner
+    //------------------
     //@ViewModelScoped
     @Provides
     @Singleton
-    fun provideContext(app:Application):Context{
+    fun provideContext(app:Application):Context{ //for same use [ocr and bar code] context provider
         return app.applicationContext
     }
 
@@ -113,5 +123,35 @@ object AppModule {
     fun provideBarCodeScanner(context: Context,options: GmsBarcodeScannerOptions): GmsBarcodeScanner {
         return GmsBarcodeScanning.getClient(context, options)
     }
+    //---------------
+
+
+    //For OCR
+    //---------
+    @Provides
+    @Singleton
+    fun provideTextRecognizer(): TextRecognizer {
+        return TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+    }
+
+    @Provides
+    @Singleton
+    fun provideClipboardManager(context: Context): ClipboardManager {
+        return context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideMainRepo(recognizer: TextRecognizer, context: Context, clipboardManager: ClipboardManager): OCRRepo {
+        return OCRMainRepoImpl(
+            recognizer = recognizer,
+            context = context,
+            clipboardManager = clipboardManager
+        )
+    }
+    //---------------
+
 
 }

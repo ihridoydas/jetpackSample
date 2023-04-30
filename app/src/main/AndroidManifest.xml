@@ -30,7 +30,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+           <!--For MLKit-->
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -40,9 +40,15 @@
         <activity
             android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
             android:label="InstrumentationActivityInvoker$BootstrapActivity" />
+        <!--For MLKit-->
+        <!--For BarCode Scanner-->
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="barcode_ui"/>
+        <!--For OCR Text Recognition[optional]-->
+<!--        <meta-data-->
+<!--            android:name="com.google.mlkit.vision.DEPENDENCIES"-->
+<!--            android:value="ocr"/>-->
     </application>
 
 </manifest>

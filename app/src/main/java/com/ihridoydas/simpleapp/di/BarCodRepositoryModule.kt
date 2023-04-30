@@ -1,7 +1,7 @@
 package com.ihridoydas.simpleapp.di
 
 import com.ihridoydas.simpleapp.data.repository.barCode.BarCodeRepoImpl
-import com.ihridoydas.simpleapp.domain.BarCodeMainRepo
+import com.ihridoydas.simpleapp.domain.barCode.BarCodeMainRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

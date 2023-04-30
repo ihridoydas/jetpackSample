@@ -2,7 +2,7 @@ package com.ihridoydas.simpleapp.data.repository.barCode
 
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
-import com.ihridoydas.simpleapp.domain.BarCodeMainRepo
+import com.ihridoydas.simpleapp.domain.barCode.BarCodeMainRepo
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow

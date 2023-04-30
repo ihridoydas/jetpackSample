@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.domain
+package com.ihridoydas.simpleapp.domain.barCode
 
 import kotlinx.coroutines.flow.Flow
 
