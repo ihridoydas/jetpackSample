@@ -14,12 +14,23 @@ class OnBoardingViewModel @Inject constructor(
     private val prefDataStore: PrefDataStore
 ):ViewModel(){
 
+    //-----------------------------------
+    //Start ShowCase
     fun setOnShowCaseCompleted(OnShowCaseCompleted: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             prefDataStore.setOnShowCaseCompleted(OnShowCaseCompleted)
         }
     }
-
     val getOnShowCaseCompleted: Flow<Boolean?> = prefDataStore.getOnShowCaseCompleted
+    //-----------------------------------
 
+    //-----------------------------------
+        //Skip show Case
+    fun setOnSkipCaseCompleted(OnSkipCaseCompleted: Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+            prefDataStore.setOnSkipCaseCompleted(OnSkipCaseCompleted)
+        }
+    }
+    val getOnSkipCaseCompleted: Flow<Boolean?> = prefDataStore.getOnSkipCaseCompleted
+    //-----------------------------------
 }

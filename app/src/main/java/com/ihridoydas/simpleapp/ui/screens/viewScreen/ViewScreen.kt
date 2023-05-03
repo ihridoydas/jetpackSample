@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.ui.screens.mainScreen
+package com.ihridoydas.simpleapp.ui.screens.viewScreen
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateIntAsState
@@ -21,7 +21,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
-import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.NavDrawer
 import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.customDrawer.MenuView
 import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 import kotlinx.coroutines.CoroutineScope
@@ -75,7 +74,6 @@ fun MainScreen(
             )
         },
         drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
-        drawerContent = { NavDrawer(state, coroutineScope) },
         content = {
             Box (modifier = Modifier.padding(it)){
                 BottomNavigationFluid(navController = navController)

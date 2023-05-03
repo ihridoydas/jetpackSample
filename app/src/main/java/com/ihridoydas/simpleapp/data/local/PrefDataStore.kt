@@ -24,6 +24,8 @@ class PrefDataStore(private val context: Context) {
 
         //showCase Prompt Completion
         val onShowCaseCompleted = booleanPreferencesKey("onShowCaseCompleted")
+        val onShowSkipCompleted = booleanPreferencesKey("onSkipCaseCompleted")
+
 
         // データベースパスワード
         val databasePass = stringPreferencesKey("databasePass")
@@ -33,7 +35,7 @@ class PrefDataStore(private val context: Context) {
     }
     //set and get value
 
-    // set HasCameraPermission into datastore
+    // set Show Case in Start Screen
     suspend fun setOnShowCaseCompleted(onShowCaseCompleted: Boolean) {
         context.dataStore.edit { preferences ->
             preferences[PrefDataStore.onShowCaseCompleted] =
@@ -41,10 +43,24 @@ class PrefDataStore(private val context: Context) {
         }
     }
 
-    // get HasCameraPermission
+    // get Show Case in Start Screen
     val getOnShowCaseCompleted: Flow<Boolean?> = context.dataStore.data
         .map { preferences ->
             preferences[onShowCaseCompleted] ?: true
+        }
+
+    // set Skip Case in Start Screen
+    suspend fun setOnSkipCaseCompleted(onShowCaseCompleted: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[PrefDataStore.onShowSkipCompleted] =
+                onShowCaseCompleted
+        }
+    }
+
+    // get Skip Case in Start Screen
+    val getOnSkipCaseCompleted: Flow<Boolean?> = context.dataStore.data
+        .map { preferences ->
+            preferences[onShowSkipCompleted] ?: true
         }
 
     suspend fun setDatabasePass(encryptPass: String) {
