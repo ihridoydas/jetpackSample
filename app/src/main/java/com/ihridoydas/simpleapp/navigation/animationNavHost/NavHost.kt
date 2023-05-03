@@ -11,7 +11,7 @@ import com.google.accompanist.systemuicontroller.SystemUiController
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
-import com.ihridoydas.simpleapp.ui.screens.viewScreen.MainScreen
+import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.webView.WebBrowser
 import kotlinx.coroutines.CoroutineScope
 
@@ -21,7 +21,7 @@ fun MainAnimationNavHost(
     navController: NavHostController,
     windowSizeClass: WindowSizeClass,
     scaffoldState: ScaffoldState,
-    coroutineScope : CoroutineScope,
+    coroutineScope: CoroutineScope,
     systemUiController: SystemUiController
 ) {
     AnimatedNavHost(
@@ -36,14 +36,22 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.ViewScreen.route) {
 
-            MainScreen(windowSizeClass = windowSizeClass, navController = navController, state = scaffoldState, coroutineScope = coroutineScope)
+            ViewScreen(
+                windowSizeClass = windowSizeClass,
+                navController = navController,
+                state = scaffoldState,
+                coroutineScope = coroutineScope,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.BoardingScreen.route)
+                }
+            )
         }
-        screen(ScreenDestinations.ProfileScreen.route) {
+        screen(ScreenDestinations.BoardingScreen.route) {
             OnBoardingScreen(
                 windowSizeClass = windowSizeClass,
                 navController = navController,
                 onBackPress = {
-                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                    navController.navigateTo(ScreenDestinations.StartShowCaseScreen.route)
                 }
             )
         }
@@ -51,8 +59,8 @@ fun MainAnimationNavHost(
             WebBrowser(
                 windowSizeClass = windowSizeClass,
                 navController = navController,
-                onBackPress ={
-                    navController.navigateTo(ScreenDestinations.ProfileScreen.route)
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.BoardingScreen.route)
                 }
             )
         }
