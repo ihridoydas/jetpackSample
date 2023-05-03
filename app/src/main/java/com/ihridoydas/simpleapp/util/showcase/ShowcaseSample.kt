@@ -1,7 +1,6 @@
 package com.ihridoydas.simpleapp.util.showcase
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
@@ -247,7 +246,7 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
                 Button(
                     onClick = {
                         onBoardingViewModel.setOnShowCaseCompleted(false)
-                        navController?.navigate(ScreenDestinations.ProfileScreen.route) {
+                        navController?.navigate(ScreenDestinations.BoardingScreen.route) {
                             popUpTo(ScreenDestinations.HomeScreen.route) {
                                 inclusive = true
                             }

@@ -39,7 +39,7 @@ fun MenuView(
     Box(
         modifier = Modifier
             .requiredWidth(220.dp)
-            .fillMaxHeight()
+            .requiredHeight(400.dp)
             .offset(x = 0.dp)
     ) {
         Row(

@@ -4,14 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.TextButton
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.outlined.KeyboardArrowLeft
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -80,7 +77,9 @@ fun OnBoardingScreen(windowSizeClass: WindowSizeClass, navController: NavControl
                     elevation = 0.dp,
                     navigationIcon = {
                         IconButton(
-                            onClick = {},
+                            onClick = {
+                                onBackPress()
+                            },
                             modifier = Modifier
                                 .introShowCaseTarget(
                                     index = 0,
@@ -161,13 +160,16 @@ fun OnBoardingScreen(windowSizeClass: WindowSizeClass, navController: NavControl
                                     }
                                 )
                         ) {
-                            Icon(Icons.Filled.Search, contentDescription = "Search")
+                           Text(text = "Skip",modifier=Modifier.padding(5.dp))
                         }
                     }
                 )
             },
             content = {
-                Column(Modifier.padding(it).fillMaxSize()) {
+                Column(
+                    Modifier
+                        .padding(it)
+                        .fillMaxSize()) {
 
                     val items=OnBoardingItem.get()
                     val state= rememberPagerState(initialPage = 0)
