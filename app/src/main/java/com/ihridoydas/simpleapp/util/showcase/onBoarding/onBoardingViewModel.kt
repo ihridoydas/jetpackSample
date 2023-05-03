@@ -33,4 +33,11 @@ class OnBoardingViewModel @Inject constructor(
     }
     val getOnSkipCaseCompleted: Flow<Boolean?> = prefDataStore.getOnSkipCaseCompleted
     //-----------------------------------
+
+    //When Cover StartShowCaseScreen Cover
+    fun setIsStartScreenCover() {
+        viewModelScope.launch {
+            prefDataStore.setIsStartScreenCover(true)
+        }
+    }
 }

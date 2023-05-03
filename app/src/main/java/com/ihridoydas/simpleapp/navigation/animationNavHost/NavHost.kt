@@ -22,11 +22,12 @@ fun MainAnimationNavHost(
     windowSizeClass: WindowSizeClass,
     scaffoldState: ScaffoldState,
     coroutineScope: CoroutineScope,
-    systemUiController: SystemUiController
+    systemUiController: SystemUiController,
+    startDestination: String = ScreenDestinations.StartShowCaseScreen.route,
 ) {
     AnimatedNavHost(
         navController = navController,
-        startDestination = ScreenDestinations.StartShowCaseScreen.route,
+        startDestination = startDestination,
     ) {
         screen(ScreenDestinations.StartShowCaseScreen.route) {
             StartShowCaseScreen(windowSizeClass = windowSizeClass, navController = navController)

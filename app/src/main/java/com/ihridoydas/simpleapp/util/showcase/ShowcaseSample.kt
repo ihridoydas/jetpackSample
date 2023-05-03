@@ -246,6 +246,7 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
                 Button(
                     onClick = {
                         onBoardingViewModel.setOnShowCaseCompleted(false)
+                        onBoardingViewModel.setIsStartScreenCover()
                         navController?.navigate(ScreenDestinations.BoardingScreen.route) {
                             popUpTo(ScreenDestinations.HomeScreen.route) {
                                 inclusive = true
