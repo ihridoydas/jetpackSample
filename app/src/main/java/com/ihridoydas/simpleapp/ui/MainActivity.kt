@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
@@ -30,6 +31,7 @@ import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ihridoydas.simpleapp.navigation.animationNavHost.MainAnimationNavHost
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
+import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,6 +42,7 @@ class MainActivity : ComponentActivity() {
     companion object {
         private val Tag = MainActivity::class.java.simpleName
     }
+    private val splashViewModel: SplashViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class, ExperimentalAnimationApi::class)
@@ -51,23 +54,31 @@ class MainActivity : ComponentActivity() {
             return
         }
         Log.d(Tag, "onCreate")
-        installSplashScreen()
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                splashViewModel.isLoading.value
+            }
+        }
         //Show FeedBack Review
         //showFeedBackDialog(context = applicationContext, activity = this)
-        setContent {
-            val navController = rememberAnimatedNavController()
-            val systemUiController = rememberSystemUiController()
-            val windowSizeClass = calculateWindowSizeClass(this)
-            val state = rememberScaffoldState()
-            val coroutineScope = rememberCoroutineScope()
-            MyApp(
-                navController = navController,
-                systemUiController = systemUiController,
-                windowSizeClass = windowSizeClass,
-                state = state,
-                coroutineScope = coroutineScope
-            )
+        splashViewModel.checkStartScreen() { route ->
+            setContent {
+                val navController = rememberAnimatedNavController()
+                val systemUiController = rememberSystemUiController()
+                val windowSizeClass = calculateWindowSizeClass(this)
+                val state = rememberScaffoldState()
+                val coroutineScope = rememberCoroutineScope()
+                MyApp(
+                    navController = navController,
+                    systemUiController = systemUiController,
+                    windowSizeClass = windowSizeClass,
+                    state = state,
+                    coroutineScope = coroutineScope,
+                    startDestination = route
+                )
+            }
         }
+
     }
 
     private var pressedTime: Long = 0
@@ -98,7 +109,8 @@ fun MyApp(
     systemUiController: SystemUiController,
     windowSizeClass: WindowSizeClass,
     state: ScaffoldState,
-    coroutineScope: CoroutineScope
+    coroutineScope: CoroutineScope,
+    startDestination: String
 ) {
     SimpleAppTheme {
         // A surface container using the 'background' color from the theme
@@ -118,7 +130,8 @@ fun MyApp(
                         windowSizeClass = windowSizeClass,
                         systemUiController = systemUiController,
                         scaffoldState = state,
-                        coroutineScope = coroutineScope
+                        coroutineScope = coroutineScope,
+                        startDestination = startDestination
                     )
                 }
             )

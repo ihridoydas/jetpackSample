@@ -24,7 +24,11 @@ class PrefDataStore(private val context: Context) {
 
         //showCase Prompt Completion
         val onShowCaseCompleted = booleanPreferencesKey("onShowCaseCompleted")
+        //Skip Button Click
         val onShowSkipCompleted = booleanPreferencesKey("onSkipCaseCompleted")
+
+        // StartScreen View or not
+        val isStartScreenCover = booleanPreferencesKey("isStartScreenCover")
 
 
         // データベースパスワード
@@ -62,6 +66,24 @@ class PrefDataStore(private val context: Context) {
         .map { preferences ->
             preferences[onShowSkipCompleted] ?: true
         }
+
+
+
+    // set isStartScreenCover into datastore
+    suspend fun setIsStartScreenCover(isStartScreenCover: Boolean) {
+        context.dataStore.edit { preferences ->
+
+            preferences[PrefDataStore.isStartScreenCover] = isStartScreenCover
+        }
+    }
+
+    // get isStartScreenCover
+    val getIsStartScreenCover: Flow<Boolean?> = context.dataStore.data
+        .map { preferences ->
+
+            preferences[isStartScreenCover] ?: false
+        }
+
 
     suspend fun setDatabasePass(encryptPass: String) {
         context.dataStore.edit { preferences ->
