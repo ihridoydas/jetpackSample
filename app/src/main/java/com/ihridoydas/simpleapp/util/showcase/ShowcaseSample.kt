@@ -22,8 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
-import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
-import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
+import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.util.showcase.onBoarding.OnBoardingViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -82,7 +81,6 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
                                                 )
                                                 Text(
                                                     modifier = Modifier
-                                                        .background(Color.Red)
                                                         .padding(vertical = 10.dp),
                                                     text = "You can go back by clicking here.",
                                                     color = Color.White,
@@ -99,7 +97,8 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
                     actions = {
                         IconButton(
                             onClick = {},
-                            modifier = Modifier.introShowCaseTarget(
+                            modifier = Modifier
+                                .introShowCaseTarget(
                                 index = 2,
                                 style = ShowcaseStyle.Default.copy(
                                     backgroundColor = Color(0xFF9AD0EC), // specify color of background
@@ -248,8 +247,8 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
                 Button(
                     onClick = {
                         onBoardingViewModel.setOnShowCaseCompleted(false)
-                        navController?.navigate(ProfileScreenSpec.requestNavigationRoute()) {
-                            popUpTo(HomeScreenSpec.route) {
+                        navController?.navigate(ScreenDestinations.ProfileScreen.route) {
+                            popUpTo(ScreenDestinations.HomeScreen.route) {
                                 inclusive = true
                             }
                         }

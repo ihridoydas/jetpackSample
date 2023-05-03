@@ -11,7 +11,6 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
@@ -37,9 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
-import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
-import com.ihridoydas.simpleapp.navigation.MainScreenSpec
-import com.ihridoydas.simpleapp.navigation.WebViewSpec
+import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.ui.theme.*
 import com.ihridoydas.simpleapp.util.common.times
 import com.ihridoydas.simpleapp.util.common.transform
@@ -225,8 +222,8 @@ fun FabGroup(
                 ),
             opacity = LinearEasing.transform(0.4f, 0.9f, animationProgress),
             onClick = {
-                navController?.navigate(WebViewSpec.requestNavigationRoute()) {
-                    popUpTo(HomeScreenSpec.route) {
+                navController?.navigate(ScreenDestinations.WebViewScreen.route) {
+                    popUpTo(ScreenDestinations.HomeScreen.route) {
                         inclusive = true
                     }
                 }

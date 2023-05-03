@@ -1,9 +1,9 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.webView
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.util.Log
 import android.webkit.WebView
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
@@ -20,24 +20,20 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.accompanist.web.*
-import com.ihridoydas.simpleapp.R
-import com.ihridoydas.simpleapp.navigation.HomeScreenSpec
-import com.ihridoydas.simpleapp.navigation.ProfileScreenSpec
-import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import com.ihridoydas.simpleapp.ui.theme.md_theme_light_onPrimary
 import com.ihridoydas.simpleapp.ui.theme.md_theme_light_primary
 import com.ihridoydas.simpleapp.util.constants.BROWSER_LINK
 import com.ihridoydas.simpleapp.util.responsiveUI.component.text.AutoResizedText
 
+@SuppressLint("SetJavaScriptEnabled")
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun WebBrowser(windowSizeClass: WindowSizeClass, navController: NavController) {
+fun WebBrowser(windowSizeClass: WindowSizeClass, navController: NavController,onBackPress : ()->Unit) {
     var url by remember { mutableStateOf(BROWSER_LINK) }
     val state = rememberWebViewState(url = url)
     val navigator = rememberWebViewNavigator()
@@ -61,11 +57,12 @@ fun WebBrowser(windowSizeClass: WindowSizeClass, navController: NavController) {
                         horizontalArrangement = Arrangement.Start
                     ) {
                         IconButton(onClick = {
-                            navController?.navigate(ProfileScreenSpec.route) {
-                                popUpTo(WebViewSpec.route) {
-                                    inclusive = true
-                                }
-                            }
+                            onBackPress()
+//                            navController?.navigate(ProfileScreenSpec.route) {
+//                                popUpTo(WebViewSpec.route) {
+//                                    inclusive = true
+//                                }
+//                            }
                         }) {
                             Icon(
                                 imageVector = Icons.Default.ArrowBack,

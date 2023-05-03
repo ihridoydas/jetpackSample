@@ -23,11 +23,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.ihridoydas.simpleapp.navigation.HomeScreenSpec.route
-import com.ihridoydas.simpleapp.navigation.MainNavHost
-import com.ihridoydas.simpleapp.ui.screens.ocr.OCRScreen
+import com.ihridoydas.simpleapp.navigation.animationNavHost.MainAnimationNavHost
+import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,8 +40,9 @@ class MainActivity : ComponentActivity() {
     companion object {
         private val Tag = MainActivity::class.java.simpleName
     }
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class, ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (RootUtil.isDeviceRooted()) {
@@ -52,14 +55,23 @@ class MainActivity : ComponentActivity() {
         //Show FeedBack Review
         //showFeedBackDialog(context = applicationContext, activity = this)
         setContent {
+            val navController = rememberAnimatedNavController()
+            val systemUiController = rememberSystemUiController()
             val windowSizeClass = calculateWindowSizeClass(this)
             val state = rememberScaffoldState()
             val coroutineScope = rememberCoroutineScope()
-            MyApp(windowSizeClass = windowSizeClass,state,coroutineScope)
+            MyApp(
+                navController = navController,
+                systemUiController = systemUiController,
+                windowSizeClass = windowSizeClass,
+                state = state,
+                coroutineScope = coroutineScope
+            )
         }
     }
 
     private var pressedTime: Long = 0
+
     // on below line we are calling on back press method.
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
@@ -70,7 +82,8 @@ class MainActivity : ComponentActivity() {
             finish()
         } else {
             // in else condition displaying a toast message.
-            Toast.makeText(applicationContext, "Press back again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(applicationContext, "Press back again to exit", Toast.LENGTH_SHORT)
+                .show();
         }
         // on below line initializing our press time variable
         pressedTime = System.currentTimeMillis();
@@ -78,10 +91,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun MyApp(windowSizeClass: WindowSizeClass,state:ScaffoldState,coroutineScope:CoroutineScope) {
+fun MyApp(
+    navController: NavHostController,
+    systemUiController: SystemUiController,
+    windowSizeClass: WindowSizeClass,
+    state: ScaffoldState,
+    coroutineScope: CoroutineScope
+) {
     SimpleAppTheme {
         // A surface container using the 'background' color from the theme
         Surface(
@@ -91,18 +109,16 @@ fun MyApp(windowSizeClass: WindowSizeClass,state:ScaffoldState,coroutineScope:Co
 
             Scaffold(
                 content = {
-                    //
-                    val navController = rememberAnimatedNavController()
-                    val systemUiController = rememberSystemUiController()
                     /**
                     // when use Auto Logout && Fixed time to navigate another screen
                     AutoLogoutColumn(navController = navController) { // implement your navHost }
                      */
-                    MainNavHost(
-                        windowSizeClass = windowSizeClass,
+                    MainAnimationNavHost(
                         navController = navController,
+                        windowSizeClass = windowSizeClass,
                         systemUiController = systemUiController,
-                        startDestination = route
+                        scaffoldState = state,
+                        coroutineScope = coroutineScope
                     )
                 }
             )

@@ -19,7 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.data.local.PrefDataStore
-import com.ihridoydas.simpleapp.navigation.WebViewSpec
+//import com.ihridoydas.simpleapp.navigation.WebViewSpec
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.util.common.OnComposeLifecycleEvent
 import com.ihridoydas.simpleapp.util.extensions.detectTaps
@@ -58,7 +58,7 @@ fun AutoLogoutColumn(
                 )
                 ctx.startActivity(intent)
                 (ctx as Activity).finish()
-                navController.popBackStack(WebViewSpec.route, false)
+             //   navController.popBackStack(WebViewSpec.route, false)
             }
         }
     }
@@ -85,7 +85,7 @@ fun AutoLogoutColumn(
             )
             ctx.startActivity(intent)
             (ctx as Activity).finish()
-            navController.popBackStack(WebViewSpec.route, false)
+           // navController.popBackStack(WebViewSpec.route, false)
         }
     }
 
