@@ -38,6 +38,11 @@
     <string name="pdf_url">https://myreport.altervista.org/Lorem_Ipsum.pdf</string>
     <string name="title_activity_pdfactivity">PDFActivity</string>
 
-    <!--    For Activity Transition animation-->
+    <!--    For NewTons Timer-->
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="reset">reset</string>
+    <string name="light_mode">Switch to light mode</string>
+    <string name="dark_mode">Switch to dark mode</string>
 
 </resources>
