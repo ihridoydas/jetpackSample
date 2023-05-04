@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.ui.screens.ocr
+package com.ihridoydas.simpleapp.features.ocr
 
 import android.graphics.Bitmap
 import android.net.Uri

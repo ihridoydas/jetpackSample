@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!--   Internet permission-->
+    <!-- Internet permission -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-feature android:name="android.hardware.camera.any"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
+        android:name=".BaseApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -18,7 +22,6 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleApp"
-        android:name=".BaseApp"
         tools:targetApi="31">
         <activity
             android:name=".ui.MainActivity"
@@ -30,25 +33,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-           <!--For MLKit-->
+            <!-- For MLKit -->
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!--Android 13 でUIテストするため(BootstrapActivityエラー解決ため)-->
+        </activity> <!-- Android 13 でUIテストするため(BootstrapActivityエラー解決ため) -->
+        <activity
+            android:name=".features.composePDF.pdfUseCase.PDFActivity"
+            android:exported="false"
+            android:label="@string/title_activity_pdfactivity"
+            android:theme="@style/Theme.SimpleApp" />
         <activity
             android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
-            android:label="InstrumentationActivityInvoker$BootstrapActivity" />
-        <!--For MLKit-->
-        <!--For BarCode Scanner-->
+            android:label="InstrumentationActivityInvoker$BootstrapActivity" /> <!-- For MLKit -->
+        <!-- For BarCode Scanner -->
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
-            android:value="barcode_ui"/>
-        <!--For OCR Text Recognition[optional]-->
-<!--        <meta-data-->
-<!--            android:name="com.google.mlkit.vision.DEPENDENCIES"-->
-<!--            android:value="ocr"/>-->
+            android:value="barcode_ui" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.ui.screens.ocr
+package com.ihridoydas.simpleapp.features.ocr
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts

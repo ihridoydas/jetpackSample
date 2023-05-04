@@ -16,7 +16,6 @@ import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
@@ -24,13 +23,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ihridoydas.simpleapp.navigation.animationNavHost.MainAnimationNavHost
-import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
@@ -99,43 +96,48 @@ class MainActivity : ComponentActivity() {
         // on below line initializing our press time variable
         pressedTime = System.currentTimeMillis();
     }
-}
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@RequiresApi(Build.VERSION_CODES.TIRAMISU)
-@Composable
-fun MyApp(
-    navController: NavHostController,
-    systemUiController: SystemUiController,
-    windowSizeClass: WindowSizeClass,
-    state: ScaffoldState,
-    coroutineScope: CoroutineScope,
-    startDestination: String
-) {
-    SimpleAppTheme {
-        // A surface container using the 'background' color from the theme
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background
-        ) {
 
-            Scaffold(
-                content = {
-                    /**
-                    // when use Auto Logout && Fixed time to navigate another screen
-                    AutoLogoutColumn(navController = navController) { // implement your navHost }
-                     */
-                    MainAnimationNavHost(
-                        navController = navController,
-                        windowSizeClass = windowSizeClass,
-                        systemUiController = systemUiController,
-                        scaffoldState = state,
-                        coroutineScope = coroutineScope,
-                        startDestination = startDestination
-                    )
-                }
-            )
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    @Composable
+    fun MyApp(
+        navController: NavHostController,
+        systemUiController: SystemUiController,
+        windowSizeClass: WindowSizeClass,
+        state: ScaffoldState,
+        coroutineScope: CoroutineScope,
+        startDestination: String
+    ) {
+        SimpleAppTheme {
+            // A surface container using the 'background' color from the theme
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colors.background
+            ) {
+
+                Scaffold(
+                    content = {
+                        /**
+                        // when use Auto Logout && Fixed time to navigate another screen
+                        AutoLogoutColumn(navController = navController) { // implement your navHost }
+                         */
+                        MainAnimationNavHost(
+                            navController = navController,
+                            windowSizeClass = windowSizeClass,
+                            systemUiController = systemUiController,
+                            scaffoldState = state,
+                            coroutineScope = coroutineScope,
+                            startDestination = startDestination
+                        )
+                    }
+                )
+            }
         }
+
     }
+
+
+
 
 }

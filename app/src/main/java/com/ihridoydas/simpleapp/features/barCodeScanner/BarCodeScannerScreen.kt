@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.ui.screens.barCodeScanner
+package com.ihridoydas.simpleapp.features.barCodeScanner
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
