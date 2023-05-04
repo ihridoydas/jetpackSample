@@ -43,6 +43,12 @@ import java.io.File
 private const val OPEN_DOCUMENT_REQUEST_CODE = 0x33
 
 //Note : In manifest file add provider meta-data file (in Application)
+/**
+ * P d f activity
+ * Compose PDF Render
+ * https://github.com/GRizzi91/bouquet
+ * @constructor Create empty P d f activity
+ */
 
 class PDFActivity : ComponentActivity() {
     //For PDf View Model
