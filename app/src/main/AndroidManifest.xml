@@ -22,6 +22,7 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleApp"
+        android:hardwareAccelerated="true"
         tools:targetApi="31">
         <activity
             android:name=".ui.MainActivity"
@@ -38,6 +39,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity> <!-- Android 13 でUIテストするため(BootstrapActivityエラー解決ため) -->
+
+        <!--  For PDF View-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/tpu_provider_paths" />
+        </provider>
         <activity
             android:name=".features.composePDF.pdfUseCase.PDFActivity"
             android:exported="false"
