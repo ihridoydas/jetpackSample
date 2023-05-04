@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.ui.screens.cameraScreen
+package com.ihridoydas.simpleapp.features.cameraScreen
 
 import android.Manifest
 import android.os.Build

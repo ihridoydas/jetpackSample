@@ -61,7 +61,7 @@ fun MainAnimationNavHost(
                 windowSizeClass = windowSizeClass,
                 navController = navController,
                 onBackPress = {
-                    navController.navigateTo(ScreenDestinations.BoardingScreen.route)
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
             )
         }

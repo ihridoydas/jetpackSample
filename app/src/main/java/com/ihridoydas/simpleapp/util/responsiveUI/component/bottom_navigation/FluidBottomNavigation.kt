@@ -1,5 +1,6 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation
 
+import android.content.Intent
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.RenderEffect
@@ -36,6 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
+import com.ihridoydas.simpleapp.features.composePDF.pdfUseCase.PDFActivity
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.ui.theme.*
 import com.ihridoydas.simpleapp.util.common.times
@@ -43,6 +45,7 @@ import com.ihridoydas.simpleapp.util.common.transform
 import com.ihridoydas.simpleapp.util.constants.DEFAULT_PADDING
 import kotlin.math.PI
 import kotlin.math.sin
+
 
 @RequiresApi(Build.VERSION_CODES.S)
 private fun getRenderEffect(): RenderEffect {
@@ -67,7 +70,7 @@ private fun getRenderEffect(): RenderEffect {
 }
 
 @Composable
-fun BottomNavigationFluid(navController: NavController,) {
+fun BottomNavigationFluid(navController: NavController) {
     val isMenuExtended = remember { mutableStateOf(false) }
 
     val fabAnimationProgress by animateFloatAsState(
@@ -181,6 +184,7 @@ fun FabGroup(
     renderEffect: androidx.compose.ui.graphics.RenderEffect? = null,
     toggleAnimation: () -> Unit = {}
 ) {
+    val context = LocalContext.current
     Box(
         Modifier
             .fillMaxSize()
@@ -208,7 +212,10 @@ fun FabGroup(
                     bottom = 88.dp,
                 ) * FastOutSlowInEasing.transform(0.1f, 0.9f, animationProgress)
             ),
-            opacity = LinearEasing.transform(0.3f, 0.8f, animationProgress)
+            opacity = LinearEasing.transform(0.3f, 0.8f, animationProgress),
+            onClick = {
+              context.startActivity(Intent(context, PDFActivity::class.java))
+            }
         )
 
         AnimatedFab(
