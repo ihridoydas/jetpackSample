@@ -8,6 +8,7 @@ plugins {
     id 'kotlin-parcelize'
     //id 'com.google.devtools.ksp' version '1.8.0-1.0.9'
     id 'com.google.devtools.ksp' version '1.8.20-1.0.11'
+    id 'shot'
 }
 
 //Product Flavors 「App Config」
@@ -28,6 +29,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        //ScreenShot
+        testInstrumentationRunner "com.karumi.shot.ShotTestRunner"
     }
 
     buildTypes {
@@ -86,6 +89,7 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.7.1'
     implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.compose.ui:ui-graphics'
     debugImplementation "androidx.compose.ui:ui-tooling"
 
     //material 3
