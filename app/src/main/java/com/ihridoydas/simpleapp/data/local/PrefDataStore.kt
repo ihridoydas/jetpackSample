@@ -6,6 +6,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.ihridoydas.simpleapp.util.common.CryptUtil
@@ -18,6 +19,8 @@ import kotlinx.coroutines.flow.map
  */
 class PrefDataStore(private val context: Context) {
 
+    private val defaultLanguage = 1
+
     // to make sure there's only one instance
     companion object {
         private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("appPref")
@@ -29,6 +32,9 @@ class PrefDataStore(private val context: Context) {
 
         // StartScreen View or not
         val isStartScreenCover = booleanPreferencesKey("isStartScreenCover")
+
+        //For MultiLanguage
+        val PREF_LANGUAGE = intPreferencesKey("language")
 
 
         // データベースパスワード
@@ -82,6 +88,19 @@ class PrefDataStore(private val context: Context) {
         .map { preferences ->
 
             preferences[isStartScreenCover] ?: false
+        }
+
+
+    //For MultiLanguage
+    suspend fun setLanguage(language: Int) {
+        context.dataStore.edit { preferences ->
+            preferences[PREF_LANGUAGE] = language
+        }
+    }
+
+    val getLanguage: Flow<Int> = context.dataStore.data
+        .map { preferences ->
+            preferences[PREF_LANGUAGE] ?: defaultLanguage
         }
 
 
