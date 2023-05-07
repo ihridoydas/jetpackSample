@@ -31,6 +31,7 @@ import com.ihridoydas.simpleapp.navigation.animationNavHost.MainAnimationNavHost
 import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
+import com.ihridoydas.simpleapp.util.responsiveUI.component.canvas.practice.DrawingPad
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 
@@ -65,14 +66,15 @@ class MainActivity : ComponentActivity() {
                 val windowSizeClass = calculateWindowSizeClass(this)
                 val state = rememberScaffoldState()
                 val coroutineScope = rememberCoroutineScope()
-                MyApp(
-                    navController = navController,
-                    systemUiController = systemUiController,
-                    windowSizeClass = windowSizeClass,
-                    state = state,
-                    coroutineScope = coroutineScope,
-                    startDestination = route
-                )
+//                MyApp(
+//                    navController = navController,
+//                    systemUiController = systemUiController,
+//                    windowSizeClass = windowSizeClass,
+//                    state = state,
+//                    coroutineScope = coroutineScope,
+//                    startDestination = route
+//                )
+                DrawingPad()
 
             }
         }
