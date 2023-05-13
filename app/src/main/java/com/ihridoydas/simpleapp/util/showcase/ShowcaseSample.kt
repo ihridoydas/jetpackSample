@@ -1,6 +1,7 @@
 package com.ihridoydas.simpleapp.util.showcase
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
+import com.ihridoydas.simpleapp.ui.theme.GreenColor
 import com.ihridoydas.simpleapp.util.showcase.onBoarding.OnBoardingViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -135,46 +137,48 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = {},
-                    modifier = Modifier.introShowCaseTarget(
-                        index = 1,
-                        style = ShowcaseStyle.Default.copy(
-                            backgroundColor = Color(0xFF1C0A00), // specify color of background
-                            backgroundAlpha = 0.98f, // specify transparency of background
-                            targetCircleColor = Color.White // specify color of target circle
-                        ),
-                        // specify the content to show to introduce app feature
-                        content = {
-                            Column {
-                                Text(
-                                    text = "Check emails",
-                                    color = Color.White,
-                                    fontSize = 24.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
-                                Text(
-                                    text = "Click here to check/send emails",
-                                    color = Color.White,
-                                    fontSize = 16.sp
-                                )
-                                Spacer(modifier = Modifier.height(10.dp))
-                                Icon(
-                                    painterResource(id = R.drawable.right_arrow),
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(80.dp)
-                                        .align(Alignment.End),
-                                    tint = Color.White
-                                )
+                    modifier = Modifier
+                        .introShowCaseTarget(
+                            index = 1,
+                            style = ShowcaseStyle.Default.copy(
+                                backgroundColor = Color(0xFF1C0A00), // specify color of background
+                                backgroundAlpha = 0.98f, // specify transparency of background
+                                targetCircleColor = Color.White // specify color of target circle
+                            ),
+                            // specify the content to show to introduce app feature
+                            content = {
+                                Column {
+                                    Text(
+                                        text = "Check emails",
+                                        color = Color.White,
+                                        fontSize = 24.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Text(
+                                        text = "Click here to check/send emails",
+                                        color = Color.White,
+                                        fontSize = 16.sp
+                                    )
+                                    Spacer(modifier = Modifier.height(10.dp))
+                                    Icon(
+                                        painterResource(id = R.drawable.right_arrow),
+                                        contentDescription = null,
+                                        modifier = Modifier
+                                            .size(80.dp)
+                                            .align(Alignment.End),
+                                        tint = Color.White
+                                    )
+                                }
                             }
-                        }
-                    ),
-                    backgroundColor = MaterialTheme.colors.primaryVariant,
+                        ),
+                    backgroundColor = GreenColor,
                     contentColor = Color.White,
-                    elevation = FloatingActionButtonDefaults.elevation(6.dp)
+                    elevation = FloatingActionButtonDefaults.elevation(3.dp)
                 ) {
                     Icon(
                         Icons.Filled.Email,
-                        contentDescription = "Email"
+                        contentDescription = "Email",
+                        tint = Color.White
                     )
                 }
             }
@@ -244,6 +248,10 @@ fun ShowcaseSample(windowSizeClass: WindowSizeClass, navController: NavControlle
                 }
 
                 Button(
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = GreenColor,
+                        contentColor = Color.White
+                    ),
                     onClick = {
                         onBoardingViewModel.setOnShowCaseCompleted(false)
                         onBoardingViewModel.setIsStartScreenCover()

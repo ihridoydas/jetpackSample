@@ -4,8 +4,8 @@
     <string name="camera_and_photo_permissions_dialog">Permissions are required. If you wish to shoot\n, please allow access to "Camera"\n from the settings.</string>
 
     <string name="ok">OK</string>
-    <string name="cancel">キャンセル</string>
-    <string name="settings">設定</string>
+    <string name="cancel">Cancel</string>
+    <string name="settings">Setting</string>
 
     <string name="alert_button1">AlertButton1</string>
     <string name="alert_button2">AlertButton2</string>

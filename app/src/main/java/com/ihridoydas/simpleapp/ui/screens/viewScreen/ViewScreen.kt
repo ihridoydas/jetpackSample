@@ -3,7 +3,9 @@ package com.ihridoydas.simpleapp.ui.screens.viewScreen
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -30,6 +32,7 @@ import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.navigation.animationNavHost.navigateTo
 import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
+import com.ihridoydas.simpleapp.util.responsiveUI.component.card.CardView
 import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.customDrawer.MenuView
 import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 import com.ihridoydas.simpleapp.util.showcase.ShowcaseStyle
@@ -72,7 +75,7 @@ fun ViewScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Navigation Demo") },
+                title = { Text(text = "Simple App") },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -98,7 +101,9 @@ fun ViewScreen(
         drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
         content = {
             Box (modifier = Modifier.padding(it)){
-                BottomNavigationFluid(navController = navController)
+                Column (modifier = Modifier.fillMaxSize()){
+                    CardView()
+                }
 
                 // サイドメニュー表示
                 if (sideMenuVisible) {
