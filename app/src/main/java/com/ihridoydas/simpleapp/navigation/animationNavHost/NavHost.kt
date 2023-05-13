@@ -11,6 +11,8 @@ import com.google.accompanist.systemuicontroller.SystemUiController
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
+import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
+import com.ihridoydas.simpleapp.features.ocr.OCRScreen
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
@@ -95,7 +97,17 @@ fun MainAnimationNavHost(
             MultiLanguage(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
+        }
 
+        screen(ScreenDestinations.OCRScreen.route) {
+            OCRScreen(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.NewTonTimerScreen.route) {
+            NewtonsTimerScreen(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
         }
     }
 
