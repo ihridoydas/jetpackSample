@@ -5,8 +5,14 @@ import android.os.Build
 import android.widget.Toast
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
@@ -27,6 +33,7 @@ import com.ihridoydas.simpleapp.R
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CameraScreen(
+    onBackPress : ()->Unit,
     viewModel: CameraViewModel = hiltViewModel()
 ) {
 
@@ -55,56 +62,80 @@ fun CameraScreen(
     var previewView:PreviewView
 
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        // we will show camera preview once permission is granted
-        if (permissionState.allPermissionsGranted){
-            Box(modifier = Modifier
-                .height(screeHeight * 0.85f)
-                .width(screenWidth)) {
-                AndroidView(
-                    factory = {
-                        previewView = PreviewView(it)
-                        viewModel.showCameraPreview(previewView, lifecycleOwner)
-                        previewView
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(text = "Bar Code Scan") },
+                    navigationIcon = {
+                        IconButton(
+                            onClick = {
+                                onBackPress()
+                            },
+                            modifier = Modifier
+                        ) {
+                            Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                        }
                     },
-                    modifier = Modifier
-                        .height(screeHeight * 0.85f)
-                        .width(screenWidth)
                 )
-            }
-        }
+            },
+            drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
+            content = {
+                Column(
+                    modifier= Modifier.padding(it),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    // we will show camera preview once permission is granted
+                    if (permissionState.allPermissionsGranted){
+                        Box(modifier = Modifier
+                            .height(screeHeight * 0.85f)
+                            .width(screenWidth)) {
+                            AndroidView(
+                                factory = {
+                                    previewView = PreviewView(it)
+                                    viewModel.showCameraPreview(previewView, lifecycleOwner)
+                                    previewView
+                                },
+                                modifier = Modifier
+                                    .height(screeHeight * 0.85f)
+                                    .width(screenWidth)
+                            )
+                        }
+                    }
 
-        Box(
-            modifier = Modifier
-                .height(screeHeight*0.15f),
-            contentAlignment = Alignment.Center
-        ){
-            IconButton(onClick = {
-                if (permissionState.allPermissionsGranted){
-                    viewModel.captureAndSave(context)
+                    Box(
+                        modifier = Modifier
+                            .height(screeHeight*0.15f),
+                        contentAlignment = Alignment.Center
+                    ){
+                        IconButton(onClick = {
+                            if (permissionState.allPermissionsGranted){
+                                viewModel.captureAndSave(context)
+                            }
+                            else{
+                                Toast.makeText(
+                                    context,
+                                    "Please accept permission in app settings",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }) {
+
+                            Icon(painter =
+                            painterResource(id =
+                            R.drawable.ic_capture),
+                                contentDescription = "",
+                                modifier = Modifier.size(45.dp),
+                                tint = Color.Magenta
+                            )
+
+                        }
+                    }
+
                 }
-                else{
-                    Toast.makeText(
-                        context,
-                        "Please accept permission in app settings",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }) {
-
-                Icon(painter =
-                painterResource(id =
-                R.drawable.ic_capture),
-                    contentDescription = "",
-                    modifier = Modifier.size(45.dp),
-                    tint = Color.Magenta
-                )
 
             }
-        }
+        )
 
-    }
+
 }

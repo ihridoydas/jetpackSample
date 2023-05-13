@@ -7,5 +7,8 @@ sealed class ScreenDestinations(val route: String) {
     object BoardingScreen : ScreenDestinations("boarding_screen")
     object WebViewScreen : ScreenDestinations("web_view")
     object BarCodeViewScreen : ScreenDestinations("bar_code_view")
+    object CameraViewScreen : ScreenDestinations("camera_view")
+    object CounterViewScreen : ScreenDestinations("counter_view")
+    object MultiLanguageScreen : ScreenDestinations("multi_language_view")
 
 }
