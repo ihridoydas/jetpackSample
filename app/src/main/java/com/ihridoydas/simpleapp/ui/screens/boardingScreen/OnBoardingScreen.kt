@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.ihridoydas.simpleapp.R
@@ -44,7 +45,7 @@ import kotlinx.coroutines.runBlocking
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OnBoardingScreen(windowSizeClass: WindowSizeClass, navController: NavController, onBackPress : ()->Unit) {
+fun OnBoardingScreen(windowSizeClass: WindowSizeClass, navController: NavHostController, onBackPress : ()->Unit) {
 
     // スクロールの行動 (scrollBehavior)
     val topAppBarState = rememberTopAppBarState()
@@ -186,7 +187,7 @@ fun OnBoardingScreen(windowSizeClass: WindowSizeClass, navController: NavControl
 
                     }
 
-                    BottomSection(size = items.size, index = state.currentPage) {
+                    BottomSection(navController = navController,size = items.size, index = state.currentPage) {
                         if (state.currentPage+1 <items.size)
                             scope.launch {
                                 state.scrollToPage(state.currentPage+1)

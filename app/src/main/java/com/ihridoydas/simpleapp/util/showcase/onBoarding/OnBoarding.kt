@@ -1,7 +1,6 @@
 package com.ihridoydas.simpleapp.util.showcase.onBoarding
 
 
-import android.net.wifi.hotspot2.pps.HomeSp
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
@@ -25,6 +24,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.outlined.KeyboardArrowLeft
 import androidx.compose.material.icons.outlined.KeyboardArrowRight
 import androidx.compose.runtime.Composable
@@ -33,6 +33,7 @@ import androidx.compose.ui.Alignment.Companion.CenterEnd
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -40,46 +41,66 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.ui.theme.GreenColor
 
 
 @Composable
 fun BottomSection(
+    navController: NavHostController,
     size: Int,
     index: Int,
-    onNextClicked:()->Unit
+    onNextClicked: () -> Unit
 ) {
     Box(
-        modifier= Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .padding(12.dp)
-    ){
+    ) {
+
 
         //indicators
         Indicators(size = size, index = index)
+        val context = LocalContext.current
 
         //next button
         FloatingActionButton(
-            onClick =onNextClicked,
-            modifier=Modifier.align(CenterEnd),
+            onClick = if (index != 2) {
+                onNextClicked
+            } else {
+                {
+                    navController.navigate(ScreenDestinations.ViewScreen.route){
+                        popUpTo(ScreenDestinations.HomeScreen.route) {
+                            inclusive = true
+                        }
+                    }
+                }
+            },
+            modifier = Modifier.align(CenterEnd),
             backgroundColor = GreenColor,
             contentColor = Color.White
         ) {
-            Icon(Icons.Outlined.KeyboardArrowRight,null)
+            Icon(
+                if (index != 2) {
+                    Icons.Outlined.KeyboardArrowRight
+                } else {
+                    Icons.Default.ArrowForward
+                }, null
+            )
         }
 
     }
 }
 
 @Composable
-fun BoxScope.Indicators(size:Int,index:Int){
+fun BoxScope.Indicators(size: Int, index: Int) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.align(Alignment.CenterStart)
     ) {
-        repeat(size){
+        repeat(size) {
             Indicator(isSelected = it == index)
         }
     }
@@ -87,8 +108,8 @@ fun BoxScope.Indicators(size:Int,index:Int){
 
 
 @Composable
-fun Indicator(isSelected:Boolean){
-    val width= animateDpAsState(
+fun Indicator(isSelected: Boolean) {
+    val width = animateDpAsState(
         targetValue = if (isSelected) 25.dp else 10.dp,
         animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy)
     )
@@ -102,14 +123,14 @@ fun Indicator(isSelected:Boolean){
                 if (isSelected) GreenColor
                 else MaterialTheme.colors.onBackground.copy(alpha = 0.5f)
             )
-    ){
+    ) {
 
     }
 }
 
 @Composable
 fun OnBoardingItem(
-    item:OnBoardingItem
+    item: OnBoardingItem
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -121,14 +142,14 @@ fun OnBoardingItem(
         Text(
             text = stringResource(item.title),
             fontSize = 24.sp,
-            color=MaterialTheme.colors.onBackground,
+            color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.Bold
         )
 
         Text(
             text = stringResource(item.text),
-            color=MaterialTheme.colors.onBackground.copy(alpha=0.8f),
-            textAlign= TextAlign.Center
+            color = MaterialTheme.colors.onBackground.copy(alpha = 0.8f),
+            textAlign = TextAlign.Center
         )
     }
 }
@@ -137,17 +158,17 @@ fun OnBoardingItem(
 @Composable
 fun TopSection(navController: NavController) {
     Box(
-        modifier= Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .padding(12.dp)
-    ){
+    ) {
 
         //back button
         IconButton(
             onClick = { },
-            modifier=Modifier.align(Alignment.CenterStart)
+            modifier = Modifier.align(Alignment.CenterStart)
         ) {
-            Icon(Icons.Outlined.KeyboardArrowLeft,null)
+            Icon(Icons.Outlined.KeyboardArrowLeft, null)
         }
 
         //skip button
@@ -159,9 +180,9 @@ fun TopSection(navController: NavController) {
                     }
                 }
             },
-            modifier=Modifier.align(CenterEnd)
+            modifier = Modifier.align(CenterEnd)
         ) {
-            Text("Skip",color=MaterialTheme.colors.onBackground)
+            Text("Skip", color = MaterialTheme.colors.onBackground)
         }
 
     }
