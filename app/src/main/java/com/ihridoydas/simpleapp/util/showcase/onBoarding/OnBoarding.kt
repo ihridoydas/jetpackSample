@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterEnd
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -40,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
+import com.ihridoydas.simpleapp.ui.theme.GreenColor
 
 
 @Composable
@@ -61,8 +63,8 @@ fun BottomSection(
         FloatingActionButton(
             onClick =onNextClicked,
             modifier=Modifier.align(CenterEnd),
-            backgroundColor = MaterialTheme.colors.primary,
-            contentColor = MaterialTheme.colors.onPrimary
+            backgroundColor = GreenColor,
+            contentColor = Color.White
         ) {
             Icon(Icons.Outlined.KeyboardArrowRight,null)
         }
@@ -97,7 +99,7 @@ fun Indicator(isSelected:Boolean){
             .width(width.value)
             .clip(CircleShape)
             .background(
-                if (isSelected) MaterialTheme.colors.primary
+                if (isSelected) GreenColor
                 else MaterialTheme.colors.onBackground.copy(alpha = 0.5f)
             )
     ){
