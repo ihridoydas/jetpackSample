@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
+import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
@@ -60,6 +61,13 @@ fun MainAnimationNavHost(
             WebBrowser(
                 windowSizeClass = windowSizeClass,
                 navController = navController,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.BarCodeViewScreen.route) {
+            BarCodeScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
