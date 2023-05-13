@@ -9,8 +9,12 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
-import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
+import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
+import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
+import com.ihridoydas.simpleapp.ui.MainActivity
+import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
+import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
 import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.webView.WebBrowser
@@ -25,6 +29,7 @@ fun MainAnimationNavHost(
     coroutineScope: CoroutineScope,
     systemUiController: SystemUiController,
     startDestination: String = ScreenDestinations.StartShowCaseScreen.route,
+    activity: MainActivity
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -43,9 +48,11 @@ fun MainAnimationNavHost(
                 navController = navController,
                 state = scaffoldState,
                 coroutineScope = coroutineScope,
+                activity = activity,
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.BoardingScreen.route)
-                }
+                },
+                onClick = {}
             )
         }
         screen(ScreenDestinations.BoardingScreen.route) {
@@ -72,6 +79,23 @@ fun MainAnimationNavHost(
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
             )
+        }
+        screen(ScreenDestinations.CameraViewScreen.route) {
+            CameraScreen(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.CounterViewScreen.route) {
+            CounterScreen(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.MultiLanguageScreen.route) {
+            MultiLanguage(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+
         }
     }
 

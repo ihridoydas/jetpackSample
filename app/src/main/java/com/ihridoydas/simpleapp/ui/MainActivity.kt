@@ -20,6 +20,9 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -27,6 +30,8 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.ihridoydas.simpleapp.features.bioMatricAuth.BiomatricApi
+import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.navigation.animationNavHost.MainAnimationNavHost
 import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
@@ -65,13 +70,15 @@ class MainActivity : AppCompatActivity() {
                 val windowSizeClass = calculateWindowSizeClass(this)
                 val state = rememberScaffoldState()
                 val coroutineScope = rememberCoroutineScope()
+
                 MyApp(
                     navController = navController,
                     systemUiController = systemUiController,
                     windowSizeClass = windowSizeClass,
                     state = state,
                     coroutineScope = coroutineScope,
-                    startDestination = route
+                    startDestination = route,
+                    activity = this@MainActivity
                 )
 
             }
@@ -108,7 +115,8 @@ class MainActivity : AppCompatActivity() {
         windowSizeClass: WindowSizeClass,
         state: ScaffoldState,
         coroutineScope: CoroutineScope,
-        startDestination: String
+        startDestination: String,
+        activity: MainActivity
     ) {
         SimpleAppTheme {
             // A surface container using the 'background' color from the theme
@@ -129,7 +137,8 @@ class MainActivity : AppCompatActivity() {
                             systemUiController = systemUiController,
                             scaffoldState = state,
                             coroutineScope = coroutineScope,
-                            startDestination = startDestination
+                            startDestination = startDestination,
+                            activity = activity
                         )
                     }
                 )
@@ -137,8 +146,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
-
-
 }

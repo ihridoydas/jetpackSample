@@ -15,6 +15,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material.Switch
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
@@ -34,25 +35,33 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.allFeature.AllFeatureScreen
+import com.ihridoydas.simpleapp.features.bioMatricAuth.BiomatricApi
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.navigation.animationNavHost.navigateTo
+import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
 import com.ihridoydas.simpleapp.util.responsiveUI.component.card.CardView
 import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.customDrawer.MenuView
 import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 import com.ihridoydas.simpleapp.util.showcase.ShowcaseStyle
+import isBiometricSupported
 import kotlinx.coroutines.CoroutineScope
+import showBiometricPrompt
+import showMessage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ViewScreen(
     state:ScaffoldState,
     coroutineScope: CoroutineScope,
+    activity: MainActivity,
     windowSizeClass: WindowSizeClass,
     navController: NavController,
-    onBackPress :()-> Unit
+    onBackPress :()-> Unit,
+    onClick: () -> Unit
 
 ) {
+    val checked = remember { mutableStateOf(false) }
 
     // サイドメニューアニメーション用状態変数
     var editable by remember { mutableStateOf(false) }
@@ -92,6 +101,20 @@ fun ViewScreen(
                     }
                 },
                 actions = {
+                    Switch(
+                        checked = checked.value,
+                        onCheckedChange = {
+                            checked.value = it
+                            if (checked.value) {
+                                if (isBiometricSupported(activity = activity)) {
+                                    showBiometricPrompt(activity)
+                                } else {
+                                    // Handle the case when biometric authentication is not supported
+                                    showMessage("Not Support", activity)
+                                }
+                            }
+                        }
+                    )
                     IconButton(onClick = {
                         editable = !editable
                         if (!sideMenuVisible) {
@@ -107,7 +130,9 @@ fun ViewScreen(
         content = {
             val scrollState = rememberScrollState()
             Box (modifier = Modifier.padding(it)){
-                Column (modifier = Modifier.fillMaxSize().verticalScroll(scrollState)){
+                Column (modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)){
                     AllFeatureScreen(navController= navController)
                 }
 
@@ -128,6 +153,7 @@ fun ViewScreen(
                             termsOfUseTap = {  },
                             logOutTap = {  }
                         )
+
                     }
                 }
             }

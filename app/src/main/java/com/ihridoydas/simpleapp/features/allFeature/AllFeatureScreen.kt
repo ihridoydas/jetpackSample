@@ -37,14 +37,56 @@ fun AllFeatureScreen(navController: NavController) {
         context.startActivity(Intent(context, PDFActivity::class.java))
     }
 
-    //WebView
+    //Bar Code View
     MyCard(
         color = listOf(
-            Color(0xFFFF5858),
+            Color(0xFF5A76D3),
             Color(0xFFFFC793)
         ), name = "Bar Code View"
     ){
         navController?.navigate(ScreenDestinations.BarCodeViewScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Camera View
+    MyCard(
+        color = listOf(
+            Color(0xFF00BCD4),
+            Color(0xFFE2D3C4)
+        ), name = "Camera View"
+    ){
+        navController?.navigate(ScreenDestinations.CameraViewScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Counter View
+    MyCard(
+        color = listOf(
+            Color(0xFF9EFF58),
+            Color(0xFF5ED8D8)
+        ), name = "Counter View"
+    ){
+        navController?.navigate(ScreenDestinations.CounterViewScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Counter View
+    MyCard(
+        color = listOf(
+            Color(0xFF668153),
+            Color(0xFF5ED8D8)
+        ), name = "Multi Language View"
+    ){
+        navController?.navigate(ScreenDestinations.MultiLanguageScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
                 inclusive = true
             }

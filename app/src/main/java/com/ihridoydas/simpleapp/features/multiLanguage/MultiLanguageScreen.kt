@@ -26,6 +26,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -43,6 +44,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ihridoydas.simpleapp.R
 import kotlinx.coroutines.launch
@@ -52,7 +54,8 @@ private val language = listOf("English", "Italian")
 
 @Composable
 fun MultiLanguage(
-    viewModel: LanguageViewModel = viewModel()
+    viewModel: LanguageViewModel = hiltViewModel(),
+    onBackPress : ()->Unit,
 ) {
     val scope = rememberCoroutineScope()
     val currentLanguage = viewModel.language.observeAsState().value
@@ -70,6 +73,16 @@ fun MultiLanguage(
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center
                     )
+                },
+                navigationIcon = {
+                    IconButton(
+                        onClick = {
+                            onBackPress()
+                        },
+                        modifier = Modifier
+                    ) {
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                    }
                 },
                 actions = {
                     IconButton(onClick = { menuExpanded.value = true }) {
@@ -107,7 +120,8 @@ fun MultiLanguage(
         }
     ) {
         Column(
-            modifier = Modifier.padding(it)
+            modifier = Modifier
+                .padding(it)
                 .verticalScroll(rememberScrollState(0))
                 .fillMaxSize()
         ) {

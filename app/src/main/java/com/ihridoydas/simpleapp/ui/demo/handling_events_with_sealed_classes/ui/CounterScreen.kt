@@ -3,6 +3,8 @@ package com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -21,6 +23,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun CounterScreen(
+    onBackPress: () -> Unit,
     modifier: Modifier = Modifier,
     counterViewModel: CounterViewModel = viewModel()
 ) {
@@ -42,7 +45,23 @@ fun CounterScreen(
         }
     }
 
-    Scaffold(scaffoldState = scaffoldState) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Bar Code Scan") },
+                navigationIcon = {
+                    IconButton(
+                        onClick = {
+                            onBackPress()
+                        },
+                        modifier = Modifier
+                    ) {
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                },
+            )
+        },
+        scaffoldState = scaffoldState) {
         Column(
             modifier = modifier
                 .padding(it)
