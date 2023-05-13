@@ -49,6 +49,7 @@ import com.ihridoydas.simpleapp.ui.theme.GreenColor
 @Composable
 fun BottomSection(
     navController: NavHostController,
+    onBoardingViewModel : OnBoardingViewModel,
     size: Int,
     index: Int,
     onNextClicked: () -> Unit
@@ -70,6 +71,7 @@ fun BottomSection(
                 onNextClicked
             } else {
                 {
+                    onBoardingViewModel.setOnSkipCaseCompleted(false)
                     navController.navigate(ScreenDestinations.ViewScreen.route){
                         popUpTo(ScreenDestinations.HomeScreen.route) {
                             inclusive = true

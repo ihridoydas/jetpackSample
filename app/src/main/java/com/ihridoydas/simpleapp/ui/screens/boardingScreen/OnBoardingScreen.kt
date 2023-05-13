@@ -187,7 +187,7 @@ fun OnBoardingScreen(windowSizeClass: WindowSizeClass, navController: NavHostCon
 
                     }
 
-                    BottomSection(navController = navController,size = items.size, index = state.currentPage) {
+                    BottomSection(navController = navController,onBoardingViewModel = onBoardingViewModel,size = items.size, index = state.currentPage) {
                         if (state.currentPage+1 <items.size)
                             scope.launch {
                                 state.scrollToPage(state.currentPage+1)
