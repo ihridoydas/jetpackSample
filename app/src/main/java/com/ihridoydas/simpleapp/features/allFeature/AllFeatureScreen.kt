@@ -79,14 +79,42 @@ fun AllFeatureScreen(navController: NavController) {
         }
     }
 
-    //Counter View
+    //Multi language View
     MyCard(
         color = listOf(
             Color(0xFF668153),
-            Color(0xFF5ED8D8)
+            Color(0xFFA5A17D)
         ), name = "Multi Language View"
     ){
         navController?.navigate(ScreenDestinations.MultiLanguageScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //OCR View
+    MyCard(
+        color = listOf(
+            Color(0xFF3F51B5),
+            Color(0xFFC8D3C8)
+        ), name = "OCR"
+    ){
+        navController?.navigate(ScreenDestinations.OCRScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //NewTon Timer View
+    MyCard(
+        color = listOf(
+            Color(0xFF009688),
+            Color(0xFFCDDC39)
+        ), name = "NewTon Timer"
+    ){
+        navController?.navigate(ScreenDestinations.NewTonTimerScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
                 inclusive = true
             }

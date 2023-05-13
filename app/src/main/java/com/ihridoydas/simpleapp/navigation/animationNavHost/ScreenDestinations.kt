@@ -10,5 +10,7 @@ sealed class ScreenDestinations(val route: String) {
     object CameraViewScreen : ScreenDestinations("camera_view")
     object CounterViewScreen : ScreenDestinations("counter_view")
     object MultiLanguageScreen : ScreenDestinations("multi_language_view")
+    object OCRScreen : ScreenDestinations("ocr_view")
+    object NewTonTimerScreen : ScreenDestinations("newton_timer_view")
 
 }

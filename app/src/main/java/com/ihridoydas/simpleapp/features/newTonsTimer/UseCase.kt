@@ -28,7 +28,7 @@ import com.ihridoydas.simpleapp.features.newTonsTimer.ui.theme.MyTheme
 fun MyNewtonsTimerApp() {
     val backgroundColor by animateColorAsState(MaterialTheme.colors.background)
     Surface(color = backgroundColor) {
-        NewtonsTimerScreen()
+        NewtonsTimerScreen(onBackPress = {})
     }
 }
 
