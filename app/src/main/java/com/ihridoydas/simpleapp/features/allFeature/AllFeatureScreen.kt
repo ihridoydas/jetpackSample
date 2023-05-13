@@ -1,0 +1,56 @@
+package com.ihridoydas.simpleapp.features.allFeature
+
+import android.content.Intent
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavController
+import com.ihridoydas.simpleapp.features.composePDF.pdfUseCase.PDFActivity
+import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
+
+@Composable
+fun AllFeatureScreen(navController: NavController) {
+
+    val context = LocalContext.current
+
+    //WebView
+    MyCard(
+        color = listOf(
+            Color(0xFFFF5858),
+            Color(0xFFFFC793)
+        ), name = "Web View"
+    ){
+        navController?.navigate(ScreenDestinations.WebViewScreen.route) {
+            popUpTo(ScreenDestinations.HomeScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //PdfView
+    MyCard(
+        color = listOf(
+            Color(0xFF3BFF95),
+            Color(0xFF00A3FF)
+        ), name = "PDF View"
+    ){
+        context.startActivity(Intent(context, PDFActivity::class.java))
+    }
+
+    //WebView
+    MyCard(
+        color = listOf(
+            Color(0xFFFF5858),
+            Color(0xFFFFC793)
+        ), name = "Bar Code View"
+    ){
+        navController?.navigate(ScreenDestinations.BarCodeViewScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+}
+
+

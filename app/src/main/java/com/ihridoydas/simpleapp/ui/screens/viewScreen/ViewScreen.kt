@@ -6,8 +6,11 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
@@ -15,6 +18,7 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -29,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
+import com.ihridoydas.simpleapp.features.allFeature.AllFeatureScreen
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.navigation.animationNavHost.navigateTo
 import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
@@ -100,9 +105,10 @@ fun ViewScreen(
         },
         drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
         content = {
+            val scrollState = rememberScrollState()
             Box (modifier = Modifier.padding(it)){
-                Column (modifier = Modifier.fillMaxSize()){
-                    CardView()
+                Column (modifier = Modifier.fillMaxSize().verticalScroll(scrollState)){
+                    AllFeatureScreen(navController= navController)
                 }
 
                 // サイドメニュー表示
