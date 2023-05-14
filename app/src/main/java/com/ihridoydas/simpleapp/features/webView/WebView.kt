@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI.component.webView
+package com.ihridoydas.simpleapp.features.webView
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap

@@ -13,6 +13,14 @@ fun AllFeatureScreen(navController: NavController) {
 
     val context = LocalContext.current
 
+    //Feature Start
+    MyCardTitle(
+        color = listOf(
+            Color(0xFF4CAF50),
+            Color(0xFF009688)
+        ), name = "Features"
+    )
+
     //WebView
     MyCard(
         color = listOf(
@@ -120,6 +128,70 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
     }
+
+    //Feature End
+
+    //Animations Start
+    MyCardTitle(
+        color = listOf(
+            Color(0xFF009688),
+            Color(0xFF9C27B0)
+        ), name = "Animations"
+    )
+
+    //Floating Action Menu
+    MyCard(
+        color = listOf(
+            Color(0xFF0A4B80),
+            Color(0xFF545C04)
+        ), name = "Floating Action Menu"
+    ){
+        navController?.navigate(ScreenDestinations.FloatingActionMenuScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Animations End
+
+    //Others Start
+    MyCardTitle(
+        color = listOf(
+            Color(0xFF2196F3),
+            Color(0xFF673AB7)
+        ), name = "Others"
+    )
+
+    //TabLayout View
+    MyCard(
+        color = listOf(
+            Color(0xFF214642),
+            Color(0x74646B20)
+        ), name = "TabLayout with Cascade Menu"
+    ){
+        navController?.navigate(ScreenDestinations.TabLayoutScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Pick Image View
+    MyCard(
+        color = listOf(
+            Color(0xFF009688),
+            Color(0xFFAD81B4)
+        ), name = "Pick Image"
+    ){
+        navController?.navigate(ScreenDestinations.PickImageScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Others End
 
 }
 

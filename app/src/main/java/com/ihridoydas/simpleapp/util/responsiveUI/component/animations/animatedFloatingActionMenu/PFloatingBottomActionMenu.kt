@@ -1,5 +1,6 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu
 
+import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.TweenSpec
@@ -7,6 +8,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
@@ -17,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
@@ -30,6 +33,8 @@ private val intOffsetTweenSpec: TweenSpec<IntOffset> = tween(durationMillis = du
 fun BoxScope.PFloatingBottomActionMenu(isVisible: Boolean) {
 
   val density = LocalDensity.current
+  val context = LocalContext.current
+
   AnimatedVisibility(
     visible = isVisible,
     enter = slideInVertically(
@@ -41,7 +46,7 @@ fun BoxScope.PFloatingBottomActionMenu(isVisible: Boolean) {
     ),
     modifier = Modifier
       .align(Alignment.BottomCenter)
-      .height(250.dp)
+      .height(100.dp)
   ) {
 
     Box(
@@ -66,6 +71,9 @@ fun BoxScope.PFloatingBottomActionMenu(isVisible: Boolean) {
           text = "Add Place",
           imageVector = Icons.Default.Add,
           modifier = Modifier
+            .clickable {
+              Toast.makeText(context,"Clicked",Toast.LENGTH_LONG).show()
+            }
             .weight(1f)
             .animateEnterExit(
               enter = slideInVertically(initialOffsetY = { 50 }, animationSpec = intOffsetTweenSpec),
@@ -76,6 +84,9 @@ fun BoxScope.PFloatingBottomActionMenu(isVisible: Boolean) {
           text = "Create List",
           imageVector = Icons.Default.List,
           modifier = Modifier
+            .clickable {
+              Toast.makeText(context,"Clicked",Toast.LENGTH_LONG).show()
+            }
             .weight(1f)
             .animateEnterExit(
               enter = slideInVertically(initialOffsetY = { 250 }, animationSpec = intOffsetTweenSpec),
@@ -86,6 +97,9 @@ fun BoxScope.PFloatingBottomActionMenu(isVisible: Boolean) {
           text = "Add Friend",
           imageVector = Icons.Default.AccountBox,
           modifier = Modifier
+            .clickable {
+              Toast.makeText(context,"Clicked",Toast.LENGTH_LONG).show()
+            }
             .weight(1f)
             .animateEnterExit(
               enter = slideInVertically(initialOffsetY = { 450 }, animationSpec = intOffsetTweenSpec),
