@@ -13,4 +13,12 @@ sealed class ScreenDestinations(val route: String) {
     object OCRScreen : ScreenDestinations("ocr_view")
     object NewTonTimerScreen : ScreenDestinations("newton_timer_view")
 
+    //Animations
+    object FloatingActionMenuScreen : ScreenDestinations("floating_action_menu_view")
+
+    //Others
+    object TabLayoutScreen : ScreenDestinations("tab_layout_view")
+    object PickImageScreen : ScreenDestinations("pick_Image_view")
+
+
 }

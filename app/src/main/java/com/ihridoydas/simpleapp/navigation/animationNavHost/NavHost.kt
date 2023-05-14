@@ -2,6 +2,7 @@ package com.ihridoydas.simpleapp.navigation.animationNavHost
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
@@ -19,10 +20,14 @@ import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
 import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
-import com.ihridoydas.simpleapp.util.responsiveUI.component.webView.WebBrowser
+import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBarScreen
+import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabLayoutActivityPreview
+import com.ihridoydas.simpleapp.features.webView.WebBrowser
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu.FloatingActionMenu
+import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import kotlinx.coroutines.CoroutineScope
 
-@OptIn(ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun MainAnimationNavHost(
     navController: NavHostController,
@@ -109,6 +114,26 @@ fun MainAnimationNavHost(
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
+
+        //Animations
+        screen(ScreenDestinations.FloatingActionMenuScreen.route) {
+            FloatingActionMenu(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        //Others
+        screen(ScreenDestinations.TabLayoutScreen.route) {
+            TabBarScreen(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.PickImageScreen.route) {
+            PickImageFromMobile(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
     }
 
     //Back Handler

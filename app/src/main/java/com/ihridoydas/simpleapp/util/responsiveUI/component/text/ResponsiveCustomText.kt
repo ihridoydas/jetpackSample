@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI
+package com.ihridoydas.simpleapp.util.responsiveUI.component.text
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.material.Text

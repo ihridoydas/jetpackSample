@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -52,6 +53,41 @@ fun MyCard(color: List<Color>, name: String,navigate: ()-> Unit) {
                 name,
                 color = Color.White,
                 fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+        }
+
+    }
+}
+
+
+@Composable
+fun MyCardTitle(color: List<Color>, name: String) {
+    Card(
+        modifier = Modifier
+            .padding(horizontal = 10.dp, vertical = 5.dp)
+            .width(100.dp)
+            .height(25.dp),
+        elevation = CardDefaults.cardElevation(5.dp),
+        shape = RoundedCornerShape(5.dp)
+
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    brush = Brush.linearGradient(
+                        colors = color
+                    )
+                ),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                name,
+                color = Color.White,
+                fontSize = 13.sp,
                 fontWeight = FontWeight.Bold
             )
 

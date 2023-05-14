@@ -37,7 +37,8 @@ fun PickImageFromGallery() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Button(onClick = {
             launcher.launch("image/*")
@@ -76,7 +77,9 @@ fun PickImageFromCamera() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(vertical = 20.dp)
+            .padding(vertical = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Button(onClick = {
             launcher.launch()
