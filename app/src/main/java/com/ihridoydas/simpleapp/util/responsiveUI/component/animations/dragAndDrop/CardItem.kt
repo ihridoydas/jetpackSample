@@ -59,7 +59,7 @@ fun PersonCard(person: Person) {
         modifier = Modifier
             .padding(6.dp)
             .width(width = 120.dp)
-            .fillMaxHeight(0.8f)
+            .fillMaxHeight(1f)
     ) { isInBound, foodItem ->
         val bgColor = if (isInBound) {
             Color.Red
@@ -126,7 +126,7 @@ fun FoodItemCard(foodItem: FoodItem) {
     Card(
         elevation = 10.dp, backgroundColor = Color.White,
         shape = RoundedCornerShape(24.dp),
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier .height(100.dp).padding(8.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -167,7 +167,9 @@ fun FoodItemCardPreview() {
     Card(
         elevation = 10.dp, backgroundColor = Color.White,
         shape = RoundedCornerShape(24.dp),
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier
+            .height(100.dp)
+            .padding(8.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -184,7 +186,7 @@ fun FoodItemCardPreview() {
                 )
             }
             Spacer(modifier = Modifier.width(20.dp))
-            Column(modifier = Modifier.weight(1f)) {
+            Column(modifier = Modifier.weight(0.8f)) {
                 Text(
                     text = R.drawable.food_cake.toString(),
                     fontSize = 22.sp,

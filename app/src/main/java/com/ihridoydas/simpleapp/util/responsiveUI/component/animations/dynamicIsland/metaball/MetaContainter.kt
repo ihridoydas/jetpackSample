@@ -2,6 +2,8 @@ package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicI
 
 import android.graphics.RenderEffect
 import android.graphics.RuntimeShader
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
@@ -31,6 +33,7 @@ const val ShaderSource = """
     }
 """
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun MetaContainer(
     modifier: Modifier = Modifier,
