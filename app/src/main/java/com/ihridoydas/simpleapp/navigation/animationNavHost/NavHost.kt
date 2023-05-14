@@ -1,11 +1,15 @@
 package com.ihridoydas.simpleapp.navigation.animationNavHost
 
+import android.os.Build
+import android.widget.Toast
 import androidx.activity.compose.BackHandler
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
@@ -23,10 +27,18 @@ import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBarScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabLayoutActivityPreview
 import com.ihridoydas.simpleapp.features.webView.WebBrowser
+import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu.FloatingActionMenu
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel.AutoSlidingCarousel
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.downloadableAnimationCircle.DownLoadableAnimation
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.DragAndDropUseCase
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.DynamicIsland
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.DynamicIslandApp
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.NotSupportScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import kotlinx.coroutines.CoroutineScope
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun MainAnimationNavHost(
@@ -121,6 +133,37 @@ fun MainAnimationNavHost(
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
+        screen(ScreenDestinations.AutoSlidingCarouselScreen.route) {
+            AutoSlidingCarousel(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.DragAndDropScreen.route) {
+            DragAndDropUseCase(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.DownloadableCircleScreen.route) {
+            DownLoadableAnimation(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.DynamicIslandScreen.route) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                DynamicIslandApp(onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                })
+            }else{
+                NotSupportScreen(onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                })
+            }
+
+
+
+        }
 
         //Others
         screen(ScreenDestinations.TabLayoutScreen.route) {
@@ -133,6 +176,7 @@ fun MainAnimationNavHost(
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
+
 
     }
 

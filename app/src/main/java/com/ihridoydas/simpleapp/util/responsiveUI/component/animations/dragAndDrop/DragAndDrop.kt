@@ -73,7 +73,7 @@ fun <T> DragTarget(
                 currentState.dragPosition = currentPosition + it
                 currentState.draggableComposable = content
             }, onDrag = { change, dragAmount ->
-                change.consumeAllChanges()
+                change.consume()
                 currentState.dragOffset += Offset(dragAmount.x, dragAmount.y)
             }, onDragEnd = {
                 currentState.isDragging = false

@@ -6,8 +6,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -18,8 +26,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -28,7 +34,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import kotlinx.coroutines.delay
-import com.ihridoydas.simpleapp.R
 
 @Composable
 fun IndicatorDot(
@@ -116,11 +121,11 @@ fun AutoSlidingCarousel(
 }
 
 // Use case Demo
-@OptIn(ExperimentalPagerApi::class)
-@Preview
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AutoSlidingCarousel() {
-
+fun AutoSlidingCarousel(
+    onBackPress: ()-> Unit,
+) {
     val images = listOf(
         "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
         "https://cdn.pixabay.com/photo/2023/01/23/21/11/apple-7739714_1280.jpg",
@@ -129,24 +134,55 @@ fun AutoSlidingCarousel() {
 
     )
 
-    Card(
-        modifier = Modifier.padding(16.dp),
-        shape = RoundedCornerShape(16.dp),
-    ) {
-        AutoSlidingCarousel(
-            itemsCount = images.size,
-            itemContent = { index ->
-                AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(images[index])
-                        .crossfade(true)
-                        .build(),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.height(200.dp),
-                )
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Bar Code Scan") },
+                navigationIcon = {
+                    IconButton(
+                        onClick = {
+                            onBackPress()
+                        },
+                        modifier = Modifier
+                    ) {
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                },
+            )
+        },
+        drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
+        content = {
+            Column(
+                modifier = Modifier
+                    .padding(it)
+                    .fillMaxSize()
+                    .padding(vertical = 10.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Card(
+                    modifier = Modifier.padding(16.dp),
+                    shape = RoundedCornerShape(16.dp),
+                ) {
+
+                    AutoSlidingCarousel(
+                        itemsCount = images.size,
+                        itemContent = { index ->
+                            AsyncImage(
+                                model = ImageRequest.Builder(LocalContext.current)
+                                    .data(images[index])
+                                    .crossfade(true)
+                                    .build(),
+                                contentDescription = null,
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier.height(200.dp),
+                            )
+                        }
+                    )
+                }
+
             }
-        )
-    }
+        }
+    )
 
 }

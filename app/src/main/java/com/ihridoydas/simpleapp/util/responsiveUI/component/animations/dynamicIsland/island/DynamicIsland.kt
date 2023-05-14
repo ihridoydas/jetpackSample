@@ -2,6 +2,8 @@
 
 package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.island
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.Animatable
@@ -38,6 +40,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIs
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun DynamicIsland(islandState: IslandState) {
     val config = LocalConfiguration.current

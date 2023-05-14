@@ -15,6 +15,10 @@ sealed class ScreenDestinations(val route: String) {
 
     //Animations
     object FloatingActionMenuScreen : ScreenDestinations("floating_action_menu_view")
+    object AutoSlidingCarouselScreen : ScreenDestinations("auto_sliding_carousel_view")
+    object DragAndDropScreen : ScreenDestinations("drag_and_drop_view")
+    object DownloadableCircleScreen : ScreenDestinations("downloadable_circle_view")
+    object DynamicIslandScreen : ScreenDestinations("dynamic_island_view")
 
     //Others
     object TabLayoutScreen : ScreenDestinations("tab_layout_view")

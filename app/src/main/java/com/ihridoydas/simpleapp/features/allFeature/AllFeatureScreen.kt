@@ -153,6 +153,62 @@ fun AllFeatureScreen(navController: NavController) {
         }
     }
 
+    //Auto Sliding Carousel
+    MyCard(
+        color = listOf(
+            Color(0xFF6BAFE7),
+            Color(0xFF8BC34A)
+        ), name = "Auto Sliding Carousel "
+    ){
+        navController?.navigate(ScreenDestinations.AutoSlidingCarouselScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Drag and Drop
+    MyCard(
+        color = listOf(
+            Color(0xFF8BC34A),
+            Color(0xFFC54E46)
+        ), name = "Drag and Drop"
+    ){
+        navController?.navigate(ScreenDestinations.DragAndDropScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //DownloadAble Circle
+    MyCard(
+        color = listOf(
+            Color(0xFF009688),
+            Color(0xFF3C2368)
+        ), name = "Downloadable Circle"
+    ){
+        navController?.navigate(ScreenDestinations.DownloadableCircleScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
+    //Dynamic Circle
+    MyCard(
+        color = listOf(
+            Color(0xFF4D5E3A),
+            Color(0xFFAA827F)
+        ), name = "Dynamic Circle(Require API 33)"
+    ){
+        navController?.navigate(ScreenDestinations.DynamicIslandScreen.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = true
+            }
+        }
+    }
+
     //Animations End
 
     //Others Start
