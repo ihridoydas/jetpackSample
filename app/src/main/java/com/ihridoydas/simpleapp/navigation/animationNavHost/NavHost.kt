@@ -35,6 +35,8 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDr
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.DynamicIsland
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.DynamicIslandApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.NotSupportScreen
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.explodingAnimationTransition.animation.demoUseCase.ExplodingAnimationTrasition
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.flippable.FlippableAnimationTransitions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import kotlinx.coroutines.CoroutineScope
 
@@ -160,9 +162,18 @@ fun MainAnimationNavHost(
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 })
             }
+        }
 
+        screen(ScreenDestinations.ExplodingAnimationTransition.route) {
+            ExplodingAnimationTrasition(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
 
-
+        screen(ScreenDestinations.FlippableAnimationTransition.route) {
+            FlippableAnimationTransitions(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
         }
 
         //Others

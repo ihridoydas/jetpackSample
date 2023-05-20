@@ -10,7 +10,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 
 @Composable
 fun AdvancedUsage() {
@@ -38,4 +40,12 @@ fun AdvancedUsage() {
         enabled = true,
         interactionSource = remember { MutableInteractionSource() },
     )
+}
+
+@Preview
+@Composable
+fun UseCase() {
+    SimpleAppTheme {
+        AdvancedUsage()
+    }
 }
