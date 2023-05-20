@@ -29,7 +29,7 @@ fun MyCard(color: List<Color>, name: String,navigate: ()-> Unit) {
     Card(
         modifier = Modifier
             .padding(horizontal = 10.dp, vertical = 10.dp)
-            .width(400.dp)
+            .fillMaxWidth()
             .height(50.dp),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(10.dp)

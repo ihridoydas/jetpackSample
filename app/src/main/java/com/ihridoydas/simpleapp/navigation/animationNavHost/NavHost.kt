@@ -9,6 +9,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -40,11 +41,15 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.flippable
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.mapAnimation.MapAnimationView
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.metaballAnimationsWithViewPager.MetaBallAnimationWithViewPager
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.othersAnimation.CreativeAnimations
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.pullToRefreshLoadingAnimation.PullRefreshAnimations
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.scratchCardEffect.ScratchCardScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import kotlinx.coroutines.CoroutineScope
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-@OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class,
+    ExperimentalComposeUiApi::class
+)
 @Composable
 fun MainAnimationNavHost(
     navController: NavHostController,
@@ -197,6 +202,18 @@ fun MainAnimationNavHost(
 
         screen(ScreenDestinations.CreativeAnimation.route) {
             CreativeAnimations(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.PullToRefreshAnimation.route) {
+            PullRefreshAnimations(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.ScratchCardEffectAnimation.route) {
+            ScratchCardScreen(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
