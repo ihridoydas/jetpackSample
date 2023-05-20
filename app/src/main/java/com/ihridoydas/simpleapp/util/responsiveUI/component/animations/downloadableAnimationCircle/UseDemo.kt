@@ -20,9 +20,13 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
@@ -33,7 +37,9 @@ fun DownLoadableAnimation(onBackPress: ()-> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Downloadable Circle") },
+                colors = TopAppBarDefaults.smallTopAppBarColors(MaterialTheme.colorScheme.primary),
+                modifier = Modifier,
+                title = { Text(text = "Downloadable Circle", style = TextStyle(color = Color.White)) },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -41,7 +47,7 @@ fun DownLoadableAnimation(onBackPress: ()-> Unit) {
                         },
                         modifier = Modifier
                     ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.White)
                     }
                 },
             )
@@ -52,7 +58,7 @@ fun DownLoadableAnimation(onBackPress: ()-> Unit) {
                 modifier = Modifier
                     .padding(it)
                     .fillMaxSize()
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 0.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
