@@ -112,7 +112,7 @@ fun Typewriter(
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun DefaultPreviewOfTypeWriter() {
     val animatePartsList = remember {
         listOf(
             "reach your goals.",
