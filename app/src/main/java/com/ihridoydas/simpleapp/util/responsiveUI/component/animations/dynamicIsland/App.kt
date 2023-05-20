@@ -32,6 +32,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIs
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.island.DynamicIsland
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.island.IslandState
 
+
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

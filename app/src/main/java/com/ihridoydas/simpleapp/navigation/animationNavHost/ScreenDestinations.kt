@@ -22,6 +22,8 @@ sealed class ScreenDestinations(val route: String) {
     object ExplodingAnimationTransition : ScreenDestinations("exploding_animation_transition_view")
     object FlippableAnimationTransition : ScreenDestinations("flippable_animation_transition_view")
     object MapAnimation : ScreenDestinations("map_animation_view")
+    object MetaBallAnimation : ScreenDestinations("meta_ball_animation_view")
+    object CreativeAnimation : ScreenDestinations("creative_animation_view")
 
     //Others
     object TabLayoutScreen : ScreenDestinations("tab_layout_view")

@@ -60,7 +60,6 @@ fun TabsContent(pagerState: PagerState) {
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun TabScreen() {
     val pagerState = rememberPagerState(0)
