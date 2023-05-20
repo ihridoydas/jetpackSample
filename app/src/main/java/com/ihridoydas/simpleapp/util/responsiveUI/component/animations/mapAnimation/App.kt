@@ -96,3 +96,14 @@ fun MapAnimationPreview() {
     }
     
 }
+
+@Composable
+fun ShowErrorApp() {
+
+    Box(modifier = Modifier.fillMaxSize(),
+    contentAlignment = Alignment.Center) {
+
+        Text(text = "Sorry You haven't Google API Key")
+
+    }
+}

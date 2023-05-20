@@ -237,6 +237,19 @@ fun AllFeatureScreen(navController: NavController) {
         }
     }
 
+    //Map App
+    MyCard(
+        color = listOf(
+            Color(0xFF4CAF50),
+            Color(0xFF1B1B19)
+        ), name = "Map App"
+    ){
+        navController?.navigate(ScreenDestinations.MapAnimation.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = false
+            }
+        }
+    }
     //Animations End
 
     //Others Start
