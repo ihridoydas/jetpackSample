@@ -311,6 +311,34 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        //Theme Picker Animations
+        MyCard(
+            color = listOf(
+                Color(0xFFE91E63),
+                Color(0xFF8BC34A)
+            ), name = "Theme Picker Animations"
+        ){
+            navController?.navigate(ScreenDestinations.ThemePickerAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
+        //Type Writer Animations
+        MyCard(
+            color = listOf(
+                Color(0xFF673AB7),
+                Color(0xFF273813)
+            ), name = "Type Writer Animation"
+        ){
+            navController?.navigate(ScreenDestinations.TypeWriterAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Animations End
 
         //Others Start
