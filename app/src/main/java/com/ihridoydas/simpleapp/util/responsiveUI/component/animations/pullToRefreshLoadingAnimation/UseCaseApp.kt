@@ -6,22 +6,96 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
+import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+//List of Screen
+val list = listOf("CustomPull", "FancyPull")
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun PullToRefreshAnimationTabsContent(pagerState: PagerState) {
+
+    Surface(
+        modifier = Modifier
+            .fillMaxSize(),
+        color = ThemeColor
+    ) {
+        HorizontalPager(state = pagerState, pageCount = list.size) { page ->
+            when (page) {
+                0 -> CustomPullRefresh()
+                1 -> FancyPullToRefresh()
+            }
+
+        }
+
+    }
+
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@Composable
+fun PullRefreshAnimations(onBackPress: ()-> Unit) {
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                colors = TopAppBarDefaults.smallTopAppBarColors(Color.White),
+                title = { Text(text = "Pull To Refresh Animations" , style = TextStyle(color = Color.Black)) },
+                navigationIcon = {
+                    IconButton(
+                        onClick = {
+                            onBackPress()
+                        },
+                        modifier = Modifier
+                    ) {
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.Black )
+                    }
+                },
+            )
+        },
+        drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
+        content = {
+            Column(
+                modifier = Modifier
+                    .padding(it),
+            ) {
+                val pagerState = rememberPagerState(0)
+                PullToRefreshAnimationTabsContent(pagerState = pagerState)
+            }
+        }
+    )
+}
+
+
 @ExperimentalFoundationApi
 @Composable
-fun LoadingAnimationApp() {
+fun CustomPullRefresh() {
 
     val scope = rememberCoroutineScope()
     var isRefreshing by remember { mutableStateOf(false) }
@@ -51,7 +125,7 @@ fun LoadingAnimationApp() {
 
 @ExperimentalFoundationApi
 @Composable
-fun LoadingAnimationApp2() {
+fun FancyPullToRefresh() {
 
     val scope = rememberCoroutineScope()
     var isRefreshing by remember { mutableStateOf(false) }
@@ -140,7 +214,7 @@ fun ListItem(index: Int) {
 @Composable
 fun LoadingAnimationAppPreview() {
     SimpleAppTheme {
-        LoadingAnimationApp2()
+        FancyPullToRefresh()
     }
 
 }
