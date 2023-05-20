@@ -10,11 +10,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Animation
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -22,12 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
-import com.ihridoydas.simpleapp.ui.theme.seed
 
 
 //List of Screen
@@ -35,25 +30,7 @@ val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
     "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation",)
-val lists = listOf(
-    Icons.Filled.Home,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-    Icons.Filled.Animation,
-)
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun AnimationTabsContent(pagerState: PagerState) {
 
