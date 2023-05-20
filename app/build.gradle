@@ -7,7 +7,7 @@ plugins {
 //    id 'com.google.gms.google-services'
     id 'kotlin-parcelize'
     //id 'com.google.devtools.ksp' version '1.8.0-1.0.9'
-    id 'com.google.devtools.ksp' version '1.8.20-1.0.11'
+    id 'com.google.devtools.ksp' version '1.8.21-1.0.11'
     id 'shot'
     //for Google Map
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
@@ -54,7 +54,7 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = compose_compiler_version
-        //Compose Compiler Version "1.4.6"
+        //Compose Compiler Version "1.4.7"
     }
     packagingOptions {
         resources {
@@ -64,13 +64,13 @@ android {
 }
 
 dependencies {
-    //Updated 2023/4/28
-    //現在の Compose Version　1.4.6
-    //現在の Compose Compiler Version 1.4.6
-    //現在の	Compatible Kotlin Version 1.8.20
+    //Updated 2023/5/21
+    //現在の Compose Version　1.4.3
+    //現在の Compose Compiler Version 1.4.7
+    //現在の	Compatible Kotlin Version 1.8.21
 
     // Import the Compose BOM
-    def composeBOM_version = "2023.04.01"
+    def composeBOM_version = "2023.05.01"
     def composeBOM = platform("androidx.compose:compose-bom:$composeBOM_version")
     implementation composeBOM
     testImplementation composeBOM
@@ -92,6 +92,7 @@ dependencies {
     implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.foundation:foundation'
     debugImplementation "androidx.compose.ui:ui-tooling"
 
     //material 3
