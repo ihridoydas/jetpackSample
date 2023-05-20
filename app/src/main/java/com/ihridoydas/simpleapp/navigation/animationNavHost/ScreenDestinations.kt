@@ -19,6 +19,8 @@ sealed class ScreenDestinations(val route: String) {
     object DragAndDropScreen : ScreenDestinations("drag_and_drop_view")
     object DownloadableCircleScreen : ScreenDestinations("downloadable_circle_view")
     object DynamicIslandScreen : ScreenDestinations("dynamic_island_view")
+    object ExplodingAnimationTransition : ScreenDestinations("exploding_animation_transition_view")
+    object FlippableAnimationTransition : ScreenDestinations("flippable_animation_transition_view")
 
     //Others
     object TabLayoutScreen : ScreenDestinations("tab_layout_view")

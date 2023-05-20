@@ -54,7 +54,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.BarCodeViewScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -68,7 +68,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.CameraViewScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -82,7 +82,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.CounterViewScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -96,7 +96,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.MultiLanguageScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -110,7 +110,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.OCRScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -124,7 +124,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.NewTonTimerScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -148,7 +148,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.FloatingActionMenuScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -162,7 +162,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.AutoSlidingCarouselScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -176,7 +176,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.DragAndDropScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -190,7 +190,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.DownloadableCircleScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -204,7 +204,35 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.DynamicIslandScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
+            }
+        }
+    }
+
+    //Exploding Animation Transitions
+    MyCard(
+        color = listOf(
+            Color(0xFF4DA39B),
+            Color(0xFF7B6B7E)
+        ), name = "Exploding Animation with Pager"
+    ){
+        navController?.navigate(ScreenDestinations.ExplodingAnimationTransition.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = false
+            }
+        }
+    }
+
+    //Exploding Animation Transitions
+    MyCard(
+        color = listOf(
+            Color(0xFF6D231E),
+            Color(0xFF98C000)
+        ), name = "Flippable Animation"
+    ){
+        navController?.navigate(ScreenDestinations.FlippableAnimationTransition.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = false
             }
         }
     }
@@ -228,7 +256,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.TabLayoutScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
@@ -242,7 +270,7 @@ fun AllFeatureScreen(navController: NavController) {
     ){
         navController?.navigate(ScreenDestinations.PickImageScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
-                inclusive = true
+                inclusive = false
             }
         }
     }
