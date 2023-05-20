@@ -200,7 +200,7 @@ fun AllFeatureScreen(navController: NavController) {
         color = listOf(
             Color(0xFF4D5E3A),
             Color(0xFFAA827F)
-        ), name = "Dynamic Circle(Require API 33)"
+        ), name = "Dynamic Island (Require API 33)"
     ){
         navController?.navigate(ScreenDestinations.DynamicIslandScreen.route) {
             popUpTo(ScreenDestinations.ViewScreen.route) {
@@ -250,6 +250,34 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
     }
+
+    //Metaball Animation With ViewPager
+    MyCard(
+        color = listOf(
+            Color(0xFFB3C999),
+            Color(0xFFE91E63)
+        ), name = "Metaball Animation With ViewPager"
+    ){
+        navController?.navigate(ScreenDestinations.MetaBallAnimation.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = false
+            }
+        }
+    }
+
+    //Creative Animations
+    MyCard(
+        color = listOf(
+            Color(0xFF761486),
+            Color(0xFFCECE73)
+        ), name = "Creative Animations"
+    ){
+        navController?.navigate(ScreenDestinations.CreativeAnimation.route) {
+            popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = false
+            }
+        }
+    }
     //Animations End
 
     //Others Start
@@ -277,8 +305,8 @@ fun AllFeatureScreen(navController: NavController) {
     //Pick Image View
     MyCard(
         color = listOf(
-            Color(0xFF009688),
-            Color(0xFFAD81B4)
+            Color(0xFFBFC4C3),
+            Color(0xFF63EE69)
         ), name = "Pick Image"
     ){
         navController?.navigate(ScreenDestinations.PickImageScreen.route) {

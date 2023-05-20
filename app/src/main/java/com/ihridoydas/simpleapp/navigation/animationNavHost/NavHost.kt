@@ -38,6 +38,8 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIs
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.explodingAnimationTransition.animation.demoUseCase.ExplodingAnimationTrasition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.flippable.FlippableAnimationTransitions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.mapAnimation.MapAnimationView
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.metaballAnimationsWithViewPager.MetaBallAnimationWithViewPager
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.othersAnimation.CreativeAnimations
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import kotlinx.coroutines.CoroutineScope
 
@@ -178,6 +180,23 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.MapAnimation.route) {
             MapAnimationView(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.MetaBallAnimation.route) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                MetaBallAnimationWithViewPager(onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                })
+            }else{
+                NotSupportScreen(onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                })
+            }
+        }
+
+        screen(ScreenDestinations.CreativeAnimation.route) {
+            CreativeAnimations(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
