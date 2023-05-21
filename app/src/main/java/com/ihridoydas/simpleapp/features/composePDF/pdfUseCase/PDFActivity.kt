@@ -37,7 +37,12 @@ import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.composePDF.pdf.HorizontalPdfReaderState
 import com.ihridoydas.simpleapp.features.composePDF.pdf.ResourceType
 import com.ihridoydas.simpleapp.features.composePDF.pdf.VerticalPdfReaderState
+import com.ihridoydas.simpleapp.ui.theme.Green
+import com.ihridoydas.simpleapp.ui.theme.GreenColor
+import com.ihridoydas.simpleapp.ui.theme.GreenVarient
+import com.ihridoydas.simpleapp.ui.theme.Orange
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
+import com.ihridoydas.simpleapp.util.responsiveUI.component.aGSL_customLayoutAndGraphics.BackgroundByAGSL
 import java.io.File
 
 private const val OPEN_DOCUMENT_REQUEST_CODE = 0x33
@@ -107,7 +112,8 @@ class PDFActivity : ComponentActivity() {
                 }
             }
         ) { padding ->
-            Box(modifier = Modifier.padding(padding)) {
+            Box(modifier = Modifier.padding(padding)
+                .BackgroundByAGSL(Green, Orange)) {
                 when (val actualState = state.value) {
                     null -> SelectionView()
                     is VerticalPdfReaderState -> PDFView(
