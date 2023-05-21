@@ -12,9 +12,8 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.ShaderBrush
-import com.ihridoydas.simpleapp.ui.theme.GreenColor
-import com.ihridoydas.simpleapp.ui.theme.GreenVarient
 import org.intellij.lang.annotations.Language
+import androidx.compose.ui.graphics.Color as iColor
 
 /**
 //Colors
@@ -22,7 +21,7 @@ val Green = Color(0xFF55A456)
 val GreenVarient = Color(0xFFB3D5B3)
  */
 
-fun Modifier.BackgroundByAGSL(): Modifier = this.composed {
+fun Modifier.BackgroundByAGSL(colorPrimary: iColor,colorVarient: iColor,): Modifier = this.composed {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         // produce updating time in seconds variable to pass into shader
         val time by produceState(0f) {
@@ -40,7 +39,7 @@ fun Modifier.BackgroundByAGSL(): Modifier = this.composed {
             // Pass the color to support color space automatically
             shader.setColorUniform(
                 "iColor",
-                Color.valueOf(GreenColor.red, GreenColor.green, GreenColor.blue, GreenColor.alpha)
+                Color.valueOf(colorPrimary.red, colorPrimary.green, colorPrimary.blue, colorPrimary.alpha)
             )
             onDrawBehind {
                 drawRect(shaderBrush)
@@ -48,7 +47,7 @@ fun Modifier.BackgroundByAGSL(): Modifier = this.composed {
         }
     } else {
         Modifier.drawWithCache {
-            val gradientBrush = Brush.verticalGradient(listOf(GreenColor, GreenVarient, White))
+            val gradientBrush = Brush.verticalGradient(listOf(colorPrimary, colorVarient, White))
             onDrawBehind {
                 drawRect(gradientBrush)
             }
