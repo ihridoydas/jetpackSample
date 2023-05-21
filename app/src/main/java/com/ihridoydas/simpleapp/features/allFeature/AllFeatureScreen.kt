@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.features.composePDF.pdfUseCase.PDFActivity
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
@@ -23,7 +24,8 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFF83B685),
                 Color(0xFF662DCC)
-            ), name = "Augmented Reality"
+            ), name = "Augmented Reality",
+            width = 150.dp
         )
         //Augmented Image
         MyCard(
