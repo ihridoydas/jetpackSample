@@ -1,6 +1,12 @@
 package com.ihridoydas.simpleapp.navigation.animationNavHost
 
 sealed class ScreenDestinations(val route: String) {
+
+    //AR start
+    object AugmentedImageARScreen : ScreenDestinations("augmented_image_ar_screen")
+    //AR End
+
+
     object StartShowCaseScreen : ScreenDestinations("start_showCase_screen")
     object HomeScreen : ScreenDestinations("home_screen")
     object ViewScreen : ScreenDestinations("view_screen")

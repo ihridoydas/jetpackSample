@@ -14,6 +14,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
+import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
@@ -95,6 +96,17 @@ fun MainAnimationNavHost(
                 }
             )
         }
+
+        //AR Start
+        screen(ScreenDestinations.AugmentedImageARScreen.route) {
+            AugmentedImageARScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        //AR End
+
         screen(ScreenDestinations.WebViewScreen.route) {
             WebBrowser(
                 windowSizeClass = windowSizeClass,

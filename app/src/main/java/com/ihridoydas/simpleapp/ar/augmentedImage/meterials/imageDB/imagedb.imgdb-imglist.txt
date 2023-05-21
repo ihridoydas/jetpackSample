@@ -1,0 +1,3 @@
+cute.jpeg|/Users/hridoydas/Desktop/images/cute.jpeg
+cute1.jpeg|/Users/hridoydas/Desktop/images/cute1.jpeg
+cute2.jpeg|/Users/hridoydas/Desktop/images/cute2.jpeg
