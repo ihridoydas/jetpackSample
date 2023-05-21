@@ -85,6 +85,16 @@
         <meta-data
             android:name="com.google.ar.core"
             android:value="optional" />
+
+       <!--  For Widget-->
+        <receiver android:name=".widget.counterWidget.SimpleCounterWidgetReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/counter_widget_info" />
+        </receiver>
     </application>
 
 </manifest>
