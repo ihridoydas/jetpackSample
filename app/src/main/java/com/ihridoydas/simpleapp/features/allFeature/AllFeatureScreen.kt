@@ -18,6 +18,29 @@ fun AllFeatureScreen(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize()){
         val context = LocalContext.current
 
+        //AR Start
+        MyCardTitle(
+            color = listOf(
+                Color(0xFF83B685),
+                Color(0xFF662DCC)
+            ), name = "Augmented Reality"
+        )
+        //Augmented Image
+        MyCard(
+            color = listOf(
+                Color(0xFF1F746C),
+                Color(0xFFCFC0B2)
+            ), name = "Augmented Image"
+        ){
+            navController?.navigate(ScreenDestinations.AugmentedImageARScreen.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
+
+        //AR End
+
         //Feature Start
         MyCardTitle(
             color = listOf(
@@ -25,7 +48,6 @@ fun AllFeatureScreen(navController: NavController) {
                 Color(0xFF009688)
             ), name = "Features"
         )
-
         //WebView
         MyCard(
             color = listOf(
