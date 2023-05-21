@@ -41,6 +41,20 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        //Augmented Model View
+        MyCard(
+            color = listOf(
+                Color(0xFF2B4745),
+                Color(0xFF3F51B5)
+            ), name = "Augmented Model View"
+        ){
+            navController?.navigate(ScreenDestinations.AugmentedModelView.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
+
         //AR End
 
         //Feature Start

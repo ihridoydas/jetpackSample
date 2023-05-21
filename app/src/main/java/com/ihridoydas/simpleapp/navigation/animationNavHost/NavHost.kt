@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
+import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
@@ -103,6 +104,15 @@ fun MainAnimationNavHost(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
+            )
+        }
+        screen(ScreenDestinations.AugmentedModelView.route) {
+            ARModelViewer(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                activity = activity,
+                navController = navController
             )
         }
         //AR End
