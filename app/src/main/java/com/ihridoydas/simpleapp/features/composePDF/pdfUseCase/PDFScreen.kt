@@ -2,6 +2,7 @@ package com.ihridoydas.simpleapp.features.composePDF.pdfUseCase
 
 import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.TopAppBar
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,18 +27,23 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ihridoydas.simpleapp.features.composePDF.pdf.HorizontalPDFReader
 import com.ihridoydas.simpleapp.features.composePDF.pdf.HorizontalPdfReaderState
 import com.ihridoydas.simpleapp.features.composePDF.pdf.VerticalPDFReader
 import com.ihridoydas.simpleapp.features.composePDF.pdf.VerticalPdfReaderState
 import com.ihridoydas.simpleapp.ui.MainActivity
+import com.ihridoydas.simpleapp.ui.theme.Green
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +52,8 @@ fun TopAppBar() {
     val context = LocalContext.current
 
     TopAppBar(
-        title = { Text(text = "Compose PDF Viewer") },
+        colors = TopAppBarDefaults.smallTopAppBarColors(Green),
+        title = { Text(text = "Compose PDF Viewer", style = TextStyle(color = Color.White)) },
         navigationIcon = {
             IconButton(
                 onClick = {
@@ -54,14 +61,14 @@ fun TopAppBar() {
                 },
                 modifier = Modifier
             ) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.White)
             }
         },
         actions = {
             IconButton(onClick = {
 
             }) {
-                Icon(Icons.Default.Menu, contentDescription = null)
+                Icon(Icons.Default.Menu, contentDescription = null,tint = Color.White)
             }
         }
     )
@@ -83,7 +90,18 @@ fun SelectionElement(
         backgroundColor = MaterialTheme.colors.surface,
         elevation = 4.dp
     ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier
+            .background(
+                brush = Brush.linearGradient(
+                    colors = listOf(
+                        Color(0xFFC8E0C9),
+                        Color(0xFF3CC9BB)
+                    )
+                )
+            )
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center) {
             Text(
                 text = title,
                 modifier = Modifier.padding(
@@ -92,7 +110,7 @@ fun SelectionElement(
                     top = 16.dp,
                     bottom = 4.dp
                 ),
-                style = MaterialTheme.typography.body1
+                style = TextStyle(color = Color.Black, fontSize = 20.sp)
             )
             Text(
                 text = text,

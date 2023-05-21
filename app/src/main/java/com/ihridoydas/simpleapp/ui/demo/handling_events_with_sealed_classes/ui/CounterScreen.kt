@@ -48,7 +48,7 @@ fun CounterScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Bar Code Scan") },
+                title = { Text(text = "Counter App") },
                 navigationIcon = {
                     IconButton(
                         onClick = {
