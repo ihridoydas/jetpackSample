@@ -44,13 +44,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 context = application,
                 gltfFileLocation = application.getResourceUri(R.raw.av_model),
             )!!.instance
-            avMaterialInstance = MaterialLoader.loadMaterial(
+            avMaterialInstance = MaterialLoader.loadMaterialInstance(
                 context = application,
-                lifecycle = dummyLifecycle,
+                //lifecycle = dummyLifecycle,
                 filamatFileLocation = application.getResourceUri(R.raw.av_material)
             )!!
 
-            externalTexture = ExternalTexture(null)
+            dummyLifecycle
+            externalTexture = ExternalTexture()
             avMaterialInstance.setExternalTexture("videoTexture", externalTexture.filamentTexture)
 
             //From Local
@@ -89,8 +90,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 modelRotation = Rotation(x = 180f)
 
                 addChild(ModelNode().apply {
+                    setMaterialInstance(avMaterialInstance)
                     setModelInstance(avModelInstance)
-                    setMaterial(avMaterialInstance)
+                    //setMaterial(avMaterialInstance)
                     setReceiveShadows(false)
                     setCastShadows(false)
                     mediaPlayer.start()
