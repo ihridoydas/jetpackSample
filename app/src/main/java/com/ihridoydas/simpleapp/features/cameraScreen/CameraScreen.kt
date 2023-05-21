@@ -65,7 +65,7 @@ fun CameraScreen(
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "Bar Code Scan") },
+                    title = { Text(text = "Camera View") },
                     navigationIcon = {
                         IconButton(
                             onClick = {

@@ -9,11 +9,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.basicMarquee
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.FloatingActionButton
@@ -21,6 +25,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Switch
 import androidx.compose.material.SwitchDefaults
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.rememberScaffoldState
@@ -30,7 +35,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import com.ihridoydas.simpleapp.R
@@ -38,8 +46,6 @@ import com.ihridoydas.simpleapp.features.composePDF.pdf.HorizontalPdfReaderState
 import com.ihridoydas.simpleapp.features.composePDF.pdf.ResourceType
 import com.ihridoydas.simpleapp.features.composePDF.pdf.VerticalPdfReaderState
 import com.ihridoydas.simpleapp.ui.theme.Green
-import com.ihridoydas.simpleapp.ui.theme.GreenColor
-import com.ihridoydas.simpleapp.ui.theme.GreenVarient
 import com.ihridoydas.simpleapp.ui.theme.Orange
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.responsiveUI.component.aGSL_customLayoutAndGraphics.BackgroundByAGSL
@@ -88,6 +94,7 @@ class PDFActivity : ComponentActivity() {
 
     //---------------------------------------------
 
+    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     fun PDFApp() {
         val scaffoldState = rememberScaffoldState()
@@ -112,27 +119,41 @@ class PDFActivity : ComponentActivity() {
                 }
             }
         ) { padding ->
-            Box(modifier = Modifier.padding(padding)
-                .BackgroundByAGSL(Green, Orange)) {
-                when (val actualState = state.value) {
-                    null -> SelectionView()
-                    is VerticalPdfReaderState -> PDFView(
-                        pdfState = actualState,
-                        scaffoldState = scaffoldState
-                    )
-                    is HorizontalPdfReaderState -> HPDFView(
-                        pdfState = actualState,
-                        scaffoldState = scaffoldState
+            Column(modifier = Modifier
+                .BackgroundByAGSL(Green, Orange)
+                .padding(padding)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center) {
+                Box(modifier = Modifier.align(Alignment.CenterHorizontally,)){
+                    Text(
+                        text = " I love the smell of code in the morning. I could code all day if you let me. I find the thrill of programming one of the most rewarding things in life, and I’m excited to share what I’ve learned so far.",
+                        style= TextStyle(fontSize = 25.sp, color = Color.White),
+                        modifier = Modifier.basicMarquee()
                     )
                 }
+                Box(modifier = Modifier) {
+                    when (val actualState = state.value) {
+                        null -> SelectionView()
+                        is VerticalPdfReaderState -> PDFView(
+                            pdfState = actualState,
+                            scaffoldState = scaffoldState
+                        )
+                        is HorizontalPdfReaderState -> HPDFView(
+                            pdfState = actualState,
+                            scaffoldState = scaffoldState
+                        )
+                    }
+                }
             }
+
         }
 
     }
 
     @Composable
     fun SelectionView() {
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier) {
             SelectionElement(
                 title = "Open Base64",
                 text = "Try to open a base64 pdf"
@@ -164,8 +185,10 @@ class PDFActivity : ComponentActivity() {
             }
             Row(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.End
             ){
                 androidx.compose.material.Text(text = "List view")
                 Spacer(modifier = Modifier.width(16.dp))
