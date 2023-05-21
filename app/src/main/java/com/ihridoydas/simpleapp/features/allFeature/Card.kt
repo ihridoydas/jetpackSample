@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -63,11 +64,11 @@ fun MyCard(color: List<Color>, name: String,navigate: ()-> Unit) {
 
 
 @Composable
-fun MyCardTitle(color: List<Color>, name: String) {
+fun MyCardTitle(color: List<Color>, name: String,width : Dp = 100.dp) {
     Card(
         modifier = Modifier
             .padding(horizontal = 10.dp, vertical = 5.dp)
-            .width(100.dp)
+            .width(width)
             .height(25.dp),
         elevation = CardDefaults.cardElevation(5.dp),
         shape = RoundedCornerShape(5.dp)
