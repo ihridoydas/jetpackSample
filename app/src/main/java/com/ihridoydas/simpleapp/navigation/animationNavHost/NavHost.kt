@@ -47,6 +47,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.pullToRef
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.scratchCardEffect.ScratchCardScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.themePickerAnimations.ThemePickerApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritter.TypeWriterApp
+import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import kotlinx.coroutines.CoroutineScope
 
@@ -249,6 +250,12 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.TypeWriterAnimation.route) {
             TypeWriterApp(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.GalleryTransitionAnimation.route) {
+            GalleryTransition(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }

@@ -376,6 +376,19 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        //Gallery Transition Animation
+        MyCard(
+            color = listOf(
+                Color(0xFF65606F),
+                Color(0xFF32638A)
+            ), name = "Gallery Transition"
+        ){
+            navController?.navigate(ScreenDestinations.GalleryTransitionAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
 
         //Animations End
 

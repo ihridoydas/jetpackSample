@@ -35,6 +35,7 @@ sealed class ScreenDestinations(val route: String) {
     object ScratchCardEffectAnimation : ScreenDestinations("scratch_card_effect_animation_view")
     object ThemePickerAnimation : ScreenDestinations("theme_picker_animation_view")
     object TypeWriterAnimation : ScreenDestinations("type_writer_animation_view")
+    object GalleryTransitionAnimation : ScreenDestinations("gallery_transition_animation_view")
 
 
     //Others
