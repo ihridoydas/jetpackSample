@@ -1,7 +1,7 @@
 # jetpackSample
 
 ### MVVM patterns follow
-### Implement Jetpack BOM
+### updated Implement Jetpack BOM
 ### Importantly Util
 ### Responsive UI
 ### Tap Target View
