@@ -2,7 +2,7 @@
 
 ### MVVM patterns follow
 ### updated Implement Jetpack BOM
-### Importantly Util
+### UseFull Util
 ### Responsive UI
 ### Tap Target View
 ### Navigation With Animation
