@@ -452,6 +452,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFFE91E63),
+                Color(0xFF7C6B71)
+            ), name = "Two Pane layout"
+        ){
+            navController?.navigate(ScreenDestinations.TwoPaneScreen.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
 
         //Others End
 

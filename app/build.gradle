@@ -95,6 +95,9 @@ dependencies {
     implementation 'androidx.compose.foundation:foundation'
     debugImplementation "androidx.compose.ui:ui-tooling"
 
+    //For adaptive Screen (two Pane Sample)
+    implementation "com.google.accompanist:accompanist-adaptive:0.26.3-beta"
+
     //material 3
     implementation "androidx.compose.material3:material3"
     implementation "androidx.compose.material3:material3-window-size-class"
