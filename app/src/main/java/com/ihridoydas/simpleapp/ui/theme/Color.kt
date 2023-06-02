@@ -99,3 +99,8 @@ val GreenExtraDark = Color(0xFF243D44)
 val GreenExtraLight = Color(0xFF2DEA8F)
 val BlueSort = Color(0xFF6356E5)
 val Red = Color(0xFFF83E4B)
+
+//For Two Pane
+val Brown = Color(0xFF442A03)
+val Beige = Color(0xFFBE9962)
+val DarkOrange = Color(0xFFC14B09)

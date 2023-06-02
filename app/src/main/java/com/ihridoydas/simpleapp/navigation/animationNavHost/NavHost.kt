@@ -23,6 +23,7 @@ import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
 import com.ihridoydas.simpleapp.features.sortingVisualizer.ui.screens.VisualScreen
+import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
@@ -286,6 +287,14 @@ fun MainAnimationNavHost(
                 },
                 activity = activity,
                 context = context
+            )
+        }
+
+        screen(ScreenDestinations.TwoPaneScreen.route) {
+            TwoPaneScreen(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            },
+                activity = activity
             )
         }
 
