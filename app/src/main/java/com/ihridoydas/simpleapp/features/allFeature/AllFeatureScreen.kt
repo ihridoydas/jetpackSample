@@ -1,7 +1,6 @@
 package com.ihridoydas.simpleapp.features.allFeature
 
 import android.content.Intent
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -422,6 +421,19 @@ fun AllFeatureScreen(navController: NavController) {
             ), name = "Pick Image"
         ){
             navController?.navigate(ScreenDestinations.PickImageScreen.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
+        MyCard(
+            color = listOf(
+                Color(0xFF3A9280),
+                Color(0xFF773B4F)
+            ), name = "Sorting Algorithm"
+        ){
+            navController?.navigate(ScreenDestinations.SortingVisualizerScreen.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }

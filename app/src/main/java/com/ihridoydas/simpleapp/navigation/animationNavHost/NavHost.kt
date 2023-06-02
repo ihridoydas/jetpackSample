@@ -1,7 +1,6 @@
 package com.ihridoydas.simpleapp.navigation.animationNavHost
 
 import android.os.Build
-import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -10,7 +9,6 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
@@ -21,6 +19,8 @@ import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
+import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
+import com.ihridoydas.simpleapp.features.sortingVisualizer.ui.screens.VisualScreen
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
@@ -28,14 +28,11 @@ import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
 import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBarScreen
-import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabLayoutActivityPreview
 import com.ihridoydas.simpleapp.features.webView.WebBrowser
-import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu.FloatingActionMenu
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel.AutoSlidingCarousel
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.downloadableAnimationCircle.DownLoadableAnimation
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.DragAndDropUseCase
-import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.DynamicIsland
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.DynamicIslandApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.NotSupportScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.explodingAnimationTransition.animation.demoUseCase.ExplodingAnimationTrasition
@@ -268,6 +265,11 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.PickImageScreen.route) {
             PickImageFromMobile(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.SortingVisualizerScreen.route) {
+            SortingVisualizer(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
