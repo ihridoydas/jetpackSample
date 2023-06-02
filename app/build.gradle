@@ -272,6 +272,8 @@ dependencies {
     implementation 'androidx.glance:glance:1.0.0-alpha05'
     implementation "androidx.glance:glance-appwidget:1.0.0-alpha05"
 
+    //location services
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
 
     // Local unit tests
     testImplementation "androidx.test:core:1.5.0"

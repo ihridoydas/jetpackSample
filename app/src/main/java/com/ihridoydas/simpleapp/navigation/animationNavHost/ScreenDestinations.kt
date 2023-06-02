@@ -42,6 +42,7 @@ sealed class ScreenDestinations(val route: String) {
     object TabLayoutScreen : ScreenDestinations("tab_layout_view")
     object PickImageScreen : ScreenDestinations("pick_Image_view")
     object SortingVisualizerScreen : ScreenDestinations("sorting_visual_view")
+    object LocationTrackerScreen : ScreenDestinations("location_tracker_view")
 
 
 }

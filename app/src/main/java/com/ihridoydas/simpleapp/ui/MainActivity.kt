@@ -5,6 +5,7 @@ package com.ihridoydas.simpleapp.ui
  */
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,8 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import androidx.work.BackoffPolicy
@@ -64,6 +67,19 @@ class MainActivity : AppCompatActivity() {
 
         //----------------
 
+        //---------------
+        // For Location Tracker
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            0
+        )
+        //---------------
+
+
 
         if (RootUtil.isDeviceRooted()) {
             Log.e(Tag, "onCreate - Rooted device.")
@@ -85,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                 val windowSizeClass = calculateWindowSizeClass(this)
                 val state = rememberScaffoldState()
                 val coroutineScope = rememberCoroutineScope()
+                val context = LocalContext.current
 
                 MyApp(
                     navController = navController,
@@ -93,7 +110,8 @@ class MainActivity : AppCompatActivity() {
                     state = state,
                     coroutineScope = coroutineScope,
                     startDestination = route,
-                    activity = this@MainActivity
+                    activity = this@MainActivity,
+                    context = context
                 )
 
             }
@@ -131,7 +149,8 @@ class MainActivity : AppCompatActivity() {
         state: ScaffoldState,
         coroutineScope: CoroutineScope,
         startDestination: String,
-        activity: MainActivity
+        activity: MainActivity,
+        context : Context
     ) {
         SimpleAppTheme {
             // A surface container using the 'background' color from the theme
@@ -153,7 +172,8 @@ class MainActivity : AppCompatActivity() {
                             scaffoldState = state,
                             coroutineScope = coroutineScope,
                             startDestination = startDestination,
-                            activity = activity
+                            activity = activity,
+                            context = context
                         )
                     }
                 )

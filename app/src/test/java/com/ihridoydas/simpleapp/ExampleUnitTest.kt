@@ -15,3 +15,6 @@ class ExampleUnitTest {
         assertEquals(4, 2 + 2)
     }
 }
+
+//# For Google Map
+//MAPS_API_KEY=AIzaSyDuDDfCdbCFLKVLZ8Q8bAA7BI24Vg5MltA

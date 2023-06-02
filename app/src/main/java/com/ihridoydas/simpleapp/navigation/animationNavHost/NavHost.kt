@@ -1,5 +1,6 @@
 package com.ihridoydas.simpleapp.navigation.animationNavHost
 
+import android.content.Context
 import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
@@ -16,6 +17,7 @@ import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
+import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
@@ -46,10 +48,12 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.themePick
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritter.TypeWriterApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-@OptIn(ExperimentalAnimationApi::class, ExperimentalFoundationApi::class,
+@OptIn(
+    ExperimentalAnimationApi::class, ExperimentalFoundationApi::class,
     ExperimentalComposeUiApi::class
 )
 @Composable
@@ -60,7 +64,8 @@ fun MainAnimationNavHost(
     coroutineScope: CoroutineScope,
     systemUiController: SystemUiController,
     startDestination: String = ScreenDestinations.StartShowCaseScreen.route,
-    activity: MainActivity
+    activity: MainActivity,
+    context: Context
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -183,11 +188,11 @@ fun MainAnimationNavHost(
         }
 
         screen(ScreenDestinations.DynamicIslandScreen.route) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 DynamicIslandApp(onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 })
-            }else{
+            } else {
                 NotSupportScreen(onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 })
@@ -211,11 +216,11 @@ fun MainAnimationNavHost(
             })
         }
         screen(ScreenDestinations.MetaBallAnimation.route) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 MetaBallAnimationWithViewPager(onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 })
-            }else{
+            } else {
                 NotSupportScreen(onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 })
@@ -274,6 +279,15 @@ fun MainAnimationNavHost(
             })
         }
 
+        screen(ScreenDestinations.LocationTrackerScreen.route) {
+            LocationTracker(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                activity = activity,
+                context = context
+            )
+        }
 
     }
 
