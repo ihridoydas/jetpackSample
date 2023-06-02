@@ -91,3 +91,11 @@ val Blue = Color(0xFF2CADF1)
 val SwatchA = Color(0xFFFFA987)
 val SwatchB = Color(0xFFD85151)
 val SwatchC = Color(0xFFF2DDA4)
+
+
+//For Sorting Visualizer
+val GreenDark = Color(0xFF24B273)
+val GreenExtraDark = Color(0xFF243D44)
+val GreenExtraLight = Color(0xFF2DEA8F)
+val BlueSort = Color(0xFF6356E5)
+val Red = Color(0xFFF83E4B)
