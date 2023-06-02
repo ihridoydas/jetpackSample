@@ -454,8 +454,8 @@ fun AllFeatureScreen(navController: NavController) {
         }
         MyCard(
             color = listOf(
-                Color(0xFFE91E63),
-                Color(0xFF7C6B71)
+                Color(0xFF643747),
+                Color(0xFF948E2C)
             ), name = "Two Pane layout"
         ){
             navController?.navigate(ScreenDestinations.TwoPaneScreen.route) {
