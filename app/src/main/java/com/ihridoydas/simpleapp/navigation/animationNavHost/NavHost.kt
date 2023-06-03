@@ -48,6 +48,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.scratchCa
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.themePickerAnimations.ThemePickerApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritter.TypeWriterApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
+import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
@@ -296,6 +297,12 @@ fun MainAnimationNavHost(
             },
                 activity = activity
             )
+        }
+
+        screen(ScreenDestinations.IlluminationInteractionsScreen.route) {
+            IlluminatingInteractions(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
         }
 
     }
