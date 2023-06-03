@@ -132,3 +132,8 @@ private tailrec fun Context.findActivity(): Activity =
         is ContextWrapper -> this.baseContext.findActivity()
         else -> throw IllegalArgumentException("Could not find activity!")
     }
+
+@Composable
+fun ThemeShadow(
+    useDarkTheme: Boolean = isSystemInDarkTheme(),
+) = if (useDarkTheme) md_theme_dark_shadow else md_theme_light_shadow

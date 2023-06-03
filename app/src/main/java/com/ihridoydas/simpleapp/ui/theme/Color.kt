@@ -1,6 +1,8 @@
 package com.ihridoydas.simpleapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+
 
 val Primary40 = Color(0xFF00cc99) //Primary
 val Secondary40 = Color(0xFF002d30) //Secondary
@@ -104,3 +106,21 @@ val Red = Color(0xFFF83E4B)
 val Brown = Color(0xFF442A03)
 val Beige = Color(0xFFBE9962)
 val DarkOrange = Color(0xFFC14B09)
+
+//=-------------------
+//For Composible Sheep
+object SheepColor {
+    val Gray = Color(0xFFCCCCCC)
+    val Blue = Color(0xFF1976D2)
+    val Green = Color(0xFF3DDC84)
+    val DarkGreen = Color(0xFF24804D)
+    val Black = Color(0xFF191B1B)
+    val Purple = Color(0xFF6200EA)
+    val Magenta = Color(0xFFC51162)
+    val Orange = Color(0xFFFF9800)
+    val Red = Color(0xFFFF0000)
+    val Eye = Color(0xFFE69B43)
+    val Skin = Color(0xFF444444)
+    val Fluff = Color(0xFFCCCCCC)
+}
+//=-------------------

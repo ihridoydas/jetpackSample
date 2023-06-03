@@ -36,6 +36,8 @@ sealed class ScreenDestinations(val route: String) {
     object ThemePickerAnimation : ScreenDestinations("theme_picker_animation_view")
     object TypeWriterAnimation : ScreenDestinations("type_writer_animation_view")
     object GalleryTransitionAnimation : ScreenDestinations("gallery_transition_animation_view")
+    object MainSheepAnimation : ScreenDestinations("main_Sheep_animation_view")
+    object SheepCanvasAnimation : ScreenDestinations("sheep_canvas_animation_view")
 
 
     //Others

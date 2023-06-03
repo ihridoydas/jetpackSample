@@ -17,6 +17,8 @@ import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
+import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
+import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepCanvas
 import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
@@ -260,6 +262,17 @@ fun MainAnimationNavHost(
 
         screen(ScreenDestinations.GalleryTransitionAnimation.route) {
             GalleryTransition(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.MainSheepAnimation.route) {
+            MainSheepAnimation(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+
+        screen(ScreenDestinations.SheepCanvasAnimation.route) {
+            MainSheepCanvas(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
