@@ -465,6 +465,19 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        MyCard(
+            color = listOf(
+                Color(0xFF275E29),
+                Color(0xFF9C27B0)
+            ), name = "Illumination Interactions"
+        ){
+            navController?.navigate(ScreenDestinations.IlluminationInteractionsScreen.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Others End
 
     }
