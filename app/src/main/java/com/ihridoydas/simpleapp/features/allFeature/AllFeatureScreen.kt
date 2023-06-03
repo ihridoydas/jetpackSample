@@ -389,6 +389,33 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        //Simple Sheep animation
+        MyCard(
+            color = listOf(
+                Color(0xFF17A598),
+                Color(0xFF32638A)
+            ), name = "Sheep Animations"
+        ){
+            navController?.navigate(ScreenDestinations.MainSheepAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+        // Sheep Canvas
+        MyCard(
+            color = listOf(
+                Color(0xFF459648),
+                Color(0xFFEBEECD)
+            ), name = "Sheep Canvas"
+        ){
+            navController?.navigate(ScreenDestinations.SheepCanvasAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Animations End
 
         //Others Start
