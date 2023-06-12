@@ -5,6 +5,7 @@ sealed class ScreenDestinations(val route: String) {
     //AR start
     object AugmentedImageARScreen : ScreenDestinations("augmented_image_ar_screen")
     object AugmentedModelView : ScreenDestinations("augmented_model_view_screen")
+    object AugmentedPlacementView : ScreenDestinations("augmented_placement_view_screen")
     //AR End
 
 
