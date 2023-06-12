@@ -39,6 +39,19 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        //Augmented Placement
+        MyCard(
+            color = listOf(
+                Color(0xFF1F746C),
+                Color(0xFFCFC0B2)
+            ), name = "Augmented Placement"
+        ){
+            navController?.navigate(ScreenDestinations.AugmentedPlacementView.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
 
         //Augmented Model View
         MyCard(
