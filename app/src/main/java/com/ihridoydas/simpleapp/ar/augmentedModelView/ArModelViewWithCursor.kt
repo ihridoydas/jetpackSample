@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.google.android.filament.utils.HDRLoader
 import com.google.ar.core.Config
+import com.google.ar.core.Config.LightEstimationMode
 import com.ihridoydas.simpleapp.ar.augmentedImage.setupAvConfigurations
 import com.ihridoydas.simpleapp.ar.augmentedImage.setupTrackingFailureChanged
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
@@ -33,7 +34,6 @@ import com.ihridoydas.simpleapp.util.constants.serverUrl
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.NotSupportScreen
 import io.github.sceneview.ar.ARScene
 import io.github.sceneview.ar.ArSceneView
-import io.github.sceneview.ar.arcore.LightEstimationMode
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.ArNode
 import io.github.sceneview.ar.node.CursorNode
@@ -192,18 +192,6 @@ fun ARModelView(activity: Activity,navController:NavHostController) {
                     }, modifier = Modifier) {
                         Text(text = "ENVIRONMENTAL_HDR")
                     }
-                    Button(onClick = {
-                        lightEstimate(sceneView, mode = LightEstimationMode.ENVIRONMENTAL_HDR_FAKE_REFLECTIONS)
-                    }, modifier = Modifier) {
-                        Text(text = "ENVIRONMENTAL_HDR_FAKE_REFLECTIONS")
-                    }
-                    Button(onClick = {
-
-                        lightEstimate(sceneView, mode = LightEstimationMode.ENVIRONMENTAL_HDR_NO_REFLECTIONS)
-                    }, modifier = Modifier) {
-                        Text(text = "ENVIRONMENTAL_HDR_NO_REFLECTIONS")
-                    }
-
                     Button(onClick = {
                         lightEstimate(sceneView, mode = LightEstimationMode.AMBIENT_INTENSITY)
                     }, modifier = Modifier) {
