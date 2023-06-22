@@ -22,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,7 +47,6 @@ import com.ihridoydas.simpleapp.navigation.animationNavHost.navigateTo
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dynamicIsland.NotSupportScreen
 import io.github.sceneview.ar.ARScene
 import io.github.sceneview.ar.ArSceneView
-import io.github.sceneview.ar.arcore.LightEstimationMode
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.ArNode
 import io.github.sceneview.ar.node.CursorNode
@@ -65,11 +65,13 @@ fun PlacementView(onBackPress:()->Unit,activity: Activity,navController:NavHostC
 
     lateinit var arModelNode: ArModelNode
     lateinit var cursorNode: CursorNode
+    lateinit var sceneView: ArSceneView
+
 
     //Context
     val context= LocalContext.current
     //Global AR Screen View
-    var sceneView  = remember { ArSceneView(context) }
+     sceneView  = remember { ArSceneView(context) }
 
     //Coroutine State
     val scope = rememberCoroutineScope()
@@ -188,42 +190,19 @@ fun PlacementView(onBackPress:()->Unit,activity: Activity,navController:NavHostC
                         verticalAlignment = Alignment.Bottom
                     ) {
                         Button(onClick = {
-                            lightEstimate(sceneView, mode = LightEstimationMode.ENVIRONMENTAL_HDR)
+                            arModelNode.apply {
+                                arModelNode.anchor()
+                                arModelNode.detachAnchor()
+                                arModelNode.takeIf { !it.isAnchored }?.let {
+                                    sceneView.removeChild(it)
+                                    it.destroy()
+                                }
+                            }
                         }, modifier = Modifier) {
-                            Text(text = "ENVIRONMENTAL_HDR")
-                        }
-                        Button(onClick = {
-                            lightEstimate(sceneView, mode = LightEstimationMode.ENVIRONMENTAL_HDR_FAKE_REFLECTIONS)
-                        }, modifier = Modifier) {
-                            Text(text = "ENVIRONMENTAL_HDR_FAKE_REFLECTIONS")
-                        }
-                        Button(onClick = {
-
-                            lightEstimate(sceneView, mode = LightEstimationMode.ENVIRONMENTAL_HDR_NO_REFLECTIONS)
-                        }, modifier = Modifier) {
-                            Text(text = "ENVIRONMENTAL_HDR_NO_REFLECTIONS")
-                        }
-
-                        Button(onClick = {
-                            lightEstimate(sceneView, mode = LightEstimationMode.AMBIENT_INTENSITY)
-                        }, modifier = Modifier) {
-                            Text(text = "AMBIENT_INTENSITY")
-                        }
-                        Button(onClick = {
-                            lightEstimate(sceneView, mode = LightEstimationMode.DISABLED)
-                        }, modifier = Modifier) {
-                            Text(text = "DISABLED")
-                        }
-                        Button(onClick = {
-
-                            //cursorNode.createAnchor()?.let { anchorOrMove(anchor = it, arModelNode = arModelNode, arSceneView = arSceneView) }
-                        }, modifier = Modifier) {
-                            Text(text = "Set Anchor")
+                            Text(text = "Reset")
                         }
                     }
                 }
-
-
             }
         }
     )

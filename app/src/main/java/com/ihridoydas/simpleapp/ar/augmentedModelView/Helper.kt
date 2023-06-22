@@ -6,9 +6,9 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.google.ar.core.Anchor
+import com.google.ar.core.Config
 import com.ihridoydas.simpleapp.ui.MainActivity
 import io.github.sceneview.ar.ArSceneView
-import io.github.sceneview.ar.arcore.LightEstimationMode
 import io.github.sceneview.ar.node.ArModelNode
 import java.util.Objects
 
@@ -19,7 +19,7 @@ fun anchorOrMove(anchor: Anchor, arModelNode: ArModelNode, arSceneView: ArSceneV
     arModelNode.anchor = anchor
 }
 
-fun lightEstimate(arSceneView: ArSceneView, mode: LightEstimationMode){
+fun lightEstimate(arSceneView: ArSceneView, mode: Config.LightEstimationMode){
     arSceneView.lightEstimationMode = mode
 }
 
