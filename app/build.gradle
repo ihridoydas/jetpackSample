@@ -70,7 +70,7 @@ dependencies {
     //現在の	Compatible Kotlin Version 1.8.21
 
     // Import the Compose BOM
-    def composeBOM_version = "2023.05.01"
+    def composeBOM_version = "2023.06.01"
     def composeBOM = platform("androidx.compose:compose-bom:$composeBOM_version")
     implementation composeBOM
     testImplementation composeBOM
@@ -265,7 +265,7 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer:2.18.6")
 
     //Ar Core
-    implementation 'com.google.ar:core:1.37.0'
+    implementation 'com.google.ar:core:1.38.0'
     //SceneView
     // 3D and ARCore
     implementation 'io.github.sceneview:arsceneview:0.9.10'
