@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
+import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.polyWaveShape.PolygonImageComposable
 
 @Composable
 fun TicketComposable(modifier: Modifier) {
@@ -104,6 +105,10 @@ fun UseCase() {
             TicketComposable(modifier = Modifier)
             Spacer(modifier = Modifier.height(10.dp))
             SimpleTicketComposable(modifier = Modifier)
+            Spacer(modifier = Modifier.height(10.dp))
+            PolygonImageComposable(modifier = Modifier)
+            Spacer(modifier = Modifier.height(10.dp))
+            TicketWaveComposable(modifier = Modifier)
         }
 
     }

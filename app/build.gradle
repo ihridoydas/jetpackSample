@@ -64,6 +64,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.media3:media3-effect:1.1.0'
+
     //Updated 2023/7/01
     //現在の Compose Version　1.4.3
     //現在の Compose Compiler Version 1.4.7
