@@ -31,7 +31,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.Al
 val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
-    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape")
+    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation")
 
 @Composable
 fun AnimationTabsContent(pagerState: PagerState) {
@@ -60,6 +60,7 @@ fun AnimationTabsContent(pagerState: PagerState) {
                 14 -> WavesAnimation()
                 15 -> WavesTimerAnimation()
                 16 -> AllShape()
+                17 -> UndoRedoAnimation()
 
             }
 
