@@ -23,13 +23,15 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.waveTimerAnimation.WavesTimerAnimation
+import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.AllShape
 
 
 //List of Screen
 val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
-    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation",)
+    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape")
 
 @Composable
 fun AnimationTabsContent(pagerState: PagerState) {
@@ -56,6 +58,8 @@ fun AnimationTabsContent(pagerState: PagerState) {
                 12 -> ThreeBounceAnimation()
                 13 -> TwinCircleAnimation()
                 14 -> WavesAnimation()
+                15 -> WavesTimerAnimation()
+                16 -> AllShape()
 
             }
 
