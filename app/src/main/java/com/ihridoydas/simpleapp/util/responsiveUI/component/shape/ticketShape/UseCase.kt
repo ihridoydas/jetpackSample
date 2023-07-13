@@ -99,7 +99,7 @@ fun SimpleTicketComposable(modifier: Modifier) {
 
 @Preview
 @Composable
-fun UseCase() {
+fun AllShape() {
     SimpleAppTheme {
         Column(modifier= Modifier.fillMaxSize(),Arrangement.Center,Alignment.CenterHorizontally) {
             TicketComposable(modifier = Modifier)

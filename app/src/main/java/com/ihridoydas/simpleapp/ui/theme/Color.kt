@@ -78,6 +78,9 @@ val md_theme_dark_scrim = Color(0xFF000000)
 
 val seed = Color(0xFF00CC99)
 
+val AndroidBlueColor = Color(0xff9bbed3)
+val AndroidBlueDarkerColor = Color(0xff073042)
+
 //Others
 val GreenColor = Color(0xFF4CAF50)
 val GreenVarient = Color(0xFFB3D5B3)
