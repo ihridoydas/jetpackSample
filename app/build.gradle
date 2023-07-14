@@ -11,7 +11,7 @@ plugins {
     id 'shot'
     //for Google Map
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
-    id 'org.jetbrains.dokka' version '1.8.20'
+    id 'org.jetbrains.dokka' version "$dokka_version"
 }
 
 //Product Flavors 「App Config」
@@ -19,12 +19,12 @@ apply from: 'env.gradle'
 
 android {
     namespace 'com.ihridoydas.simpleapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.ihridoydas.simpleapp"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
