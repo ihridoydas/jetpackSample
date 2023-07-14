@@ -66,6 +66,12 @@ android {
         outputDirectory.set(file("$rootDir/docs"))    // docsディレクトリにドキュメントを出力する
         //./gradlew dokkaHtml
         //./gradlew dokkaJavadoc
+        dokkaSourceSets {
+            configureEach {
+                // Moduleやパッケージに対するドキュメントを作成する際に指定する
+                includes.from("$rootDir/docs/ModuleDoc.md", "$rootDir/docs/PackageDoc.md")
+            }
+        }
     }
 }
 
