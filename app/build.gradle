@@ -11,6 +11,7 @@ plugins {
     id 'shot'
     //for Google Map
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'org.jetbrains.dokka' version "$dokka_version"
 }
 
 //Product Flavors 「App Config」
@@ -18,12 +19,12 @@ apply from: 'env.gradle'
 
 android {
     namespace 'com.ihridoydas.simpleapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.ihridoydas.simpleapp"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -59,6 +60,17 @@ android {
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    dokkaHtml.configure {
+        outputDirectory.set(file("$rootDir/docs"))    // docsディレクトリにドキュメントを出力する
+        //./gradlew dokkaHtml
+        //./gradlew dokkaJavadoc
+        dokkaSourceSets {
+            configureEach {
+                // Moduleやパッケージに対するドキュメントを作成する際に指定する
+                includes.from("$rootDir/docs/ModuleDoc.md", "$rootDir/docs/PackageDoc.md")
+            }
         }
     }
 }
