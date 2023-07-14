@@ -62,6 +62,11 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    dokkaHtml.configure {
+        outputDirectory.set(file("$rootDir/docs"))    // docsディレクトリにドキュメントを出力する
+        //./gradlew dokkaHtml
+        //./gradlew dokkaJavadoc
+    }
 }
 
 dependencies {
