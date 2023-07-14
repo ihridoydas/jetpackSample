@@ -11,6 +11,7 @@ plugins {
     id 'shot'
     //for Google Map
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'org.jetbrains.dokka' version '1.8.20'
 }
 
 //Product Flavors 「App Config」
