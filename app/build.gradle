@@ -76,9 +76,6 @@ android {
 }
 
 dependencies {
-    implementation platform('androidx.compose:compose-bom:2022.10.00')
-    implementation 'com.google.android.material:material:1.5.0'
-    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
 
     //Updated 2023/7/01
     //現在の Compose Version　1.4.3
