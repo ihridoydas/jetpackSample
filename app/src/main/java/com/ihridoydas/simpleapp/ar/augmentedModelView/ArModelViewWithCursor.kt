@@ -134,7 +134,7 @@ fun ARModelView(activity: Activity,navController:NavHostController) {
 //                arSceneView.addChild(arModelNode!!)
 
 
-                    cursorNode = CursorNode().apply {
+                    cursorNode = CursorNode(sceneView.engine).apply {
                         onHitResult = { node, _ ->
                             !node.isTracking
                         }
@@ -142,6 +142,7 @@ fun ARModelView(activity: Activity,navController:NavHostController) {
                     arSceneView.addChild(cursorNode)
 
                     arModelNode = ArModelNode(
+                        sceneView.engine,
                         modelGlbFileLocation = "models/spiderbot.glb",
                         onLoaded = { modelInstance ->
 

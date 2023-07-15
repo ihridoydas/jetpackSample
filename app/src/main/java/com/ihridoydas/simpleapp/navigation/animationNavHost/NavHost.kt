@@ -109,6 +109,7 @@ fun MainAnimationNavHost(
         //AR Start
         screen(ScreenDestinations.AugmentedImageARScreen.route) {
             AugmentedImageARScreen(
+                activity = activity,
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }

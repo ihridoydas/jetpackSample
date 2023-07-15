@@ -61,6 +61,7 @@
     <string name="sceneview_camera_unavailable_message">別のアプリがカメラを使用しています。\nこのアプリをタップするか、他のアプリを閉じてみてください。</string>
     <string name="sceneview_unknown_tracking_failure">不明な追跡失敗の理由: %1$s</string>
     <string name="sceneview_camera_permission_required">カメラの許可が必要です</string>
+    <string name="title_activity_video_aractivity">VideoARActivity</string>
 
 
 
