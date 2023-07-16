@@ -77,7 +77,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             .firstOrNull { it.isTracking } ?: return
 
         _node.update {
-            ArNode().apply {
+            ArNode(it!!.engine).apply {
                 applyPoseRotation = true
                 anchor = trackedAugmentedImage.let {
                     it.createAnchor(it.centerPose)
@@ -89,7 +89,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 )
                 modelRotation = Rotation(x = 180f)
 
-                addChild(ModelNode().apply {
+                addChild(ModelNode(it.engine).apply {
                     setMaterialInstance(avMaterialInstance)
                     setModelInstance(avModelInstance)
                     //setMaterial(avMaterialInstance)

@@ -10,6 +10,7 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
@@ -54,6 +55,8 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import dagger.hilt.android.qualifiers.ApplicationContext
+import io.github.sceneview.ar.ArSceneView
+import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -70,7 +73,10 @@ fun MainAnimationNavHost(
     systemUiController: SystemUiController,
     startDestination: String = ScreenDestinations.StartShowCaseScreen.route,
     activity: MainActivity,
-    context: Context
+    context: Context,
+    videoNode: VideoNode,
+    lifecycleScope: LifecycleCoroutineScope,
+    sceneView: ArSceneView
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -109,6 +115,9 @@ fun MainAnimationNavHost(
         //AR Start
         screen(ScreenDestinations.AugmentedImageARScreen.route) {
             AugmentedImageARScreen(
+                videoNode,
+                lifecycleScope,
+                sceneView,
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }

@@ -6,6 +6,9 @@ package com.ihridoydas.simpleapp.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -21,11 +24,15 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.work.BackoffPolicy
 import androidx.work.OneTimeWorkRequestBuilder
@@ -39,11 +46,21 @@ import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.common.RootUtil
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.sceneview.ar.ARScene
+import io.github.sceneview.ar.ArSceneView
+import io.github.sceneview.ar.node.ArNode
+import io.github.sceneview.ar.node.AugmentedImageNode
+import io.github.sceneview.math.Position
+import io.github.sceneview.math.Rotation
+import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
 import java.time.Duration
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var videoNode :VideoNode
+    private lateinit var sceneView: ArSceneView
     companion object {
         private val Tag = MainActivity::class.java.simpleName
     }
@@ -111,12 +128,22 @@ class MainActivity : AppCompatActivity() {
                     coroutineScope = coroutineScope,
                     startDestination = route,
                     activity = this@MainActivity,
-                    context = context
+                    context = context,
+                    videoNode = VideoNode(ArSceneView(applicationContext).engine, player = MediaPlayer()),
+                    lifecycleScope = lifecycleScope,
+                    sceneView = ArSceneView(applicationContext),
+
                 )
 
             }
         }
 
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        videoNode.player.stop()
     }
 
     private var pressedTime: Long = 0
@@ -150,7 +177,10 @@ class MainActivity : AppCompatActivity() {
         coroutineScope: CoroutineScope,
         startDestination: String,
         activity: MainActivity,
-        context : Context
+        context : Context,
+        videoNode: VideoNode,
+        lifecycleScope: LifecycleCoroutineScope,
+        sceneView: ArSceneView
     ) {
         SimpleAppTheme {
             // A surface container using the 'background' color from the theme
@@ -173,7 +203,11 @@ class MainActivity : AppCompatActivity() {
                             coroutineScope = coroutineScope,
                             startDestination = startDestination,
                             activity = activity,
-                            context = context
+                            context = context,
+                            videoNode = videoNode,
+                            lifecycleScope = lifecycleScope,
+                            sceneView = sceneView
+
                         )
                     }
                 )

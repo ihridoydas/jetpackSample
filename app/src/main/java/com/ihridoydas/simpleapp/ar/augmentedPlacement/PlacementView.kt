@@ -140,7 +140,7 @@ fun PlacementView(onBackPress:()->Unit,activity: Activity,navController:NavHostC
                         }
 
                         arModelNode =
-                            ArModelNode(placementMode = PlacementMode.BEST_AVAILABLE).apply {
+                            ArModelNode(sceneView.engine,placementMode = PlacementMode.BEST_AVAILABLE).apply {
 
                                 loadModelGlbAsync(
                                     glbFileLocation = "sceneview/models/cursor.glb",
