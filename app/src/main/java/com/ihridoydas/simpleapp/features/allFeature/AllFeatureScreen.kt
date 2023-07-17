@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.ihridoydas.simpleapp.ar.viewXMLVideoModel.VideoARActivity
 import com.ihridoydas.simpleapp.features.composePDF.pdfUseCase.PDFActivity
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 
@@ -21,16 +22,25 @@ fun AllFeatureScreen(navController: NavController) {
         //AR Start
         MyCardTitle(
             color = listOf(
-                Color(0xFF83B685),
+                Color(0xFF2196F3),
                 Color(0xFF662DCC)
             ), name = "Augmented Reality",
             width = 150.dp
         )
+        //Augmented Video
+        MyCard(
+            color = listOf(
+                Color(0xFF673AB7),
+                Color(0xFFCFC0B2)
+            ), name = "Augmented Video"
+        ){
+            context.startActivity(Intent(context, VideoARActivity::class.java))
+        }
         //Augmented Image
         MyCard(
             color = listOf(
-                Color(0xFF1F746C),
-                Color(0xFFCFC0B2)
+                Color(0xFF4CAF50),
+                Color(0xFF03A9F4)
             ), name = "Augmented Image"
         ){
             navController?.navigate(ScreenDestinations.AugmentedImageARScreen.route) {

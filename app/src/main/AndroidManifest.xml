@@ -33,7 +33,7 @@
 
     <application
         android:name=".BaseApp"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/ic_launcher"
@@ -80,6 +80,11 @@
             android:exported="false"
             android:label="@string/title_activity_pdfactivity"
             android:theme="@style/Theme.SimpleApp" />
+        <activity
+            android:name=".ar.viewXMLVideoModel.VideoARActivity"
+            android:exported="false"
+            android:label="@string/title_activity_video_aractivity"
+            android:theme="@style/Theme.SimpleApp"/>
         <activity
             android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
             android:label="InstrumentationActivityInvoker$BootstrapActivity" /> <!-- For MLKit -->
