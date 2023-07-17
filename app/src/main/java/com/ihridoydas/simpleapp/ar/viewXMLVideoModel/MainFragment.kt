@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ihridoydas.simpleapp.R
 import io.github.sceneview.ar.ArSceneView
@@ -41,13 +40,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         sceneView.addChild(AugmentedImageNode(
             engine = sceneView.engine,
             imageName = "qrcode",
-            bitmap = requireContext().assets.open("augmentedimages/augmented-images-earth.jpg")
+            bitmap = requireContext().assets.open("augmentedimages/sakura.jpeg")
                 .use(BitmapFactory::decodeStream),
             onUpdate = { node, _ ->
                 if (!videoNode.player.isPlaying) {
-                    videoNode.player.start()
-                }
-
+                        videoNode.player.start()
+                    }
+//
 //                if (node.isTracking) {
 //                    if (!videoNode.player.isPlaying) {
 //                        videoNode.player.start()
@@ -70,8 +69,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     setOnPreparedListener {
                         if ((videoNode.parent as? AugmentedImageNode)?.isTracking == true) {
                             start()
-                        } else {
-                            Toast.makeText(context, "Loading..", Toast.LENGTH_LONG).show()
                         }
                     }
                     onTap = { _, _ ->
@@ -88,16 +85,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     prepareAsync()
                 },
                 autoAnimate = true,
+                scaleToUnits = 0.2f,
                 glbFileLocation = "models/16_9.glb",
                 scaleToVideoRatio = false,
-                centerOrigin = Position(y = 1.4f)
+                centerOrigin = Position(y = 2.0f)
             )
             addChild(videoNode)
         })
     }
-
     override fun onDestroy() {
         super.onDestroy()
         videoNode.player.stop()
     }
+//    override fun onPause() {
+//        super.onPause()
+//        videoNode.player.pause()
+//    }
 }
