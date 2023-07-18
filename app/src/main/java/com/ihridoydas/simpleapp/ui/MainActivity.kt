@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //----------------
-        //For Work Manager Practice
+        //For Work Manager
         val workRequest = OneTimeWorkRequestBuilder<CustomWorker>()
             .setInitialDelay(Duration.ofSeconds(10))
             .setBackoffCriteria(
