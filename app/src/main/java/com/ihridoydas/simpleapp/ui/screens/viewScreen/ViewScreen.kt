@@ -89,7 +89,7 @@ fun ViewScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Simple App") },
+                title = { Text(text = "Simple App Demo") },
                 navigationIcon = {
                     IconButton(
                         onClick = {
