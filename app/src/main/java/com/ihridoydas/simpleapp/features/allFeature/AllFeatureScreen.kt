@@ -30,6 +30,18 @@ fun AllFeatureScreen(navController: NavController) {
         //Augmented Video
         MyCard(
             color = listOf(
+                Color(0xFF9D17A3),
+                Color(0xFF34B839)
+            ), name = "AR Menu"
+        ){
+            navController?.navigate(ScreenDestinations.ARMenuScreen.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
+        MyCard(
+            color = listOf(
                 Color(0xFF673AB7),
                 Color(0xFFCFC0B2)
             ), name = "Augmented Video"
