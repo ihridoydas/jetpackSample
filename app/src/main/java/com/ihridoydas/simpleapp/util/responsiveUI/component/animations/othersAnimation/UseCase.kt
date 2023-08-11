@@ -24,6 +24,8 @@ import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.waveTimerAnimation.WavesTimerAnimation
+import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicator
+import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicatorScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.AllShape
 
 
@@ -31,7 +33,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.Al
 val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
-    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation")
+    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator")
 
 @Composable
 fun AnimationTabsContent(pagerState: PagerState) {
@@ -61,6 +63,7 @@ fun AnimationTabsContent(pagerState: PagerState) {
                 15 -> WavesTimerAnimation()
                 16 -> AllShape()
                 17 -> UndoRedoAnimation()
+                18 -> ScribbleIndicator()
 
             }
 

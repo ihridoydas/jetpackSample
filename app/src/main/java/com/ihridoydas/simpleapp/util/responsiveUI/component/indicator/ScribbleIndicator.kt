@@ -44,6 +44,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.google.accompanist.pager.PagerState
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -68,7 +69,7 @@ fun ScribbleIndicator() {
 
         val progressFromFirstPage by remember {
             derivedStateOf {
-                pagerState.currentPageOffsetFraction
+                pagerState.currentPageOffsetFraction + pagerState.currentPage
             }
         }
 
@@ -329,7 +330,7 @@ val list = listOf(
 @Composable
 fun ScribbleIndicatorScreen() {
     SimpleAppTheme {
-        //Not Work Properly [https://www.sinasamaki.com/custom-tabrow-indicator-in-jetpack-compose/]
+        //If it Not Work Properly [https://www.sinasamaki.com/custom-tabrow-indicator-in-jetpack-compose/]
         ScribbleIndicator()
     }
 
