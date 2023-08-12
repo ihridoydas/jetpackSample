@@ -127,3 +127,5 @@ object SheepColor {
     val Fluff = Color(0xFFCCCCCC)
 }
 //=-------------------
+
+val Translucent = Color(0x9E1F1F1F)

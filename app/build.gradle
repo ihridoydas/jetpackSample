@@ -281,7 +281,7 @@ dependencies {
     implementation 'com.google.ar:core:1.38.0'
     //SceneView
     // 3D and ARCore(need upgrade)
-    implementation 'io.github.sceneview:arsceneview:0.10.0'
+    implementation 'io.github.sceneview:arsceneview:0.10.1'
     //For Model viewer
     //implementation "io.github.sceneview:sceneview:1.0.7"
 
