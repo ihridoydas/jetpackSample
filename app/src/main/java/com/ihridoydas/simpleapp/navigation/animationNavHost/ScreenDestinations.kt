@@ -49,6 +49,7 @@ sealed class ScreenDestinations(val route: String) {
     object LocationTrackerScreen : ScreenDestinations("location_tracker_view")
     object TwoPaneScreen : ScreenDestinations("two_pane_view")
     object IlluminationInteractionsScreen : ScreenDestinations("illumination_interactions_view")
+    object BottomSheetsAndPager : ScreenDestinations("bottom_sheets_and_pager")
 
 
 }

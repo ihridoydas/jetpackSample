@@ -540,6 +540,19 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        MyCard(
+            color = listOf(
+                Color(0xFFD1B9C1),
+                Color(0xFF2D1C30)
+            ), name = "Bottom Sheets and Pager"
+        ){
+            navController?.navigate(ScreenDestinations.BottomSheetsAndPager.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Others End
 
     }
