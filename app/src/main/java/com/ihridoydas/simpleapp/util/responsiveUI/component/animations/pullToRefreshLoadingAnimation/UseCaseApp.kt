@@ -31,11 +31,13 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
+import com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.DraggableMenu
+import com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.DraggableMenuUse
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 //List of Screen
-val list = listOf("CustomPull", "FancyPull")
+val list = listOf("CustomPull", "FancyPull","DraggableMenu")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -50,6 +52,7 @@ fun PullToRefreshAnimationTabsContent(pagerState: PagerState) {
             when (page) {
                 0 -> CustomPullRefresh()
                 1 -> FancyPullToRefresh()
+                2 -> DraggableMenuUse()
             }
 
         }
