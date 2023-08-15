@@ -3,6 +3,7 @@ package com.ihridoydas.simpleapp.navigation.animationNavHost
 import android.content.Context
 import android.os.Build
 import androidx.activity.compose.BackHandler
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -10,10 +11,18 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LifecycleCoroutineScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionScreen
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionViewModel
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnScreen
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnViewModel
 import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
@@ -37,6 +46,7 @@ import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
 import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBarScreen
 import com.ihridoydas.simpleapp.features.webView.WebBrowser
+import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu.FloatingActionMenu
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel.AutoSlidingCarousel
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.downloadableAnimationCircle.DownLoadableAnimation
@@ -76,7 +86,10 @@ fun MainAnimationNavHost(
     context: Context,
     videoNode: VideoNode,
     lifecycleScope: LifecycleCoroutineScope,
-    sceneView: ArSceneView
+    sceneView: ArSceneView,
+    productId: Int,
+    productViewModel: ProductDescriptionViewModel,
+    virtualTryOnViewModel : VirtualTryOnViewModel
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -150,6 +163,30 @@ fun MainAnimationNavHost(
                 navController = navController
             )
         }
+        screen(ScreenDestinations.ArEcommerceHome.route) {
+            ProductDescriptionScreen(
+                productId = productId,
+                navController = navController,
+                productViewModel = productViewModel,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.ArEcommerceProductId.route,
+            arguments = listOf(navArgument("productId") {
+                type = NavType.StringType
+            })
+        ) {
+            val productIdArg = it.arguments?.getString("productId")
+            VirtualTryOnScreen(productIdArg?.toInt() ?: 0, virtualTryOnViewModel,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ArEcommerceHome.route)
+                }
+            )
+
+        }
+
         //AR End
 
         screen(ScreenDestinations.WebViewScreen.route) {

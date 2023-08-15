@@ -40,6 +40,8 @@ import androidx.work.WorkManager
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionViewModel
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnViewModel
 import com.ihridoydas.simpleapp.features.workManager.CustomWorker
 import com.ihridoydas.simpleapp.navigation.animationNavHost.MainAnimationNavHost
 import com.ihridoydas.simpleapp.ui.screens.startScreen.SplashViewModel
@@ -65,6 +67,10 @@ class MainActivity : AppCompatActivity() {
         private val Tag = MainActivity::class.java.simpleName
     }
     private val splashViewModel: SplashViewModel by viewModels()
+
+    // Ideally these are injected through dependency injection
+    val virtualTryOnViewModel by viewModels<VirtualTryOnViewModel>()
+    val productViewModel by viewModels<ProductDescriptionViewModel>()
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class, ExperimentalAnimationApi::class)
@@ -119,6 +125,7 @@ class MainActivity : AppCompatActivity() {
                 val state = rememberScaffoldState()
                 val coroutineScope = rememberCoroutineScope()
                 val context = LocalContext.current
+                val productId = 1
 
                 MyApp(
                     navController = navController,
@@ -132,6 +139,9 @@ class MainActivity : AppCompatActivity() {
                     videoNode = VideoNode(ArSceneView(applicationContext).engine, player = MediaPlayer()),
                     lifecycleScope = lifecycleScope,
                     sceneView = ArSceneView(applicationContext),
+                    productId = productId,
+                    productViewModel = productViewModel,
+                    virtualTryOnViewModel = virtualTryOnViewModel
 
                 )
 
@@ -180,7 +190,10 @@ class MainActivity : AppCompatActivity() {
         context : Context,
         videoNode: VideoNode,
         lifecycleScope: LifecycleCoroutineScope,
-        sceneView: ArSceneView
+        sceneView: ArSceneView,
+        productId: Int,
+        productViewModel: ProductDescriptionViewModel,
+        virtualTryOnViewModel : VirtualTryOnViewModel
     ) {
         SimpleAppTheme {
             // A surface container using the 'background' color from the theme
@@ -206,7 +219,11 @@ class MainActivity : AppCompatActivity() {
                             context = context,
                             videoNode = videoNode,
                             lifecycleScope = lifecycleScope,
-                            sceneView = sceneView
+                            sceneView = sceneView,
+                            productId = productId,
+                            productViewModel = productViewModel,
+                            virtualTryOnViewModel = virtualTryOnViewModel
+
 
                         )
                     }
