@@ -50,6 +50,7 @@ sealed class ScreenDestinations(val route: String) {
     object TwoPaneScreen : ScreenDestinations("two_pane_view")
     object IlluminationInteractionsScreen : ScreenDestinations("illumination_interactions_view")
     object ComposeImpressionTracker : ScreenDestinations("compose_impression_tracker")
+    object TimeLineCompose : ScreenDestinations("time_line_compose")
 
 
 }

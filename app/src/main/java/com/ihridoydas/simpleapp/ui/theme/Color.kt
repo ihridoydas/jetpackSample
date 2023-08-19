@@ -128,4 +128,15 @@ object SheepColor {
 }
 //=-------------------
 
+//For TimeLine Compose Feature
+val Gray200: Color = Color(0xFFEEEBF4)
+val Orange500: Color = Color(0xFFFF8700)
+val Green500: Color = Color(0xFF00FF86)
+
+val LightBlue: Color = Color(0xff12c2e9)
+val Purple: Color = Color(0xffc471ed)
+val Coral: Color = Color(0xfff64f59)
+val LightCoral: Color = Color(0xfffbaeb2)
+//
+
 val Translucent = Color(0x9E1F1F1F)

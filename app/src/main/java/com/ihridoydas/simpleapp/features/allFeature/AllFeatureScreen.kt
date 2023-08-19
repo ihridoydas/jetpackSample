@@ -552,6 +552,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFF3BCE3F),
+                Color(0xFF221D0D)
+            ), name = "TimeLine Compose"
+        ){
+            navController?.navigate(ScreenDestinations.TimeLineCompose.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
 
         //Others End
 
