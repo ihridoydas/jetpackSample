@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop
+package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.simpleDragAndDrop
 
 import androidx.annotation.DrawableRes
 import com.ihridoydas.simpleapp.R
