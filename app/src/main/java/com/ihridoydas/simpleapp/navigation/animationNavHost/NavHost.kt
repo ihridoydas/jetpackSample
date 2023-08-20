@@ -35,7 +35,6 @@ import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
 import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
-import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBarScreen
 import com.ihridoydas.simpleapp.features.webView.WebBrowser
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu.FloatingActionMenu
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel.AutoSlidingCarousel
@@ -55,6 +54,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritt
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
+import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
@@ -307,7 +307,7 @@ fun MainAnimationNavHost(
 
         //Others
         screen(ScreenDestinations.TabLayoutScreen.route) {
-            TabBarScreen(onBackPress = {
+            TabBarsScreen(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
