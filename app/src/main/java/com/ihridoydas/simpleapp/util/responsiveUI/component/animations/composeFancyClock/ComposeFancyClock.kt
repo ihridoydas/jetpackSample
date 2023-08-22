@@ -35,6 +35,9 @@ import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import kotlinx.coroutines.delay
 import java.util.Calendar
 
+//Follow This Article
+//https://medium.com/google-developer-experts/compose-oclock-50c778a6360
+
 data class Time(val hours: Int, val minutes: Int, val seconds: Int)
 
 @Composable
