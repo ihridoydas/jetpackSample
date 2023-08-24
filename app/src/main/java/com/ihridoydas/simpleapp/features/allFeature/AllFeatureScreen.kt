@@ -542,11 +542,19 @@ fun AllFeatureScreen(navController: NavController) {
 
         MyCard(
             color = listOf(
+<<<<<<< HEAD
                 Color(0xFFD1B9C1),
                 Color(0xFF2D1C30)
             ), name = "Bottom Sheets and Pager"
         ){
             navController?.navigate(ScreenDestinations.BottomSheetsAndPager.route) {
+=======
+                Color(0xFF6F9170),
+                Color(0xFFE0D7BA)
+            ), name = "Compose Impression Tracker"
+        ){
+            navController?.navigate(ScreenDestinations.ComposeImpressionTracker.route) {
+>>>>>>> main
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }
