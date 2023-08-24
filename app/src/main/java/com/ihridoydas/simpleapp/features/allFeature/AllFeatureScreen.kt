@@ -540,6 +540,19 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        MyCard(
+            color = listOf(
+                Color(0xFF6F9170),
+                Color(0xFFE0D7BA)
+            ), name = "Compose Impression Tracker"
+        ){
+            navController?.navigate(ScreenDestinations.ComposeImpressionTracker.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Others End
 
     }

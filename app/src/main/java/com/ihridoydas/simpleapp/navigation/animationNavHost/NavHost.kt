@@ -20,6 +20,7 @@ import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
 import com.ihridoydas.simpleapp.arMenu.ARMenuUseCase
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
+import com.ihridoydas.simpleapp.features.composeImpressionTracker.demo.ComposeImpressionScreen
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepCanvas
 import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
@@ -27,7 +28,6 @@ import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
-import com.ihridoydas.simpleapp.features.sortingVisualizer.ui.screens.VisualScreen
 import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
@@ -55,7 +55,6 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritt
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
-import dagger.hilt.android.qualifiers.ApplicationContext
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
@@ -334,9 +333,10 @@ fun MainAnimationNavHost(
         }
 
         screen(ScreenDestinations.TwoPaneScreen.route) {
-            TwoPaneScreen(onBackPress = {
-                navController.navigateTo(ScreenDestinations.ViewScreen.route)
-            },
+            TwoPaneScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
                 activity = activity
             )
         }
@@ -345,6 +345,15 @@ fun MainAnimationNavHost(
             IlluminatingInteractions(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
+        }
+        screen(ScreenDestinations.ComposeImpressionTracker.route) {
+            ComposeImpressionScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                activity,
+                navController
+            )
         }
 
     }

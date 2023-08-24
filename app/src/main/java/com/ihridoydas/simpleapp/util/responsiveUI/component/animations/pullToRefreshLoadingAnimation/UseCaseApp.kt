@@ -2,8 +2,13 @@ package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.pullToRe
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.PagerDefaults
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
@@ -26,9 +31,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.PagerState
-import androidx.compose.foundation.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.DraggableMenu
@@ -41,21 +43,33 @@ val list = listOf("CustomPull", "FancyPull","DraggableMenu")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PullToRefreshAnimationTabsContent(pagerState: PagerState) {
+fun PullToRefreshAnimationTabsContent(pagerState: androidx.compose.foundation.pager.PagerState) {
 
     Surface(
-        modifier = Modifier
-            .fillMaxSize(),
-        color = ThemeColor
+        modifier = Modifier.fillMaxSize(), color = ThemeColor
     ) {
-        HorizontalPager(state = pagerState, pageCount = list.size) { page ->
-            when (page) {
-                0 -> CustomPullRefresh()
-                1 -> FancyPullToRefresh()
-                2 -> DraggableMenuUse()
-            }
+        HorizontalPager(
+            modifier = Modifier,
+            state = pagerState,
+            pageSpacing = 0.dp,
+            userScrollEnabled = true,
+            reverseLayout = false,
+            contentPadding = PaddingValues(0.dp),
+            beyondBoundsPageCount = 0,
+            pageSize = PageSize.Fill,
+            flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
+            key = null,
+            pageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(
+                Orientation.Horizontal
+            ),
+            pageContent = {page->
+                when (page) {
+                    0 -> CustomPullRefresh()
+                    1 -> FancyPullToRefresh()
+                }
 
-        }
+            }
+        )
 
     }
 
@@ -63,36 +77,42 @@ fun PullToRefreshAnimationTabsContent(pagerState: PagerState) {
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-fun PullRefreshAnimations(onBackPress: ()-> Unit) {
+fun PullRefreshAnimations(onBackPress: () -> Unit) {
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(Color.White),
-                title = { Text(text = "Pull To Refresh Animations" , style = TextStyle(color = Color.Black)) },
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            onBackPress()
-                        },
-                        modifier = Modifier
-                    ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.Black )
-                    }
-                },
-            )
-        },
-        drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
-        content = {
-            Column(
-                modifier = Modifier
-                    .padding(it),
+    Scaffold(topBar = {
+        TopAppBar(
+            colors = TopAppBarDefaults.smallTopAppBarColors(Color.White),
+            title = {
+                Text(
+                    text = "Pull To Refresh Animations", style = TextStyle(color = Color.Black)
+                )
+            },
+            navigationIcon = {
+                IconButton(
+                    onClick = {
+                        onBackPress()
+                    }, modifier = Modifier
+                ) {
+                    Icon(
+                        Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.Black
+                    )
+                }
+            },
+        )
+    }, drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp), content = {
+        Column(
+            modifier = Modifier.padding(it),
+        ) {
+            val pagerState = rememberPagerState(
+                initialPage = 0,
+                initialPageOffsetFraction = 0f
             ) {
-                val pagerState = rememberPagerState(0)
-                PullToRefreshAnimationTabsContent(pagerState = pagerState)
+                // provide pageCount
+                2
             }
+            PullToRefreshAnimationTabsContent(pagerState = pagerState)
         }
-    )
+    })
 }
 
 
@@ -112,10 +132,7 @@ fun CustomPullRefresh() {
         }
     }
 
-    CustomPullToRefresh(
-        isRefreshing = isRefreshing,
-        onRefresh = { refresh() }
-    ) {
+    CustomPullToRefresh(isRefreshing = isRefreshing, onRefresh = { refresh() }) {
         LazyColumn(
             contentPadding = PaddingValues(vertical = 10.dp)
         ) {
@@ -142,10 +159,7 @@ fun FancyPullToRefresh() {
         }
     }
 
-    FancyPullToRefresh(
-        isRefreshing = isRefreshing,
-        onRefresh = { refresh() }
-    ) {
+    FancyPullToRefresh(isRefreshing = isRefreshing, onRefresh = { refresh() }) {
         LazyColumn(
             contentPadding = PaddingValues(vertical = 10.dp)
         ) {
@@ -183,12 +197,11 @@ fun ListItem(index: Int) {
             Column(
                 modifier = Modifier.padding(horizontal = 16.dp),
             ) {
-                if (index % 3 == 0)
-                    Text(
-                        text = "TOP RATED",
-                        style = MaterialTheme.typography.caption,
-                        color = MaterialTheme.colors.primary,
-                    )
+                if (index % 3 == 0) Text(
+                    text = "TOP RATED",
+                    style = MaterialTheme.typography.caption,
+                    color = MaterialTheme.colors.primary,
+                )
                 Text(
                     text = when (index) {
                         5 -> "This is Mambo..."
