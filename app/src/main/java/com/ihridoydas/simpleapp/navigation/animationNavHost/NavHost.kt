@@ -347,12 +347,11 @@ fun MainAnimationNavHost(
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
-<<<<<<< HEAD
         screen(ScreenDestinations.BottomSheetsAndPager.route) {
             MainPagerWithBottomSheets(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
-=======
+        }
         screen(ScreenDestinations.ComposeImpressionTracker.route) {
             ComposeImpressionScreen(
                 onBackPress = {
@@ -361,7 +360,6 @@ fun MainAnimationNavHost(
                 activity,
                 navController
             )
->>>>>>> main
         }
 
     }

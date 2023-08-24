@@ -38,7 +38,7 @@ fun PagerContent(pagerState: PagerState) {
             .fillMaxSize(),
         color = ThemeColor
     ) {
-        HorizontalPager(state = pagerState, pageCount = list.size) { page ->
+        HorizontalPager(state = pagerState) { page ->
             when (page) {
                 0 -> BottomSheetSampleApp()
             }
@@ -76,7 +76,12 @@ fun MainPagerWithBottomSheets(onBackPress: ()-> Unit) {
                 modifier = Modifier
                     .padding(it),
             ) {
-                val pagerState = rememberPagerState(0)
+                val pagerState = rememberPagerState(
+                    initialPage = 0,
+                    initialPageOffsetFraction = 0f
+                ) {
+                    list.size
+                }
                 PagerContent(pagerState = pagerState)
             }
         }
