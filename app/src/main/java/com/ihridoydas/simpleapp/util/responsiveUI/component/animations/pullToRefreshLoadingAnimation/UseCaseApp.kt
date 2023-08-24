@@ -33,11 +33,13 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
+import com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.DraggableMenu
+import com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.DraggableMenuUse
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 //List of Screen
-val list = listOf("CustomPull", "FancyPull")
+val list = listOf("CustomPull", "FancyPull","DraggableMenu")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
