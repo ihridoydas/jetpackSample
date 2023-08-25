@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -62,7 +63,7 @@ fun PullToRefreshAnimationTabsContent(pagerState: androidx.compose.foundation.pa
             pageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(
                 Orientation.Horizontal
             ),
-            pageContent = {page->
+            pageContent = { page ->
                 when (page) {
                     0 -> CustomPullRefresh()
                     1 -> FancyPullToRefresh()
@@ -81,7 +82,9 @@ fun PullRefreshAnimations(onBackPress: () -> Unit) {
 
     Scaffold(topBar = {
         TopAppBar(
-            colors = TopAppBarDefaults.smallTopAppBarColors(Color.White),
+            colors = topAppBarColors(
+                Color.White
+            ),
             title = {
                 Text(
                     text = "Pull To Refresh Animations", style = TextStyle(color = Color.Black)
@@ -108,7 +111,7 @@ fun PullRefreshAnimations(onBackPress: () -> Unit) {
                 initialPageOffsetFraction = 0f
             ) {
                 // provide pageCount
-                2
+                list.size
             }
             PullToRefreshAnimationTabsContent(pagerState = pagerState)
         }

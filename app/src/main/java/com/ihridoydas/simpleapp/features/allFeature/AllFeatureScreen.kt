@@ -542,8 +542,21 @@ fun AllFeatureScreen(navController: NavController) {
 
         MyCard(
             color = listOf(
-                Color(0xFF6F9170),
-                Color(0xFFE0D7BA)
+                Color(0xFFD1B9C1),
+                Color(0xFF2D1C30)
+            ), name = "Bottom Sheets and Pager"
+        ){
+            navController?.navigate(ScreenDestinations.BottomSheetsAndPager.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
+        MyCard(
+            color = listOf(
+                Color(0xFF132069),
+                Color(0xFFE5D5E7)
             ), name = "Compose Impression Tracker"
         ){
             navController?.navigate(ScreenDestinations.ComposeImpressionTracker.route) {
@@ -552,9 +565,7 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
-
         //Others End
-
     }
 }
 
