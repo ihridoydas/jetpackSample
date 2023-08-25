@@ -19,6 +19,7 @@ import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
 import com.ihridoydas.simpleapp.arMenu.ARMenuUseCase
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
+import com.ihridoydas.simpleapp.features.bottomSheets.pager.MainPagerWithBottomSheets
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.composeImpressionTracker.demo.ComposeImpressionScreen
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
@@ -344,6 +345,11 @@ fun MainAnimationNavHost(
 
         screen(ScreenDestinations.IlluminationInteractionsScreen.route) {
             IlluminatingInteractions(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
+        }
+        screen(ScreenDestinations.BottomSheetsAndPager.route) {
+            MainPagerWithBottomSheets(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
