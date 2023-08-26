@@ -141,10 +141,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        videoNode.player.stop()
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        videoNode.player.stop()
+//    }
 
     private var pressedTime: Long = 0
 
