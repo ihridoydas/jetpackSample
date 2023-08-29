@@ -89,6 +89,20 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        //Augmented ECommerce
+        MyCard(
+            color = listOf(
+                Color(0xFFB82C00),
+                Color(0xFF00BD08)
+            ), name = "Augmented ECommerce"
+        ){
+            navController?.navigate(ScreenDestinations.ArEcommerceHome.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
+
         //AR End
 
         //Feature Start
