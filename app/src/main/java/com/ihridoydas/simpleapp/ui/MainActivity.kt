@@ -22,8 +22,10 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -129,6 +131,18 @@ class MainActivity : AppCompatActivity() {
                    }
                    WindowCompat.setDecorFitsSystemWindows(window,false)
                    */
+
+               /* //Another Way full screen
+                val systemUiController = rememberSystemUiController()
+                SideEffect {
+                    // set transparent color so that our image is visible
+                    // behind the status bar
+                    systemUiController.setStatusBarColor(color = Color(0xFFd7e1e8))
+                    systemUiController.setNavigationBarColor(
+                        color = Color(0xFFd7e1e8)
+                    )
+                }*/
+
 
                 MyApp(
                     navController = navController,

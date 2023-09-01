@@ -53,6 +53,7 @@ sealed class ScreenDestinations(val route: String) {
     object IlluminationInteractionsScreen : ScreenDestinations("illumination_interactions_view")
     object BottomSheetsAndPager : ScreenDestinations("bottom_sheets_and_pager")
     object ComposeImpressionTracker : ScreenDestinations("compose_impression_tracker")
+    object ComposeRiveAnimation : ScreenDestinations("compose_rive_animation")
 
 
 }

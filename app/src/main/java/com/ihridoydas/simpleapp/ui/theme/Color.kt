@@ -1,5 +1,7 @@
 package com.ihridoydas.simpleapp.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
@@ -129,3 +131,15 @@ object SheepColor {
 //=-------------------
 
 val Translucent = Color(0x9E1F1F1F)
+
+//Rive Animation
+val isDarkThemeEnabled : Boolean
+    @Composable
+    get() = isSystemInDarkTheme()
+val P2PBackground: Color
+    @Composable
+    get() = if (isDarkThemeEnabled) Color(0xFFd7e1e8) else Color(0xFFd7e1e8)
+
+val TextColor: Color
+    @Composable
+    get() = if (isDarkThemeEnabled) Color.Black else Color.Black

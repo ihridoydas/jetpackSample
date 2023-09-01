@@ -579,6 +579,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFF132069),
+                Color(0xFF4CAF50)
+            ), name = "Rive Animation"
+        ){
+            navController?.navigate(ScreenDestinations.ComposeRiveAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
         //Others End
     }
 }
