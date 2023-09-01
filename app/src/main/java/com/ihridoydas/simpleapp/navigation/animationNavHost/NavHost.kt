@@ -12,8 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionScreen
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionViewModel
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnScreen
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnViewModel
 import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
@@ -78,7 +84,10 @@ fun MainAnimationNavHost(
     context: Context,
     videoNode: VideoNode,
     lifecycleScope: LifecycleCoroutineScope,
-    sceneView: ArSceneView
+    sceneView: ArSceneView,
+    productId: Int,
+    productViewModel: ProductDescriptionViewModel,
+    virtualTryOnViewModel : VirtualTryOnViewModel
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -152,6 +161,30 @@ fun MainAnimationNavHost(
                 navController = navController
             )
         }
+        screen(ScreenDestinations.ArEcommerceHome.route) {
+            ProductDescriptionScreen(
+                productId = productId,
+                navController = navController,
+                productViewModel = productViewModel,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.ArEcommerceProductId.route,
+            arguments = listOf(navArgument("productId") {
+                type = NavType.StringType
+            })
+        ) {
+            val productIdArg = it.arguments?.getString("productId")
+            VirtualTryOnScreen(productIdArg?.toInt() ?: 0, virtualTryOnViewModel,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ArEcommerceHome.route)
+                }
+            )
+
+        }
+
         //AR End
 
         screen(ScreenDestinations.WebViewScreen.route) {
