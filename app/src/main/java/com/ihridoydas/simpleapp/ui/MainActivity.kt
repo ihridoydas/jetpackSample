@@ -230,7 +230,6 @@ class MainActivity : AppCompatActivity() {
                             productViewModel = productViewModel,
                             virtualTryOnViewModel = virtualTryOnViewModel
 
-
                         )
                     }
                 )
