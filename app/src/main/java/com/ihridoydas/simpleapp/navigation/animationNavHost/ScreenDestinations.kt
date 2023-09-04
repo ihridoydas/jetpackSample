@@ -7,6 +7,8 @@ sealed class ScreenDestinations(val route: String) {
     object ARMenuScreen : ScreenDestinations("ar_menu")
     object AugmentedModelView : ScreenDestinations("augmented_model_view_screen")
     object AugmentedPlacementView : ScreenDestinations("augmented_placement_view_screen")
+    object ArEcommerceHome : ScreenDestinations("Ar_ecommerce_home")
+    object ArEcommerceProductId : ScreenDestinations("virtual_try_on/{productId}")
     //AR End
 
 
@@ -49,7 +51,9 @@ sealed class ScreenDestinations(val route: String) {
     object LocationTrackerScreen : ScreenDestinations("location_tracker_view")
     object TwoPaneScreen : ScreenDestinations("two_pane_view")
     object IlluminationInteractionsScreen : ScreenDestinations("illumination_interactions_view")
+    object BottomSheetsAndPager : ScreenDestinations("bottom_sheets_and_pager")
     object ComposeImpressionTracker : ScreenDestinations("compose_impression_tracker")
+    object TimeLineCompose : ScreenDestinations("time_line_compose")
 
 
 }

@@ -63,7 +63,12 @@ fun ScribbleIndicator() {
     ) {
 
         val scope = rememberCoroutineScope()
-        val pagerState = rememberPagerState()
+        val pagerState = rememberPagerState(
+            initialPage = 0,
+            initialPageOffsetFraction = 0f
+        ) {
+            list.size
+        }
 
         val sizeList = remember { mutableStateMapOf<Int, Pair<Float, Float>>() }
 
@@ -222,7 +227,6 @@ fun ScribbleIndicator() {
 @Composable
 fun PagerContent(pagerState: androidx.compose.foundation.pager.PagerState, list: List<Recipe>) {
     HorizontalPager(
-        pageCount = list.size,
         state = pagerState,
         beyondBoundsPageCount = 10,
     ) { page ->

@@ -89,6 +89,20 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        //Augmented ECommerce
+        MyCard(
+            color = listOf(
+                Color(0xFFB82C00),
+                Color(0xFF00BD08)
+            ), name = "Augmented ECommerce"
+        ){
+            navController?.navigate(ScreenDestinations.ArEcommerceHome.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
+
         //AR End
 
         //Feature Start
@@ -542,11 +556,36 @@ fun AllFeatureScreen(navController: NavController) {
 
         MyCard(
             color = listOf(
-                Color(0xFF6F9170),
-                Color(0xFFE0D7BA)
+                Color(0xFFD1B9C1),
+                Color(0xFF2D1C30)
+            ), name = "Bottom Sheets and Pager"
+        ){
+            navController?.navigate(ScreenDestinations.BottomSheetsAndPager.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
+        MyCard(
+            color = listOf(
+                Color(0xFF132069),
+                Color(0xFFE5D5E7)
             ), name = "Compose Impression Tracker"
         ){
             navController?.navigate(ScreenDestinations.ComposeImpressionTracker.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+        MyCard(
+            color = listOf(
+                Color(0xFF3BCE3F),
+                Color(0xFF221D0D)
+            ), name = "TimeLine Compose"
+        ){
+            navController?.navigate(ScreenDestinations.TimeLineCompose.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }
