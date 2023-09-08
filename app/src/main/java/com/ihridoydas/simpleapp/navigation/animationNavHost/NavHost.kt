@@ -12,8 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.SystemUiController
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionScreen
+import com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation.ProductDescriptionViewModel
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnScreen
+import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.VirtualTryOnViewModel
 import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
@@ -29,15 +35,15 @@ import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
+import com.ihridoydas.simpleapp.features.timeLineCompose.TimeLineComposableScreen
 import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
+import com.ihridoydas.simpleapp.features.webView.WebBrowser
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
 import com.ihridoydas.simpleapp.ui.screens.boardingScreen.OnBoardingScreen
 import com.ihridoydas.simpleapp.ui.screens.homeScreen.HomeScreen
 import com.ihridoydas.simpleapp.ui.screens.startScreen.StartShowCaseScreen
 import com.ihridoydas.simpleapp.ui.screens.viewScreen.ViewScreen
-import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBarScreen
-import com.ihridoydas.simpleapp.features.webView.WebBrowser
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animatedFloatingActionMenu.FloatingActionMenu
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel.AutoSlidingCarousel
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.downloadableAnimationCircle.DownLoadableAnimation
@@ -56,6 +62,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritt
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
+import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
@@ -77,7 +84,10 @@ fun MainAnimationNavHost(
     context: Context,
     videoNode: VideoNode,
     lifecycleScope: LifecycleCoroutineScope,
-    sceneView: ArSceneView
+    sceneView: ArSceneView,
+    productId: Int,
+    productViewModel: ProductDescriptionViewModel,
+    virtualTryOnViewModel : VirtualTryOnViewModel
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -151,6 +161,30 @@ fun MainAnimationNavHost(
                 navController = navController
             )
         }
+        screen(ScreenDestinations.ArEcommerceHome.route) {
+            ProductDescriptionScreen(
+                productId = productId,
+                navController = navController,
+                productViewModel = productViewModel,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.ArEcommerceProductId.route,
+            arguments = listOf(navArgument("productId") {
+                type = NavType.StringType
+            })
+        ) {
+            val productIdArg = it.arguments?.getString("productId")
+            VirtualTryOnScreen(productIdArg?.toInt() ?: 0, virtualTryOnViewModel,
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ArEcommerceHome.route)
+                }
+            )
+
+        }
+
         //AR End
 
         screen(ScreenDestinations.WebViewScreen.route) {
@@ -308,7 +342,7 @@ fun MainAnimationNavHost(
 
         //Others
         screen(ScreenDestinations.TabLayoutScreen.route) {
-            TabBarScreen(onBackPress = {
+            TabBarsScreen(onBackPress = {
                 navController.navigateTo(ScreenDestinations.ViewScreen.route)
             })
         }
@@ -354,6 +388,15 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.ComposeImpressionTracker.route) {
             ComposeImpressionScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                activity,
+                navController
+            )
+        }
+        screen(ScreenDestinations.TimeLineCompose.route) {
+            TimeLineComposableScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 },

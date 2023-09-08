@@ -89,6 +89,20 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        //Augmented ECommerce
+        MyCard(
+            color = listOf(
+                Color(0xFFB82C00),
+                Color(0xFF00BD08)
+            ), name = "Augmented ECommerce"
+        ){
+            navController?.navigate(ScreenDestinations.ArEcommerceHome.route) {
+                popUpTo(ScreenDestinations.HomeScreen.route) {
+                    inclusive = true
+                }
+            }
+        }
+
         //AR End
 
         //Feature Start
@@ -565,7 +579,21 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFF3BCE3F),
+                Color(0xFF221D0D)
+            ), name = "TimeLine Compose"
+        ){
+            navController?.navigate(ScreenDestinations.TimeLineCompose.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Others End
+
     }
 }
 
