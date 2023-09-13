@@ -101,9 +101,9 @@ fun GalleryTransition(onBackPress: () -> Unit) {
                     pageSize = PageSize.Fill,
                     flingBehavior = PagerDefaults.flingBehavior(state = pageState),
                     key = null,
-                    pageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(
-                        Orientation.Horizontal
-                    ),
+                    pageNestedScrollConnection = remember(pageState) {
+                        PagerDefaults.pageNestedScrollConnection(pageState, Orientation.Horizontal)
+                    },
                     pageContent = { index ->
                         val pageOffset =
                             (pageState.currentPage - index) + pageState.currentPageOffsetFraction
