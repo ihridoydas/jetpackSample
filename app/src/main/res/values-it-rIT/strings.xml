@@ -62,4 +62,13 @@
         <string name="sceneview_unknown_tracking_failure">不明な追跡失敗の理由: %1$s</string>
         <string name="sceneview_camera_permission_required">カメラの許可が必要です</string>
 
+        <string name="app_name_a">SimpleApp 360</string>
+        <string name="app_name_b">SimpleApp 45</string>
+        <string name="app_name_c">SimpleApp 90</string>
+        <string name="app_name_d">SimpleApp 135</string>
+        <string name="app_name_e">SimpleApp 180</string>
+        <string name="app_name_f">SimpleApp 225</string>
+        <string name="app_name_g">SimpleApp 270</string>
+        <string name="app_name_h">SimpleApp 315</string>
+
     </resources>
