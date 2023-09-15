@@ -27,6 +27,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.composeFa
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.waveTimerAnimation.WavesTimerAnimation
 import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicator
 import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicatorScreen
+import com.ihridoydas.simpleapp.util.responsiveUI.component.pager.animatedViewPager.AnimaterPagerScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.AllShape
 
 
@@ -34,7 +35,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.Al
 val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
-    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator","FancyClock")
+    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator","FancyClock","AnimatedViewPager")
 
 @Composable
 fun AnimationTabsContent(pagerState: PagerState) {
@@ -66,6 +67,7 @@ fun AnimationTabsContent(pagerState: PagerState) {
                 17 -> UndoRedoAnimation()
                 18 -> ScribbleIndicator()
                 19 -> FancyClock()
+                20 -> AnimaterPagerScreen()
 
             }
 
