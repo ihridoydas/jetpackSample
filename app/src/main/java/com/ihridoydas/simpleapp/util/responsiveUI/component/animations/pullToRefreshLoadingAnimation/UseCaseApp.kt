@@ -60,9 +60,9 @@ fun PullToRefreshAnimationTabsContent(pagerState: androidx.compose.foundation.pa
             pageSize = PageSize.Fill,
             flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
             key = null,
-            pageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(
-                Orientation.Horizontal
-            ),
+            pageNestedScrollConnection = remember(pagerState) {
+                PagerDefaults.pageNestedScrollConnection(pagerState, Orientation.Horizontal)
+            },
             pageContent = { page ->
                 when (page) {
                     0 -> CustomPullRefresh()

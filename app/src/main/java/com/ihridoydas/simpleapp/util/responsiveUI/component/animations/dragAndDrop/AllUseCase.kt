@@ -23,6 +23,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.PagerDefaults
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.runtime.remember
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign.BusinessCardDragAndDropContent
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.simpleDragAndDrop.SimpleDragAndDrop
@@ -51,9 +52,9 @@ fun DragAndDropTabsContent(pagerState: androidx.compose.foundation.pager.PagerSt
             pageSize = PageSize.Fill,
             flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
             key = null,
-            pageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(
-                Orientation.Horizontal
-            ),
+            pageNestedScrollConnection = remember(pagerState) {
+                PagerDefaults.pageNestedScrollConnection(pagerState, Orientation.Horizontal)
+            },
             pageContent = {page->
                 when (page) {
                     0 -> SimpleDragAndDrop()

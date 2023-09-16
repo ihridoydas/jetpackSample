@@ -11,6 +11,7 @@ import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,9 +45,9 @@ fun ImageCarousel(images: List<String>) {
             pageSize = PageSize.Fill,
             flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
             key = null,
-            pageNestedScrollConnection = PagerDefaults.pageNestedScrollConnection(
-                Orientation.Horizontal
-            ),
+            pageNestedScrollConnection = remember(pagerState) {
+                PagerDefaults.pageNestedScrollConnection(pagerState, Orientation.Horizontal)
+            },
             pageContent = {
                 // Use your favorite image loading library here!
                 GlideImage(
