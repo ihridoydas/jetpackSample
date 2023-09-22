@@ -591,6 +591,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFF3BCE3F),
+                Color(0xFF221D0D)
+            ), name = "Stepper Composable"
+        ){
+            navController?.navigate(ScreenDestinations.StepperCompose.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
 
         //Others End
 
