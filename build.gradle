@@ -19,7 +19,7 @@ buildscript {
         // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:0.0.1"
         //When use firebase
-        //classpath 'com.google.gms:google-services:4.3.14'
+//        classpath 'com.google.gms:google-services:4.4.0'
         classpath 'com.karumi:shot:5.10.3'
         classpath "org.jetbrains.dokka:android-documentation-plugin:$dokka_version"
 
