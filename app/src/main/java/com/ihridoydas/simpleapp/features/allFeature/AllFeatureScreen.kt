@@ -583,9 +583,9 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFF3BCE3F),
                 Color(0xFF221D0D)
-            ), name = "TimeLine Compose"
+            ), name = "Rich Editor compose"
         ){
-            navController?.navigate(ScreenDestinations.TimeLineCompose.route) {
+            navController?.navigate(ScreenDestinations.RichEditor.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }
@@ -597,7 +597,7 @@ fun AllFeatureScreen(navController: NavController) {
                 Color(0xFFAD8503)
             ), name = "Stepper Composable"
         ){
-            navController?.navigate(ScreenDestinations.StepperCompose.route) {
+            navController?.navigate(ScreenDestinations.StepperComposable.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }

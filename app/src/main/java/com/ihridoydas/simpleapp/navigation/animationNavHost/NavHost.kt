@@ -34,9 +34,9 @@ import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
+import com.ihridoydas.simpleapp.features.richEditor.RichEditorComposableScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
-import com.ihridoydas.simpleapp.features.stepperCompose.StepperComposableScreen
-import com.ihridoydas.simpleapp.features.timeLineCompose.TimeLineComposableScreen
+import com.ihridoydas.simpleapp.features.stepperLibrary.StepperScreen
 import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
 import com.ihridoydas.simpleapp.features.webView.WebBrowser
 import com.ihridoydas.simpleapp.ui.MainActivity
@@ -396,8 +396,8 @@ fun MainAnimationNavHost(
                 navController
             )
         }
-        screen(ScreenDestinations.TimeLineCompose.route) {
-            TimeLineComposableScreen(
+        screen(ScreenDestinations.RichEditor.route) {
+            RichEditorComposableScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 },
@@ -405,13 +405,11 @@ fun MainAnimationNavHost(
                 navController
             )
         }
-        screen(ScreenDestinations.StepperCompose.route) {
-            StepperComposableScreen(
+        screen(ScreenDestinations.StepperComposable.route) {
+            StepperScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
-                },
-                activity,
-                navController
+                }
             )
         }
 
