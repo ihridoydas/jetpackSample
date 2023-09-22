@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.arMenu
+package com.ihridoydas.simpleapp.ar.arMenu
 
 import android.app.Activity
 import androidx.compose.foundation.layout.Box

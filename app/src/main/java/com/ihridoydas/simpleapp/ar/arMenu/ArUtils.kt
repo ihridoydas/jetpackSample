@@ -1,4 +1,4 @@
-package com.ihridoydas.simpleapp.arMenu
+package com.ihridoydas.simpleapp.ar.arMenu
 
 import android.util.Log
 import androidx.compose.foundation.Image

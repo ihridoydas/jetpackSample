@@ -1,9 +1,13 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -24,19 +28,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
-import com.google.accompanist.pager.rememberPagerState
-import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.casecade.use.Menu
+import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicator
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.multiSelector.PreviewMultiSelector
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view.TabBar
+import com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.drawShape.DrawShapeInCompose
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
 //List of Screen
-val listOfPager = listOf("TabBar","MultiSelector")
+val listOfPager = listOf("TabBar","MultiSelector","ScribbleIndicator","AllShape")
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TabsLayoutContent(pagerState: PagerState) {
 
@@ -45,10 +48,12 @@ fun TabsLayoutContent(pagerState: PagerState) {
             .fillMaxSize(),
         color = Color.White
     ) {
-        HorizontalPager(state = pagerState, count = listOfPager.size) { page ->
+        HorizontalPager(state = pagerState) { page ->
             when (page) {
                 0 -> TabBar()
                 1 -> PreviewMultiSelector()
+                2 -> ScribbleIndicator()
+                3 -> DrawShapeInCompose()
 
             }
 
@@ -58,7 +63,9 @@ fun TabsLayoutContent(pagerState: PagerState) {
 
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class,
+    ExperimentalFoundationApi::class
+)
 @Composable
 fun TabBarsScreen(onBackPress: ()-> Unit) {
 
@@ -108,7 +115,8 @@ fun TabBarsScreen(onBackPress: ()-> Unit) {
                 modifier = Modifier
                     .padding(it),
             ) {
-                val pagerState = rememberPagerState(0)
+                val pagerState =
+                    rememberPagerState(initialPage = 0, initialPageOffsetFraction = 0f, pageCount = { listOfPager.size },)
                 TabsLayoutContent(pagerState = pagerState)
             }
         }
