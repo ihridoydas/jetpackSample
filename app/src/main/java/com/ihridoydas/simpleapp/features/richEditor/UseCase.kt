@@ -10,6 +10,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
@@ -39,7 +40,7 @@ fun RichEditorComposableScreen(
                         },
                         modifier = Modifier
                     ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.White )
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Color.Black )
                     }
                 },
             )
@@ -47,7 +48,7 @@ fun RichEditorComposableScreen(
         drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
         content = {
             Box(modifier = Modifier.fillMaxSize().padding(it)){
-
+                EditorSample()
             }
         }
     )
