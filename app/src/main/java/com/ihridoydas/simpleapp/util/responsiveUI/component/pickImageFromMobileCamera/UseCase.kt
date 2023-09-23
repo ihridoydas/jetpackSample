@@ -21,8 +21,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ihridoydas.simpleapp.features.countrypicker.SampleCountryPicker
+import com.ihridoydas.simpleapp.util.responsiveUI.component.shrineUserEducationAnimation.ShrineAnimationScreen
 
-val listOfPager = listOf("ImagePicker", "countryPicker",)
+val listOfPager = listOf("ImagePicker", "countryPicker","ShrineAnimation")
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -62,6 +63,7 @@ fun PickImageFromMobile(onBackPress: ()-> Unit) {
                     when (page) {
                         0 -> ImagePicker()
                         1 -> SampleCountryPicker()
+                        2 -> ShrineAnimationScreen() // ShrineAnimationWithRedirectRenderScreen()
                     }
 
                 }
