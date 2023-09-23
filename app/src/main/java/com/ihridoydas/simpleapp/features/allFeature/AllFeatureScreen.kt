@@ -494,7 +494,7 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFFBFC4C3),
                 Color(0xFF63EE69)
-            ), name = "Pick Image"
+            ), name = "Pick Image and Country Picker"
         ){
             navController?.navigate(ScreenDestinations.PickImageScreen.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
