@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.PagerDefaults
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
@@ -44,7 +45,7 @@ val list = listOf("CustomPull", "FancyPull","DraggableMenu")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PullToRefreshAnimationTabsContent(pagerState: androidx.compose.foundation.pager.PagerState) {
+fun PullToRefreshAnimationTabsContent(pagerState: PagerState) {
 
     Surface(
         modifier = Modifier.fillMaxSize(), color = ThemeColor
@@ -67,6 +68,7 @@ fun PullToRefreshAnimationTabsContent(pagerState: androidx.compose.foundation.pa
                 when (page) {
                     0 -> CustomPullRefresh()
                     1 -> FancyPullToRefresh()
+                    2 -> DraggableMenuUse()
                 }
 
             }
