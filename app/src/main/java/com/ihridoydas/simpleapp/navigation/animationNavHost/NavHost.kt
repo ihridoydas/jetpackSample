@@ -23,7 +23,7 @@ import com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation.Virtual
 import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
-import com.ihridoydas.simpleapp.arMenu.ARMenuUseCase
+import com.ihridoydas.simpleapp.ar.arMenu.ARMenuUseCase
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.bottomSheets.pager.MainPagerWithBottomSheets
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen

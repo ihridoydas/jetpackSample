@@ -34,44 +34,46 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ihridoydas.simpleapp.R
+import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 
 
 //Use all Shape in one compose function
 @Preview(showBackground = true)
 @Composable
 fun DrawShapeInCompose() {
+       Column(
+           modifier = Modifier
+               .padding(8.dp)
+               .fillMaxSize(),
+           verticalArrangement = Arrangement.SpaceBetween,
+           horizontalAlignment = Alignment.CenterHorizontally
+       ) {
+           DrawSimpleCircle(color = Color.Green)
+           DrawCircleWithGradient(
+               centerColor = Color.Green,
+               outerColor = Color.DarkGray
+           )
+           DrawSimpleRect(color = Color.DarkGray)
+           DrawSimpleRoundRect(
+               color = Color.LightGray,
+               cornerRadius = CornerRadius(10f, 10f)
+           )
+           DrawSimpleLine(color = Color.Blue)
+           DrawSimpleOval(color = Color.Magenta)
+           DrawSimpleArc(color = Color.Cyan)
+           DrawSimplePath(color = Color.Black)
+           DrawSimplePoints(color = Color.Red)
+           DrawSimpleOutline(color = Color.Yellow)
+           val androidImageBitmap = remember {
+               val androidBitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.pizza)
+               androidBitmap?.asImageBitmap()
+           }
+           if (androidImageBitmap != null) {
+               DrawSimpleImage(image = androidImageBitmap)
+           }
+           DrawSimpleText(text = "Hello Canvas", 12.sp)
 
-    Column(
-        modifier = Modifier
-            .padding(8.dp)
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        DrawSimpleCircle(color = Color.Green)
-        DrawCircleWithGradient(
-            centerColor = Color.Green,
-            outerColor = Color.DarkGray
-        )
-        DrawSimpleRect(color = Color.DarkGray)
-        DrawSimpleRoundRect(
-            color = Color.LightGray,
-            cornerRadius = CornerRadius(10f, 10f)
-        )
-        DrawSimpleLine(color = Color.Blue)
-        DrawSimpleOval(color = Color.Magenta)
-        DrawSimpleArc(color = Color.Cyan)
-        DrawSimplePath(color = Color.Black)
-        DrawSimplePoints(color = Color.Red)
-        DrawSimpleOutline(color = Color.Yellow)
-        val androidImageBitmap = remember {
-            val androidBitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.pizza)
-            androidBitmap.asImageBitmap()
-        }
-        DrawSimpleImage(image = androidImageBitmap)
-        DrawSimpleText(text = "Hello Canvas", 12.sp)
-
-    }
+       }
 }
 
 @Composable

@@ -263,7 +263,7 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFF8BC34A),
                 Color(0xFFC54E46)
-            ), name = "Drag and Drop"
+            ), name = "Drag and Drop and Chip"
         ){
             navController?.navigate(ScreenDestinations.DragAndDropScreen.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
