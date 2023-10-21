@@ -1,8 +1,12 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.animations.othersAnimation
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -10,7 +14,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -19,14 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.PagerState
-import com.google.accompanist.pager.rememberPagerState
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.composeFancyClock.FancyClock
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.loadingAnimation.shimmerLoading.ShimmerLoadingHomeScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.waveTimerAnimation.WavesTimerAnimation
 import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicator
-import com.ihridoydas.simpleapp.util.responsiveUI.component.indicator.ScribbleIndicatorScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pager.animatedViewPager.AnimaterPagerScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.AllShape
 
@@ -35,8 +36,9 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.Al
 val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
-    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator","FancyClock","AnimatedViewPager")
+    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator","FancyClock","AnimatedViewPager","ShimmerLoadingHomeScreen")
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AnimationTabsContent(pagerState: PagerState) {
 
@@ -45,8 +47,9 @@ fun AnimationTabsContent(pagerState: PagerState) {
             .fillMaxSize(),
         color = ThemeColor
     ) {
-        HorizontalPager(state = pagerState, count = list.size) { page ->
-            when (page) {
+
+        HorizontalPager(state = pagerState) {
+            when (it) {
                 0 -> ArcRotationAnimation()
                 1 -> CircleOffsetAnimation()
                 2 -> ClockLoading()
@@ -68,6 +71,7 @@ fun AnimationTabsContent(pagerState: PagerState) {
                 18 -> ScribbleIndicator()
                 19 -> FancyClock()
                 20 -> AnimaterPagerScreen()
+                21-> ShimmerLoadingHomeScreen()
 
             }
 
@@ -77,7 +81,7 @@ fun AnimationTabsContent(pagerState: PagerState) {
 
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun CreativeAnimations(onBackPress: ()-> Unit) {
 
@@ -93,7 +97,7 @@ fun CreativeAnimations(onBackPress: ()-> Unit) {
                         },
                         modifier = Modifier
                     ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.White )
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Color.White )
                     }
                 },
             )
@@ -104,7 +108,7 @@ fun CreativeAnimations(onBackPress: ()-> Unit) {
                 modifier = Modifier
                     .padding(it),
             ) {
-                val pagerState = rememberPagerState(0)
+                val pagerState = rememberPagerState(0, pageCount = {list.size})
                 AnimationTabsContent(pagerState = pagerState)
             }
         }
