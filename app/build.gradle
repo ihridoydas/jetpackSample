@@ -76,7 +76,7 @@ android {
 
 dependencies {
 
-    //Updated 2023/8/11
+    //Updated 2023/10/25
     //現在の Compose Version　1.5.4
     //現在の Compose Compiler Version 1.5.3
     //現在の	Compatible Kotlin Version 1.9.10
