@@ -604,6 +604,19 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        MyCard(
+            color = listOf(
+                Color(0xFF8BC34A),
+                Color(0xFFE91E63)
+            ), name = "Quiz App"
+        ){
+            navController?.navigate(ScreenDestinations.QuizApp.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Others End
 
     }
