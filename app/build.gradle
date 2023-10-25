@@ -77,12 +77,12 @@ android {
 dependencies {
 
     //Updated 2023/8/11
-    //現在の Compose Version　1.5.1
+    //現在の Compose Version　1.5.4
     //現在の Compose Compiler Version 1.5.3
     //現在の	Compatible Kotlin Version 1.9.10
 
     // Import the Compose BOM
-    def composeBOM_version = "2023.09.00"
+    def composeBOM_version = "2023.10.01"
     def composeBOM = platform("androidx.compose:compose-bom:$composeBOM_version")
     implementation composeBOM
     testImplementation composeBOM
@@ -100,7 +100,7 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation 'androidx.activity:activity-compose:1.7.2'
+    implementation 'androidx.activity:activity-compose:1.8.0'
     implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.compose.ui:ui-graphics'
@@ -189,7 +189,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
 
     //navigation
-    implementation("androidx.navigation:navigation-compose:2.7.2")
+    implementation("androidx.navigation:navigation-compose:2.7.4")
     implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_version"
 
     // Coil Compose Image Dependency
@@ -282,7 +282,7 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer:2.19.1")
 
     //Ar Core
-    implementation 'com.google.ar:core:1.39.0'
+    implementation 'com.google.ar:core:1.40.0'
     //SceneView
     // 3D and ARCore(need upgrade)
     implementation 'io.github.sceneview:arsceneview:0.10.1'
