@@ -140,3 +140,9 @@ val LightCoral: Color = Color(0xfffbaeb2)
 //
 
 val Translucent = Color(0x9E1F1F1F)
+
+//Quiz app color
+val CodeeBlue = Color(0xff141A33)
+val CodeeRed = Color(0xffCE0E4B)
+val CodeeGreen = Color(0xff0CBA8D)
+val CodeeGray = Color(0xff666B86)

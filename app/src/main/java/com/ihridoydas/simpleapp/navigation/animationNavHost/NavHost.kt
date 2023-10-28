@@ -34,6 +34,8 @@ import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
+import com.ihridoydas.simpleapp.features.quiz.QuizApp
+import com.ihridoydas.simpleapp.features.quiz.QuizScreen
 import com.ihridoydas.simpleapp.features.richEditor.RichEditorComposableScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
 import com.ihridoydas.simpleapp.features.stepperLibrary.StepperScreen
@@ -407,6 +409,13 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.StepperComposable.route) {
             StepperScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.QuizApp.route) {
+            QuizScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
