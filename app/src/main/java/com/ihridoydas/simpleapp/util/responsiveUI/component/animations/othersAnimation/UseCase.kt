@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
+import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animaticingSectionWithShape.AnimatingListSections
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.composeFancyClock.FancyClock
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.loadingAnimation.shimmerLoading.ShimmerLoadingHomeScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.waveTimerAnimation.WavesTimerAnimation
@@ -36,7 +37,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.shape.ticketShape.Al
 val list = listOf("ArcRotation", "CircleOffset", "ClockLoading",
     "HeartAnimation","PacmanAnimation","ProgressAnimation","RotationDotAnimation",
     "RotationTwoDotAnimation","RotatingCircle","RotatingSquare","SquareFillLoaderAnimation",
-    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator","FancyClock","AnimatedViewPager","ShimmerLoadingHomeScreen")
+    "StepperAnimation","ThreeBounceAnimation","TwinCircleAnimation","WaveAnimation","WavesTimerAnimation","AllShape","UndoRedoAnimation","ScribbleIndicator","FancyClock","AnimatedViewPager","ShimmerLoadingHomeScreen","AnimatingShape")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -72,6 +73,7 @@ fun AnimationTabsContent(pagerState: PagerState) {
                 19 -> FancyClock()
                 20 -> AnimaterPagerScreen()
                 21-> ShimmerLoadingHomeScreen()
+                22-> AnimatingListSections()
 
             }
 
