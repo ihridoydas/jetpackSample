@@ -23,22 +23,26 @@ class OCRScreenViewModel @Inject constructor(
 
     fun getTextFromCapturedImageBitmap(bitmap: Bitmap?){
         viewModelScope.launch {
-            mainRepo
-                .getTextFromCapturedImage(bitmap!!)
-                .collect{ text ->
-                    _extractedText.value = text
-                }
+            if (bitmap != null) {
+                mainRepo
+                    .getTextFromCapturedImage(bitmap)
+                    .collect{ text ->
+                        _extractedText.value = text
+                    }
+            }
         }
     }
 
 
     fun getTextFromSelectedImage(uri: Uri?){
         viewModelScope.launch {
-            mainRepo
-                .getTextFromSelectedImage(uri!!)
-                .collect{ text ->
-                    _extractedText.value = text
-                }
+            if (uri != null) {
+                mainRepo
+                    .getTextFromSelectedImage(uri)
+                    .collect{ text ->
+                        _extractedText.value = text
+                    }
+            }
         }
     }
 
