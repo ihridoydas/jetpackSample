@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.ihridoydas.simpleapp.ui.theme.seed
 import com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.MainScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.utils.gregAppIcons
+import com.ihridoydas.simpleapp.util.responsiveUI.component.matrixCompose.MatrixText
 
 @Composable
 fun TabScreenOne(tabName: String) {
@@ -82,6 +83,8 @@ fun TabScreenThree(tabName: String) {
             fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.Bold
         )
+
+        MatrixText()
     }
 
 }
