@@ -617,6 +617,19 @@ fun AllFeatureScreen(navController: NavController) {
             }
         }
 
+        MyCard(
+            color = listOf(
+                Color(0xFF498505),
+                Color(0xFFDFCBD1)
+            ), name = "Scroll Bars"
+        ){
+            navController?.navigate(ScreenDestinations.ScrollBars.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+
         //Others End
 
     }

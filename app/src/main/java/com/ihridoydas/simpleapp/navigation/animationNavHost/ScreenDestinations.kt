@@ -56,6 +56,7 @@ sealed class ScreenDestinations(val route: String) {
     data object RichEditor : ScreenDestinations("rich_editor_compose")
     data object StepperComposable : ScreenDestinations("stepper_compose")
     data object QuizApp : ScreenDestinations("quiz_app")
+    data object ScrollBars : ScreenDestinations("scroll_bars")
 
 
 }

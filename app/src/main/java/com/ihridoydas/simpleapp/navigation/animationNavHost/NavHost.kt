@@ -64,6 +64,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.themePick
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritter.TypeWriterApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
+import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.ScrollBarScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
 import io.github.sceneview.ar.ArSceneView
@@ -416,6 +417,13 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.QuizApp.route) {
             QuizScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.ScrollBars.route) {
+            ScrollBarScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
