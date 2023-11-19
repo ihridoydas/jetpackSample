@@ -8,9 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -21,10 +18,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.ihridoydas.simpleapp.ui.theme.seed
 import com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.MainScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.utils.gregAppIcons
+import com.ihridoydas.simpleapp.util.responsiveUI.component.matrixCompose.MatrixText
 import com.ihridoydas.simpleapp.util.responsiveUI.component.thumbnailOfStory.StoryThumbnailBasic
 
 @Composable
@@ -94,6 +91,8 @@ fun TabScreenThree(tabName: String) {
             fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.Bold
         )
+
+        MatrixText()
     }
 
 }

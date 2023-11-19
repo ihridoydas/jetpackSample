@@ -1,31 +1,32 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.view
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.*
+import androidx.compose.foundation.pager.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MenuOpen
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Work
-import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.*
+import androidx.compose.material3.TabRowDefaults.SecondaryIndicator
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.pager.*
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.ui.theme.seed
 import kotlinx.coroutines.launch
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Toolbar() {
     TopAppBar(
         title = { Text(text = "Tab Layout", color = Color.White) },
-        backgroundColor = seed,
         navigationIcon = {
             Icon(
                 imageVector = Icons.Default.MenuOpen,
@@ -33,9 +34,7 @@ fun Toolbar() {
                 tint = Color.White
             )
         },
-
-
-        )
+    )
 }
 
 //List of Screen
@@ -46,11 +45,11 @@ val lists = listOf(
     Icons.Filled.Work,
 )
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TabsContent(pagerState: PagerState) {
-    HorizontalPager(state = pagerState, count = list.size) { page ->
-        when (page) {
+    HorizontalPager(state = pagerState) {
+        when (it) {
             0 -> TabScreenOne(tabName = "This is a Home Layout")
             1 -> TabScreenTwo(tabName = "This is a About Layout")
             2 -> TabScreenThree(tabName = "This is a Portfolio Layout")
@@ -60,9 +59,12 @@ fun TabsContent(pagerState: PagerState) {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TabScreen() {
-    val pagerState = rememberPagerState(0)
+    val pagerState = rememberPagerState {
+        list.size
+    }
     Column(modifier = Modifier.background(Color.White)) {
         Tabs(pagerState = pagerState)
         TabsContent(pagerState = pagerState)
@@ -71,7 +73,7 @@ fun TabScreen() {
 }
 
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Tabs(pagerState: PagerState) {
 
@@ -79,20 +81,14 @@ fun Tabs(pagerState: PagerState) {
 
     TabRow(
         selectedTabIndex = pagerState.currentPage,
-        backgroundColor = seed,
+        containerColor = seed,
         contentColor = Color.White,
-
-        divider = {
-            TabRowDefaults.Indicator(
-                //thickness = 3.dp,
-                color = Color.White
-            )
-        },
         indicator = { tabpositions ->
-            TabRowDefaults.Indicator(
-                Modifier.pagerTabIndicatorOffset(pagerState, tabpositions),
+            SecondaryIndicator(
+                Modifier.tabIndicatorOffset(tabpositions[pagerState.currentPage]),
                 height = 3.dp,
                 color = Color.Red
+
             )
         }
     ) {
