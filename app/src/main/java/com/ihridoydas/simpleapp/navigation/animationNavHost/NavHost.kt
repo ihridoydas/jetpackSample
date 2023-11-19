@@ -37,6 +37,7 @@ import com.ihridoydas.simpleapp.features.ocr.OCRScreen
 import com.ihridoydas.simpleapp.features.quiz.QuizApp
 import com.ihridoydas.simpleapp.features.quiz.QuizScreen
 import com.ihridoydas.simpleapp.features.richEditor.RichEditorComposableScreen
+import com.ihridoydas.simpleapp.features.screenShotCapture.ScreenCaptureScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
 import com.ihridoydas.simpleapp.features.stepperLibrary.StepperScreen
 import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
@@ -419,6 +420,14 @@ fun MainAnimationNavHost(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
+            )
+        }
+        screen(ScreenDestinations.ScreenShotCapture.route) {
+            ScreenCaptureScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                context
             )
         }
 
