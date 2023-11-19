@@ -616,6 +616,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFF4CAF50),
+                Color(0xFF00BCD4)
+            ), name = "KoreoGraphy Animation"
+        ){
+            navController?.navigate(ScreenDestinations.Koreography.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
 
         //Others End
 
