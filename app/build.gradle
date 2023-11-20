@@ -291,8 +291,8 @@ dependencies {
     //implementation "io.github.sceneview:sceneview:1.0.7"
 
     //For Widget
-    implementation 'androidx.glance:glance:1.0.0-alpha05'
-    implementation "androidx.glance:glance-appwidget:1.0.0-alpha05"
+    implementation 'androidx.glance:glance:1.0.0'
+    implementation "androidx.glance:glance-appwidget:1.0.0"
 
     //location services
     implementation 'com.google.android.gms:play-services-location:21.0.1'

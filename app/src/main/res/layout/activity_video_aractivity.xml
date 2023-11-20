@@ -21,7 +21,7 @@
         android:layout_height="?actionBarSize"
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
-        android:popupTheme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:theme="@style/Theme.SimpleApp.NoActionBar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -66,6 +66,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
+import com.ihridoydas.simpleapp.widget.WidgetPager
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
@@ -416,6 +417,13 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.QuizApp.route) {
             QuizScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.Widget.route) {
+            WidgetPager(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
