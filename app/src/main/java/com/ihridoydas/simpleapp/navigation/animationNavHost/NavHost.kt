@@ -67,6 +67,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteract
 import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.ScrollBarScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
+import com.ihridoydas.simpleapp.widget.WidgetPager
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
@@ -91,7 +92,7 @@ fun MainAnimationNavHost(
     sceneView: ArSceneView,
     productId: Int,
     productViewModel: ProductDescriptionViewModel,
-    virtualTryOnViewModel : VirtualTryOnViewModel
+    virtualTryOnViewModel: VirtualTryOnViewModel
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -175,7 +176,8 @@ fun MainAnimationNavHost(
                 }
             )
         }
-        screen(ScreenDestinations.ArEcommerceProductId.route,
+        screen(
+            ScreenDestinations.ArEcommerceProductId.route,
             arguments = listOf(navArgument("productId") {
                 type = NavType.StringType
             })
@@ -429,10 +431,17 @@ fun MainAnimationNavHost(
                 }
             )
         }
-
+        screen(ScreenDestinations.Widget.route) {
+                WidgetPager(
+                    onBackPress = {
+                        navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                    }
+                )
+            }
     }
 
-    //Back Handler
+
+
     BackHandler {
         navController.popBackStack()
     }
