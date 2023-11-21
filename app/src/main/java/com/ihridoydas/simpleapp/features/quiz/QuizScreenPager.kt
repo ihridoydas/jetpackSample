@@ -31,6 +31,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.ihridoydas.simpleapp.features.pendulum.Pendulum
+import com.ihridoydas.simpleapp.features.pendulum.PendulumApp
 import com.ihridoydas.simpleapp.features.stepperCompose.StepperComposablePreview
 import com.ihridoydas.simpleapp.features.timeLineCompose.HireingScreenContent
 import com.ihridoydas.simpleapp.features.timeLineCompose.TimeLineViewModel
@@ -39,7 +41,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
 //List of Screen
-val listOfPager = listOf("QuizApp1")
+val listOfPager = listOf("QuizApp1","Pendulum")
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -53,6 +55,7 @@ fun QuizContent(pagerState: PagerState) {
         HorizontalPager(state = pagerState) { page ->
             when (page) {
                 0 -> QuizApp()
+                1 -> PendulumApp()
             }
 
         }

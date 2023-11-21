@@ -146,3 +146,10 @@ val CodeeBlue = Color(0xff141A33)
 val CodeeRed = Color(0xffCE0E4B)
 val CodeeGreen = Color(0xff0CBA8D)
 val CodeeGray = Color(0xff666B86)
+
+//Pendulum
+val Honeydew = Color(0xfff1faee)
+val Desire = Color(0xffe63946)
+val Crystal = Color(0xffa8dadc)
+val JellyBeanBlue = Color(0xff457b9d)
+val SpaceCadet = Color(0xff1d3557)
