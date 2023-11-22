@@ -64,6 +64,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.themePick
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritter.TypeWriterApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
+import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.ScrollBarScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
 import com.ihridoydas.simpleapp.widget.WidgetPager
@@ -91,7 +92,7 @@ fun MainAnimationNavHost(
     sceneView: ArSceneView,
     productId: Int,
     productViewModel: ProductDescriptionViewModel,
-    virtualTryOnViewModel : VirtualTryOnViewModel
+    virtualTryOnViewModel: VirtualTryOnViewModel
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -175,7 +176,8 @@ fun MainAnimationNavHost(
                 }
             )
         }
-        screen(ScreenDestinations.ArEcommerceProductId.route,
+        screen(
+            ScreenDestinations.ArEcommerceProductId.route,
             arguments = listOf(navArgument("productId") {
                 type = NavType.StringType
             })
@@ -422,17 +424,24 @@ fun MainAnimationNavHost(
                 }
             )
         }
-        screen(ScreenDestinations.Widget.route) {
-            WidgetPager(
+        screen(ScreenDestinations.ScrollBars.route) {
+            ScrollBarScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
             )
         }
-
+        screen(ScreenDestinations.Widget.route) {
+                WidgetPager(
+                    onBackPress = {
+                        navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                    }
+                )
+            }
     }
 
-    //Back Handler
+
+
     BackHandler {
         navController.popBackStack()
     }
