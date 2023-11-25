@@ -50,6 +50,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerPage
@@ -63,7 +65,7 @@ val listOfPager = listOf("QrWithBarcode","BarCode")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun QrContent(pagerState: PagerState) {
+fun QrContent(pagerState: PagerState,onBackPress: () -> Unit,) {
     Surface(
         modifier = Modifier
             .fillMaxSize(),
@@ -71,7 +73,7 @@ fun QrContent(pagerState: PagerState) {
     ) {
         HorizontalPager(state = pagerState) { page ->
             when (page) {
-                0 -> ScannerPage()
+                0 -> ScannerPage(onBackPress)
                 1 -> BarCodeScreen()
             }
 
@@ -87,6 +89,7 @@ fun QrContent(pagerState: PagerState) {
 )
 @Composable
 fun ScannerUIScreen(
+    navController: NavHostController,
     onBackPress: () -> Unit,
 ) {
     val dialogExpanded = remember { mutableStateOf(false) }
@@ -232,7 +235,7 @@ fun ScannerUIScreen(
                         initialPage = 0,
                         initialPageOffsetFraction = 0f,
                         pageCount = { listOfPager.size })
-                QrContent(pagerState = pagerState)
+                QrContent(pagerState = pagerState,onBackPress)
             }
         }
     )

@@ -19,15 +19,15 @@ import com.ihridoydas.simpleapp.R
 @Composable
 fun CameraDialog(
     onContinue: () -> Unit,
-    onExit: () -> Unit
+    onBack: () -> Unit
 ) {
     Dialog(
-        onDismissRequest = onExit,
+        onDismissRequest = onBack,
         properties = DialogProperties(dismissOnClickOutside = false)
     ) {
         CameraRequiredContent(
             onContinue = onContinue,
-            onExit = onExit
+            onBack = onBack
         )
     }
 }
@@ -35,7 +35,7 @@ fun CameraDialog(
 @Composable
 private fun CameraRequiredContent(
     onContinue: () -> Unit,
-    onExit: () -> Unit
+    onBack: () -> Unit
 ) {
     Card {
         Column(
@@ -59,7 +59,7 @@ private fun CameraRequiredContent(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 OutlinedButton(
-                    onClick = onExit,
+                    onClick = onBack,
                     colors = ButtonDefaults.outlinedButtonColors(
                         contentColor = MaterialTheme.colors.error
                     ),
@@ -70,7 +70,7 @@ private fun CameraRequiredContent(
                     modifier = Modifier.weight(0.5f)
                 ) {
                     Text(
-                        text = stringResource(id = R.string.camera_required_exit_btn),
+                        text = stringResource(id = R.string.camera_required_back_btn),
                         style = MaterialTheme.typography.body1,
                         fontWeight = FontWeight.SemiBold
                     )

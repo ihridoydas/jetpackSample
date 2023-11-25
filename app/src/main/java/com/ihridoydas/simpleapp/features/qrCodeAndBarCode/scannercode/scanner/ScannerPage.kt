@@ -5,6 +5,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
+import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -33,12 +35,14 @@ import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.CameraDialog
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.ScanSheet
 import com.ihridoydas.simpleapp.ui.theme.BottomSheetShape
+import com.ihridoydas.simpleapp.util.permission.doesUserHavePermission
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ScannerPage(
-    viewModel: ScannerViewModel = hiltViewModel()
+    onBackPress: () -> Unit,
+    viewModel: ScannerViewModel = hiltViewModel(),
 ) {
     val bottomSheetState = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -90,16 +94,29 @@ fun ScannerPage(
             viewModel.onEvent(ScannerEvent.BottomSheetShown)
         }
     }
+    val settingBtnClicked= remember { mutableStateOf(true) }
+
+    val permissionCheck = remember {
+        mutableStateOf(false)
+    }
+    permissionCheck.value = doesUserHavePermission()
+    settingBtnClicked.value = false
 
     if (uiState.showCameraRequiredDialog) {
         CameraDialog(
             onContinue = {
                 viewModel.onEvent(ScannerEvent.CameraRequiredDialogVisibility(show = false))
                 permissionLauncher.launch(Manifest.permission.CAMERA)
+                settingBtnClicked.value = true
+                Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                    data = Uri.parse("package:" + context.packageName)
+                    context.startActivity(this)
+                }
             },
-            onExit = {
+            onBack = {
                 viewModel.onEvent(ScannerEvent.CameraRequiredDialogVisibility(show = false))
-                activity.finish()
+                //activity.finish()
+                onBackPress()
             }
         )
     }
