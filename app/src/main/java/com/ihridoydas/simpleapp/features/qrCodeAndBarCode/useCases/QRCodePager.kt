@@ -1,5 +1,6 @@
 package com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -27,9 +28,11 @@ import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Surface
@@ -38,11 +41,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -61,6 +66,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.core.view.isEmpty
+import androidx.core.view.isNotEmpty
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
@@ -75,12 +82,12 @@ import kotlinx.coroutines.launch
 
 
 //List of Screen
-val listOfPager = listOf("QrWithBarcode","BarCode")
+val listOfPager = listOf("QrWithBarcode", "BarCode")
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun QrContent(pagerState: PagerState,onBackPress: () -> Unit,) {
+fun QrContent(pagerState: PagerState, onBackPress: () -> Unit,viewModel: ScannerViewModel) {
     Surface(
         modifier = Modifier
             .fillMaxSize(),
@@ -88,7 +95,7 @@ fun QrContent(pagerState: PagerState,onBackPress: () -> Unit,) {
     ) {
         HorizontalPager(state = pagerState) { page ->
             when (page) {
-                0 -> ScannerPage(onBackPress)
+                0 -> ScannerPage(onBackPress,viewModel)
                 1 -> BarCodeScreen()
             }
 
@@ -98,9 +105,10 @@ fun QrContent(pagerState: PagerState,onBackPress: () -> Unit,) {
 
 }
 
+@SuppressLint("StateFlowValueCalledInComposition", "CoroutineCreationDuringComposition")
 @OptIn(
     ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class,
-    ExperimentalFoundationApi::class
+    ExperimentalFoundationApi::class, ExperimentalMaterialApi::class
 )
 @Composable
 fun ScannerUIScreen(
@@ -116,7 +124,9 @@ fun ScannerUIScreen(
     val scope = rememberCoroutineScope()
     val currentScanValue = viewModel.scanValue.observeAsState().value
 
-    if(dialogExpanded.value){
+    val dotExpanded = remember { mutableStateOf(false) }
+
+    if (dialogExpanded.value) {
         val uriHandler = LocalUriHandler.current
 
         Dialog(
@@ -235,13 +245,14 @@ fun ScannerUIScreen(
                     }
                 },
                 actions = {
-                        Text(
-                            text = "Scan Code $currentScanValue",
-                            modifier = Modifier
-                        )
-                        IconButton(onClick = {
-                            menuExpanded.value = true
-                        }) {
+                    Text(
+                        text = "Scan Code $currentScanValue",
+                        modifier = Modifier
+                    )
+                        IconButton(
+                            onClick = {
+                                menuExpanded.value = true
+                            }) {
                             Icon(
                                 Icons.Filled.MoreVert,
                                 contentDescription = "Menu",
@@ -272,16 +283,17 @@ fun ScannerUIScreen(
                                     menuExpanded.value = false
                                 }
                             }) {
-                                Text(text = stringResource(id = R.string.scan_value)+"1")
+                                Text(text = stringResource(id = R.string.scan_value) + "1")
                             }
                             DropdownMenuItem(onClick = {
                                 scope.launch {
+                                    viewModel.predefinedKeys = emptyList()
                                     viewModel.saveScanCode(5)
                                     menuExpanded.value = false
 
                                 }
                             }) {
-                                Text(text = stringResource(id = R.string.scan_value)+"5")
+                                Text(text = stringResource(id = R.string.scan_value) + "5")
                             }
 
                             DropdownMenuItem(onClick = { activity.finish() }) {
@@ -304,7 +316,7 @@ fun ScannerUIScreen(
                         initialPage = 0,
                         initialPageOffsetFraction = 0f,
                         pageCount = { listOfPager.size })
-                QrContent(pagerState = pagerState,onBackPress)
+                QrContent(pagerState = pagerState, onBackPress,viewModel=viewModel)
             }
         }
     )

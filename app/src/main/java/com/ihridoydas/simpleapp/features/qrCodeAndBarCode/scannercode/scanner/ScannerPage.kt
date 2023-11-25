@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,6 +34,7 @@ import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.CameraDialog
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.CameraPreviewLayout
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.ScanSheet
 import com.ihridoydas.simpleapp.ui.theme.BottomSheetShape
 import com.ihridoydas.simpleapp.util.permission.doesUserHavePermission
@@ -42,7 +44,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun ScannerPage(
     onBackPress: () -> Unit,
-    viewModel: ScannerViewModel = hiltViewModel(),
+    viewModel: ScannerViewModel
 ) {
     val bottomSheetState = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -50,6 +52,7 @@ fun ScannerPage(
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsState()
     val scanState by viewModel.scannedValues.collectAsState()
+    val currentScanValue = viewModel.scanValue.observeAsState().value
 
     val hapticFeedback = LocalHapticFeedback.current
     val activity = remember(context) {
@@ -124,7 +127,8 @@ fun ScannerPage(
         bottomSheetState = bottomSheetState,
         uiState = uiState,
         context = context,
-        scanState = scanState
+        scanState = scanState,
+        scanValue = currentScanValue,
     )
 }
 
@@ -134,7 +138,8 @@ private fun ScannerPage(
     bottomSheetState: ModalBottomSheetState,
     uiState: ScannerUiState,
     context: Context,
-    scanState: Map<Int, String>
+    scanState: Map<Int, String>,
+    scanValue : Int?
 ) {
     val clipboardManager = LocalClipboardManager.current
     val uriHandler = LocalUriHandler.current
@@ -197,15 +202,8 @@ private fun ScannerPage(
                     shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
-                        .padding(bottom = 30.dp)
                 ) {
-                    Text(
-                        text = stringResource(id = R.string.scan_message),
-                        style = MaterialTheme.typography.h6,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.White,
-                        modifier = Modifier.padding(horizontal = 16.dp)
-                    )
+                    CameraPreviewLayout(scanValue = scanValue)
                 }
 
             }
