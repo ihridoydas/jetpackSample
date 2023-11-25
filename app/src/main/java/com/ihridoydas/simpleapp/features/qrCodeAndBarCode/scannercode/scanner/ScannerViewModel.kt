@@ -1,9 +1,13 @@
 package com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ihridoydas.simpleapp.data.local.PrefDataStore
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.data.ScanRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,7 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ScannerViewModel @Inject constructor(
-    private val scanRepository: ScanRepository
+    private val scanRepository: ScanRepository,
+    private val prefDataStore: PrefDataStore
 ): ViewModel() {
 
     private val vmState = MutableStateFlow(ScannerUiState())
@@ -24,14 +29,26 @@ class ScannerViewModel @Inject constructor(
 
     private var inputValue =  MutableStateFlow("")
 
-    // Predefined keys (1 to 5)
-    val predefinedKeys = (1..5).toList()
+    private val _scanValue = MutableLiveData(5)
+    var scanValue: LiveData<Int> = _scanValue
+    lateinit var predefinedKeys: List<Int>
 
     val uiState = vmState.stateIn(
         viewModelScope,
         SharingStarted.Eagerly,
-        vmState.value
+        vmState.value,
     )
+
+    init{
+        viewModelScope.launch {
+            prefDataStore.getScanValue.collect {
+                _scanValue.value = it
+                println("Checkin:${_scanValue.value}")
+                // Predefined keys (1 to 5)
+                 predefinedKeys  = (1.._scanValue.value!!).toList()
+            }
+        }
+    }
 
     init {
         viewModelScope.launch {
@@ -45,6 +62,7 @@ class ScannerViewModel @Inject constructor(
                         // Associate the value with the next predefined key
                         _scannedValues.value = _scannedValues.value + (nextKey to scan.displayValue)
                         if (_scannedValues.value.size == predefinedKeys.size) {
+                            println("Check: ${_scanValue.value}")
                             println("Check: ${_scannedValues.value.size}")
                             println("Check: ${_scannedValues.value.keys}:${_scannedValues.value.values}")
                             scanRepository.pauseScan()
@@ -77,5 +95,9 @@ class ScannerViewModel @Inject constructor(
                 vmState.update { it.copy( showCameraRequiredDialog = event.show ) }
             }
         }
+    }
+
+    suspend fun saveScanCode(scanValue: Int) {
+        prefDataStore.setScanValue(scanValue)
     }
 }

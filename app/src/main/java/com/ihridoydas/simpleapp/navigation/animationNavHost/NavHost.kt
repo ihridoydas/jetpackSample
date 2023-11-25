@@ -207,7 +207,6 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.BarCodeViewScreen.route) {
             ScannerUIScreen(
-                navController,
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }

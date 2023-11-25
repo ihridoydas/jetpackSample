@@ -104,4 +104,8 @@
         <string name="scan_format_upc_e">Barcode UPC-E</string>
         <string name="scan_format_unknown">Code</string>
 
+        <string name="developer">Developer</string>
+        <string name="scan_value">Scan Code - </string>
+        <string name="exit">Exit</string>
+
     </resources>
