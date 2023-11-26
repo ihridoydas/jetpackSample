@@ -3,6 +3,7 @@ package com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases
 import android.app.Activity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -37,6 +38,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -211,7 +213,17 @@ fun ScannerUIScreen(
         modifier = Modifier,
         topBar = {
             TopAppBar(
-                title = { Text(text = "Scanner Screen") },
+                colors = TopAppBarColors(
+                    containerColor = Color.Black,
+                    navigationIconContentColor = Color.White,
+                    titleContentColor = Color.White,
+                    scrolledContainerColor = Color.White,
+                    actionIconContentColor = Color.White
+                    ),
+                title = { Text(
+                    text = "Scanner Screen",
+                    color = Color.White
+                ) },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -219,13 +231,14 @@ fun ScannerUIScreen(
                         },
                         modifier = Modifier
                     ) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Color.White,)
                     }
                 },
                 actions = {
                     Text(
                         text = "Scan Code $currentScanValue",
-                        modifier = Modifier
+                        modifier = Modifier,
+                        color = Color.White
                     )
                         IconButton(
                             onClick = {
@@ -234,7 +247,7 @@ fun ScannerUIScreen(
                             Icon(
                                 Icons.Filled.MoreVert,
                                 contentDescription = "Menu",
-                                tint = Color.Black
+                                tint = Color.White
                             )
                         }
 
