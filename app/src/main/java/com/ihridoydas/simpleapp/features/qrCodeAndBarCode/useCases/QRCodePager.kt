@@ -1,8 +1,6 @@
 package com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -15,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
@@ -28,37 +25,28 @@ import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
-import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.rememberModalBottomSheetState
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -66,19 +54,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import androidx.core.view.isEmpty
-import androidx.core.view.isNotEmpty
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
-import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerEvent
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerPage
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerViewModel
 import com.ihridoydas.simpleapp.ui.theme.DarkText
 import com.ihridoydas.simpleapp.ui.theme.LightText
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
 
 
 //List of Screen
@@ -105,10 +87,9 @@ fun QrContent(pagerState: PagerState, onBackPress: () -> Unit,viewModel: Scanner
 
 }
 
-@SuppressLint("StateFlowValueCalledInComposition", "CoroutineCreationDuringComposition")
 @OptIn(
-    ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class,
-    ExperimentalFoundationApi::class, ExperimentalMaterialApi::class
+    ExperimentalMaterial3Api::class,
+    ExperimentalFoundationApi::class
 )
 @Composable
 fun ScannerUIScreen(
@@ -121,10 +102,7 @@ fun ScannerUIScreen(
     }
     val dialogExpanded = remember { mutableStateOf(false) }
     val menuExpanded = remember { mutableStateOf(false) }
-    val scope = rememberCoroutineScope()
     val currentScanValue = viewModel.scanValue.observeAsState().value
-
-    val dotExpanded = remember { mutableStateOf(false) }
 
     if (dialogExpanded.value) {
         val uriHandler = LocalUriHandler.current
@@ -277,25 +255,6 @@ fun ScannerUIScreen(
                             }) {
                                 Text(text = stringResource(id = R.string.developer))
                             }
-                            DropdownMenuItem(onClick = {
-                                scope.launch {
-                                    viewModel.saveScanCode(1)
-                                    menuExpanded.value = false
-                                }
-                            }) {
-                                Text(text = stringResource(id = R.string.scan_value) + "1")
-                            }
-                            DropdownMenuItem(onClick = {
-                                scope.launch {
-                                    viewModel.predefinedKeys = emptyList()
-                                    viewModel.saveScanCode(5)
-                                    menuExpanded.value = false
-
-                                }
-                            }) {
-                                Text(text = stringResource(id = R.string.scan_value) + "5")
-                            }
-
                             DropdownMenuItem(onClick = { activity.finish() }) {
                                 Text(text = stringResource(id = R.string.exit))
                             }
