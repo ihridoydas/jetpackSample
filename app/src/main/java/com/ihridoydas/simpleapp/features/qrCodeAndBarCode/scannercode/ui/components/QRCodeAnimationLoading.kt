@@ -113,14 +113,14 @@ data class ShimmerAnimationData(
 
             listOf(
                 color.copy(alpha = 0.1f),
-                color.copy(alpha = 0.2f),
+                color.copy(alpha = 0.1f),
             )
         } else {
             val color = Color.Black
 
             listOf(
                 color.copy(alpha = 0.0f),
-                color.copy(alpha = 0.2f),
+                color.copy(alpha = 0.1f),
             )
         }
     }
