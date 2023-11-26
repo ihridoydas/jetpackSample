@@ -203,7 +203,7 @@ private fun ScannerPage(
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
                 ) {
-                    CameraPreviewLayout(scanValue = scanValue)
+                    CameraPreviewLayout(scanValue = scanValue,uiState)
                 }
 
             }

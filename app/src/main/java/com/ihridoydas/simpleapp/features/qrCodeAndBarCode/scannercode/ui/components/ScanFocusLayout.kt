@@ -2,6 +2,7 @@ package com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.compon
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -9,6 +10,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Rect
@@ -26,6 +32,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.ihridoydas.simpleapp.R
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerUiState
 import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.util.responsiveUI.WindowType
 import com.ihridoydas.simpleapp.util.responsiveUI.dpToSp
@@ -33,11 +40,20 @@ import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 
 @Composable
 fun CameraPreviewLayout(
-    scanValue : Int?
+    scanValue : Int?,
+    uiState: ScannerUiState
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
+
+    var isLoadingCompleted by remember { mutableStateOf(true) }
+    val isLightModeActive by remember { mutableStateOf(true) }
+    val isScanDone by remember { mutableStateOf(false) }
+
     // QRコード読み込み枠表示
-    QrCodeLoadingFrame()
+    QrCodeLoadingFrame(
+        isLoadingCompleted = isLoadingCompleted,
+        isLightModeActive = isLightModeActive,
+    )
 
     // Window Size
     val window = rememberWindowSize()
@@ -45,20 +61,28 @@ fun CameraPreviewLayout(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        Text(
+        Column(modifier = Modifier.align(Alignment.BottomCenter)) {
+                LaunchedEffect(key1 = Unit){
+                        isLoadingCompleted = !isLoadingCompleted
+                }
+
+            Text(
 //            text = stringResource(id = R.string.scan_message),
-            text = "Scan ${scanValue} QR or bar code" ,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding((screenWidth * 0.05f).dp)
-                .width((screenWidth * 0.65f).dp),
-            color = Color.White,
-            fontSize = when (window.width) {
-                WindowType.Normal -> dpToSp(15.dp)
-                else -> dpToSp(12.dp)
-            },
-            textAlign = TextAlign.Center,
-        )
+                text = "Scan ${scanValue} QR or bar code" ,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding((screenWidth * 0.05f).dp)
+                    .width((screenWidth * 0.65f).dp),
+                color = Color.White,
+                fontSize = when (window.width) {
+                    WindowType.Normal -> dpToSp(15.dp)
+                    else -> dpToSp(12.dp)
+                },
+                textAlign = TextAlign.Center,
+            )
+        }
+
+
     }
 }
 
@@ -67,7 +91,10 @@ fun CameraPreviewLayout(
  * QRコード読み込み枠
  */
 @Composable
-private fun QrCodeLoadingFrame() {
+private fun QrCodeLoadingFrame(
+    isLoadingCompleted: Boolean,
+    isLightModeActive: Boolean,
+) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
     Box(
         modifier = Modifier.fillMaxSize()
@@ -99,13 +126,25 @@ private fun QrCodeLoadingFrame() {
                 }
             }
         ) {}
-        Image(
+        Box(
             modifier = Modifier
                 .size(width = (screenWidth * 0.8f).dp, height = (screenWidth * 0.8f).dp)
-                .align(Alignment.Center),
-            painter = painterResource(id = R.drawable.qr_mark),
-            contentDescription = "qr mark"
-        )
+                .align(Alignment.Center)
+                .qrShimmerLoadingAnimation(
+                    isLoadingCompleted = isLoadingCompleted,
+                    isLightModeActive = isLightModeActive,
+                )
+                .qrCodeScanningLine()
+        ){
+            Image(
+                modifier = Modifier
+                    .size(width = (screenWidth * 0.8f).dp, height = (screenWidth * 0.8f).dp),
+                painter = painterResource(id = R.drawable.qr_mark),
+                contentDescription = "qr mark"
+            )
+
+        }
+
     }
 }
 
@@ -114,7 +153,7 @@ private fun QrCodeLoadingFrame() {
 @Composable
 fun QRScanPreview() {
     SimpleAppTheme {
-       // CameraPreviewLayout()
+        CameraPreviewLayout(1, uiState = ScannerUiState())
     }
 
 }
