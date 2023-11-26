@@ -135,15 +135,14 @@ private fun QrCodeLoadingFrame(
                     isLightModeActive = isLightModeActive,
                 )
                 .qrCodeScanningLine()
-        ){
-            Image(
-                modifier = Modifier
-                    .size(width = (screenWidth * 0.8f).dp, height = (screenWidth * 0.8f).dp),
-                painter = painterResource(id = R.drawable.qr_mark),
-                contentDescription = "qr mark"
-            )
-
-        }
+        ){}
+        Image(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .size(width = (screenWidth * 0.8f).dp, height = (screenWidth * 0.8f).dp),
+            painter = painterResource(id = R.drawable.qr_mark),
+            contentDescription = "qr mark"
+        )
 
     }
 }
