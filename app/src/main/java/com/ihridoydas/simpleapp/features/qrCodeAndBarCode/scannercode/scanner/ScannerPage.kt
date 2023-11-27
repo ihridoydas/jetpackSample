@@ -38,6 +38,7 @@ import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.compone
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.ScanSheet
 import com.ihridoydas.simpleapp.ui.theme.BottomSheetShape
 import com.ihridoydas.simpleapp.util.permission.doesUserHavePermission
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -53,6 +54,7 @@ fun ScannerPage(
     val uiState by viewModel.uiState.collectAsState()
     val scanState by viewModel.scannedValues.collectAsState()
     val currentScanValue = viewModel.scanValue.observeAsState().value
+    val predefinedKeyValues = viewModel.predefinedKeys
 
     val hapticFeedback = LocalHapticFeedback.current
     val activity = remember(context) {
@@ -129,6 +131,7 @@ fun ScannerPage(
         context = context,
         scanState = scanState,
         scanValue = currentScanValue,
+        predefinedKeys = predefinedKeyValues
     )
 }
 
@@ -139,7 +142,8 @@ private fun ScannerPage(
     uiState: ScannerUiState,
     context: Context,
     scanState: Map<Int, String>,
-    scanValue : Int?
+    scanValue : Int?,
+    predefinedKeys: List<Int>
 ) {
     val clipboardManager = LocalClipboardManager.current
     val uriHandler = LocalUriHandler.current
@@ -203,7 +207,7 @@ private fun ScannerPage(
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
                 ) {
-                    CameraPreviewLayout(scanValue = scanValue,uiState)
+                    CameraPreviewLayout(scanValue = scanValue,scanState = scanState,predefinedKeys = predefinedKeys)
                 }
 
             }

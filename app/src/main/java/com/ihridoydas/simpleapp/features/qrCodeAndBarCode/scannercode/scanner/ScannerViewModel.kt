@@ -65,6 +65,7 @@ class ScannerViewModel @Inject constructor(
                             println("Check: ${_scanValue.value}")
                             println("Check: ${_scannedValues.value.size}")
                             println("Check: ${_scannedValues.value.keys}:${_scannedValues.value.values}")
+                            println("Check: ${_scannedValues.value.keys}:${predefinedKeys}")
                             scanRepository.pauseScan()
                             vmState.update { it.copy( scan = scan, showBottomSheet = true ) }
                         }
