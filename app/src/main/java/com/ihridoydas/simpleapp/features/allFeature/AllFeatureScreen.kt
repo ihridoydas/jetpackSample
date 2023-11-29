@@ -141,7 +141,7 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFF5A76D3),
                 Color(0xFFFFC793)
-            ), name = "Bar Code View"
+            ), name = "QR and Bar Code Scanner"
         ) {
             navController?.navigate(ScreenDestinations.BarCodeViewScreen.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
