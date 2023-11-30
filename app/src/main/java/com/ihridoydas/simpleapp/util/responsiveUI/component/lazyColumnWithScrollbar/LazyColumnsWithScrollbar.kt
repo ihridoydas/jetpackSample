@@ -105,6 +105,12 @@ fun <T> LazyColumnWithScrollbar(
         mutableStateOf(false)
     }
 
+    val isScrollInProgress = remember {
+      derivedStateOf {
+          state.isScrollInProgress
+      }
+    }
+
     BoxWithConstraints(modifier = modifier) {
         LazyColumn(state = state,
             contentPadding = contentPadding,
@@ -123,50 +129,62 @@ fun <T> LazyColumnWithScrollbar(
                     })
             }
         ) {
-            if (!state.isScrollInProgress) {
+
+            if (!isScrollInProgress.value) {
                 isUserScrollingLazyColumn.value = true
                 hideScrollbar(animationCoroutineContext, isScrollbarVisible)
 
-                if (state.layoutInfo.visibleItemsInfo.isNotEmpty()) {
-                    firstVisibleItem.value = state.layoutInfo.visibleItemsInfo.first().index
+                derivedStateOf{
+                    if (state.layoutInfo.visibleItemsInfo.isNotEmpty()) {
+                        firstVisibleItem.value = state.layoutInfo.visibleItemsInfo.first().index
+                    }
                 }
-            } else if (state.isScrollInProgress && isUserScrollingLazyColumn.value) {
+            } else if (isScrollInProgress.value && isUserScrollingLazyColumn.value) {
                 showScrollbar(animationCoroutineContext, isScrollbarVisible)
 
-                if (heightInPixels.value != 0F) {
+                derivedStateOf {
+                    if (heightInPixels.value != 0F) {
 
-                    if (firstVisibleItem.value > state.layoutInfo.visibleItemsInfo.first().index || // Scroll to upper start of list
-                        state.layoutInfo.visibleItemsInfo.first().index == 0 // Reached the upper start of list
-                    ) {
-                        if (state.layoutInfo.visibleItemsInfo.first().index == 0) {
-                            offsetY.value = 0F
-                        } else {
-                            offsetY.value = calculateScrollbarOffsetY(
-                                state,
-                                data.size,
-                                heightInPixels,
-                                settings.thumbHeight.value
-                            )
+                        if (firstVisibleItem.value > state.layoutInfo.visibleItemsInfo.first().index || // Scroll to upper start of list
+                            state.layoutInfo.visibleItemsInfo.first().index == 0 // Reached the upper start of list
+                        ) {
+                            if (state.layoutInfo.visibleItemsInfo.first().index == 0) {
+                                offsetY.value = 0F
+                            } else {
+                                offsetY.value = calculateScrollbarOffsetY(
+                                    state,
+                                    data.size,
+                                    heightInPixels,
+                                    settings.thumbHeight.value
+                                )
+                            }
+                        } else { // scroll to bottom end of list or reach the bottom end of the list
+                            if (state.layoutInfo.visibleItemsInfo.last().index == data.lastIndex) {
+                                offsetY.value =
+                                    heightInPixels.value - heightInPixels.value / settings.thumbHeight.value
+                            } else {
+                                offsetY.value = calculateScrollbarOffsetY(
+                                    state,
+                                    data.size,
+                                    heightInPixels,
+                                    settings.thumbHeight.value
+                                )
+                            }
                         }
-                    } else { // scroll to bottom end of list or reach the bottom end of the list
-                        if (state.layoutInfo.visibleItemsInfo.last().index == data.lastIndex) {
-                            offsetY.value =
-                                heightInPixels.value - heightInPixels.value / settings.thumbHeight.value
-                        } else {
-                            offsetY.value = calculateScrollbarOffsetY(
-                                state,
-                                data.size,
-                                heightInPixels,
-                                settings.thumbHeight.value
-                            )
-                        }
+
                     }
-
                 }
             }
             content()
         }
-        if (state.layoutInfo.visibleItemsInfo.size < data.size) {
+
+        val showScrollbarVisibleSize by remember {
+            derivedStateOf {
+                state.layoutInfo.visibleItemsInfo.size < data.size
+            }
+        }
+
+        if (showScrollbarVisibleSize) {
             AnimatedVisibility(
                 visible = isScrollbarVisible.value,
                 enter = fadeIn(

@@ -7,19 +7,29 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Card
+import androidx.compose.material.Divider
+import androidx.compose.material.DropdownMenu
+import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Switch
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -27,18 +37,27 @@ import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.features.allFeature.AllFeatureScreen
 import com.ihridoydas.simpleapp.features.bioMatricAuth.BiomatricApi
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerViewModel
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import com.ihridoydas.simpleapp.navigation.animationNavHost.navigateTo
 import com.ihridoydas.simpleapp.ui.MainActivity
+import com.ihridoydas.simpleapp.ui.theme.DarkText
+import com.ihridoydas.simpleapp.ui.theme.LightText
 import com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation.BottomNavigationFluid
 import com.ihridoydas.simpleapp.util.responsiveUI.component.card.CardView
 import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.customDrawer.MenuView
@@ -46,19 +65,20 @@ import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 import com.ihridoydas.simpleapp.util.showcase.ShowcaseStyle
 import isBiometricSupported
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import showBiometricPrompt
 import showMessage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ViewScreen(
-    state:ScaffoldState,
+    state: ScaffoldState,
     coroutineScope: CoroutineScope,
     activity: MainActivity,
     windowSizeClass: WindowSizeClass,
     navController: NavController,
-    onBackPress :()-> Unit,
-    onClick: () -> Unit
+    onBackPress: () -> Unit,
+    onClick: () -> Unit,
 
 ) {
     val checked = remember { mutableStateOf(false) }
@@ -129,11 +149,13 @@ fun ViewScreen(
         drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
         content = {
             val scrollState = rememberScrollState()
-            Box (modifier = Modifier.padding(it)){
-                Column (modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(scrollState)){
-                    AllFeatureScreen(navController= navController)
+            Box(modifier = Modifier.padding(it)) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(scrollState)
+                ) {
+                    AllFeatureScreen(navController = navController)
                 }
 
                 // サイドメニュー表示
@@ -146,12 +168,12 @@ fun ViewScreen(
                         MenuView(
                             window = rememberWindowSize(),
                             closeTap = { editable = false },
-                            settingsTap = {  },
+                            settingsTap = { },
                             faqTap = { },
-                            contactTap = {  },
-                            privacyPolicyTap = {  },
-                            termsOfUseTap = {  },
-                            logOutTap = {  }
+                            contactTap = { },
+                            privacyPolicyTap = { },
+                            termsOfUseTap = { },
+                            logOutTap = { }
                         )
 
                     }
