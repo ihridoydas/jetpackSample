@@ -53,7 +53,7 @@ fun ScannerPage(
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsState()
     val scanState by viewModel.scannedValues.collectAsState()
-    val currentScanValue = viewModel.scanValue.observeAsState().value
+    val currentScanValue = viewModel.scanValue.collectAsState(1).value
     val predefinedKeyValues = viewModel.predefinedKeys
 
     val hapticFeedback = LocalHapticFeedback.current

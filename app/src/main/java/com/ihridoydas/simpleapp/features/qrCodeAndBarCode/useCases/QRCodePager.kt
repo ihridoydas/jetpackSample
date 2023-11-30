@@ -40,6 +40,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -104,7 +105,7 @@ fun ScannerUIScreen(
     }
     val dialogExpanded = remember { mutableStateOf(false) }
     val menuExpanded = remember { mutableStateOf(false) }
-    val currentScanValue = viewModel.scanValue.observeAsState().value
+    val currentScanValue = viewModel.scanValue.collectAsState(initial = 1)
 
     if (dialogExpanded.value) {
         val uriHandler = LocalUriHandler.current
@@ -236,7 +237,7 @@ fun ScannerUIScreen(
                 },
                 actions = {
                     Text(
-                        text = "Scan Code $currentScanValue",
+                        text = "Scan Code ${currentScanValue.value}",
                         modifier = Modifier,
                         color = Color.White
                     )
