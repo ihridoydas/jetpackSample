@@ -8,6 +8,7 @@ import com.ihridoydas.simpleapp.data.local.PrefDataStore
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.data.ScanRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,8 +30,8 @@ class ScannerViewModel @Inject constructor(
 
     private var inputValue =  MutableStateFlow("")
 
-    private val _scanValue = MutableLiveData(5)
-    var scanValue: LiveData<Int> = _scanValue
+    private val _scanValue = MutableStateFlow(5)
+    var scanValue: Flow<Int> = _scanValue
     lateinit var predefinedKeys: List<Int>
 
     val uiState = vmState.stateIn(
@@ -65,6 +66,7 @@ class ScannerViewModel @Inject constructor(
                             println("Check: ${_scanValue.value}")
                             println("Check: ${_scannedValues.value.size}")
                             println("Check: ${_scannedValues.value.keys}:${_scannedValues.value.values}")
+                            println("Check: ${_scannedValues.value.keys}:${predefinedKeys}")
                             scanRepository.pauseScan()
                             vmState.update { it.copy( scan = scan, showBottomSheet = true ) }
                         }
