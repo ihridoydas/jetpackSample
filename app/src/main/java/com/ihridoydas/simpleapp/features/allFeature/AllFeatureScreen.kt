@@ -621,6 +621,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFFFFEB3B),
+                Color(0xFF9C27B0)
+            ), name = "Screen Capture App"
+        ){
+            navController?.navigate(ScreenDestinations.ScreenShotCapture.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
 
         MyCard(
             color = listOf(
