@@ -86,7 +86,7 @@ private fun NewtonsTimerPortrait(viewModel: TimerViewModel) {
                 when (viewModel.isConfigured) {
                     true -> 1.1f * sinDegree(MAX_ANGLE) + BALLS_INNER_ASPECT_RATIO_PORTRAIT
                     else -> sinDegree(MAX_ANGLE) + (BALLS_INNER_ASPECT_RATIO_PORTRAIT / 2f)
-                }
+                }, label = ""
             )
             SwingingBallsContainer(
                 viewModel = viewModel,

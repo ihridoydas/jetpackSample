@@ -9,7 +9,9 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -35,9 +37,11 @@ import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases.ScannerUIScreen
 import com.ihridoydas.simpleapp.features.quiz.QuizApp
 import com.ihridoydas.simpleapp.features.quiz.QuizScreen
 import com.ihridoydas.simpleapp.features.richEditor.RichEditorComposableScreen
+import com.ihridoydas.simpleapp.features.screenShotCapture.ScreenCaptureScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
 import com.ihridoydas.simpleapp.features.stepperLibrary.StepperScreen
 import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
@@ -65,8 +69,10 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.themePick
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.typeWritter.TypeWriterApp
 import com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager.GalleryTransition
 import com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.IlluminatingInteractions
+import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.ScrollBarScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera.PickImageFromMobile
 import com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.TabBarsScreen
+import com.ihridoydas.simpleapp.widget.WidgetPager
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.node.VideoNode
 import kotlinx.coroutines.CoroutineScope
@@ -91,7 +97,7 @@ fun MainAnimationNavHost(
     sceneView: ArSceneView,
     productId: Int,
     productViewModel: ProductDescriptionViewModel,
-    virtualTryOnViewModel : VirtualTryOnViewModel
+    virtualTryOnViewModel: VirtualTryOnViewModel
 ) {
     AnimatedNavHost(
         navController = navController,
@@ -175,7 +181,8 @@ fun MainAnimationNavHost(
                 }
             )
         }
-        screen(ScreenDestinations.ArEcommerceProductId.route,
+        screen(
+            ScreenDestinations.ArEcommerceProductId.route,
             arguments = listOf(navArgument("productId") {
                 type = NavType.StringType
             })
@@ -201,7 +208,7 @@ fun MainAnimationNavHost(
             )
         }
         screen(ScreenDestinations.BarCodeViewScreen.route) {
-            BarCodeScreen(
+            ScannerUIScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
@@ -429,10 +436,33 @@ fun MainAnimationNavHost(
                 }
             )
         }
+        screen(ScreenDestinations.ScreenShotCapture.route) {
+            ScreenCaptureScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                context
+            )
+        }
 
+        screen(ScreenDestinations.ScrollBars.route) {
+            ScrollBarScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.Widget.route) {
+                WidgetPager(
+                    onBackPress = {
+                        navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                    }
+                )
+            }
     }
 
-    //Back Handler
+
+
     BackHandler {
         navController.popBackStack()
     }

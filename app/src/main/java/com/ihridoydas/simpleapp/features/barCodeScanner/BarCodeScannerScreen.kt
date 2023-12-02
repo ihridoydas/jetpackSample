@@ -24,29 +24,13 @@ import com.ihridoydas.simpleapp.features.allFeature.AllFeatureScreen
 import com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.customDrawer.MenuView
 import com.ihridoydas.simpleapp.util.responsiveUI.rememberWindowSize
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BarCodeScreen(viewModel: BarCodeViewModel = hiltViewModel(),onBackPress : ()->Unit) {
+fun BarCodeScreen(viewModel: BarCodeViewModel = hiltViewModel()) {
 
     val state = viewModel.state.collectAsState()
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = "Bar Code Scan") },
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            onBackPress()
-                        },
-                        modifier = Modifier
-                    ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                },
-            )
-        },
-        drawerShape = RoundedCornerShape(topEnd = 23.dp, bottomEnd = 23.dp),
+        drawerShape = RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp),
         content = {
             Column(
                 modifier = Modifier

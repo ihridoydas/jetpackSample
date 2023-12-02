@@ -3,6 +3,7 @@ package com.ihridoydas.simpleapp.widget.counterWidget
 
 import android.content.Context
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -12,6 +13,7 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
+import androidx.glance.appwidget.provideContent
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Column
@@ -20,13 +22,20 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
+import kotlinx.coroutines.launch
 
 object CounterWidget: GlanceAppWidget() {
 
     val countKey = intPreferencesKey("count")
 
+    override suspend fun provideGlance(context: Context, id: GlanceId) {
+       provideContent {
+           Content()
+       }
+    }
+
     @Composable
-    override fun Content() {
+    fun Content() {
         val count = currentState(key = countKey) ?: 0
         Column(
             modifier = GlanceModifier
