@@ -32,6 +32,7 @@ import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.composeImpressionTracker.demo.ComposeImpressionScreen
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepCanvas
+import com.ihridoydas.simpleapp.features.koreography.KoreoraphyScreen
 import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
@@ -423,6 +424,13 @@ fun MainAnimationNavHost(
         }
         screen(ScreenDestinations.QuizApp.route) {
             QuizScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.Koreography.route) {
+            KoreoraphyScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
