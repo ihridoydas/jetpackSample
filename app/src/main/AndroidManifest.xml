@@ -42,7 +42,7 @@
         android:label="${appLabel}"
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SimpleApp"
+        android:theme="@style/Theme.CustomSplashScreenTheme"
         android:hardwareAccelerated="true"
         tools:targetApi="31"
         android:windowSoftInputMode="adjustResize">

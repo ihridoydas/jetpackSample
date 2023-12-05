@@ -22,26 +22,45 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
 import com.ihridoydas.simpleapp.ui.MainActivity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LocationTracker(
-    onBackPress: ()-> Unit,
+    onBackPress: () -> Unit,
     activity: MainActivity,
     context: Context,
 ) {
+    // For Location Tracker
+    ActivityCompat.requestPermissions(
+        activity,
+        arrayOf(
+            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            android.Manifest.permission.ACCESS_FINE_LOCATION
+        ),
+        0
+    )
+    //---------------
     Scaffold(
         topBar = {
             TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(Color.Black),
-                title = { Text(text = "Location Tracker Background" , style = TextStyle(color = Color.White)) },
+                colors = topAppBarColors(
+                    Color.Black
+                ),
+                title = {
+                    Text(
+                        text = "Location Tracker Background",
+                        style = TextStyle(color = Color.White)
+                    )
+                },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -49,7 +68,11 @@ fun LocationTracker(
                         },
                         modifier = Modifier
                     ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", tint = Color.White )
+                        Icon(
+                            Icons.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = Color.White
+                        )
                     }
                 },
             )
