@@ -191,17 +191,19 @@ fun <T> IndexedDataLazyColumn(
             modifier = indicesModifier
         ) {
             if (!indexState.isScrollInProgress && shouldUpdateIndexedSelection.value) {
-                val index = indexState.layoutInfo.visibleItemsInfo.first().index
+                val index = indexState.layoutInfo.visibleItemsInfo.firstOrNull()?.index
                 // scrolling on items list is not by user (false)
                 isItemsListScrolledByUser.value = false
                 isSelectedItemExist.value = true
 
                 if (isIndicesListScrolledByUser.value) {
-                    isSelectedItemExist.value = scrollMainListBasedOnIndex(
-                        coroutineContext, predicate,
-                        indices, itemsState,
-                        selectedIndex, index
-                    )
+                    isSelectedItemExist.value = index?.let {
+                        scrollMainListBasedOnIndex(
+                            coroutineContext, predicate,
+                            indices, itemsState,
+                            selectedIndex, it
+                        )
+                    } == true
                 }
 
                 // scrolling on indices is by user (true)

@@ -120,6 +120,7 @@ fun SimpleAppTheme(
         MaterialTheme(
             colorScheme = colorScheme,
             typography = typography,
+            shapes = Shapes,
             content = content
         )
     }

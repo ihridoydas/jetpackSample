@@ -4,17 +4,26 @@ import android.content.Intent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ihridoydas.simpleapp.ar.viewXMLVideoModel.VideoARActivity
 import com.ihridoydas.simpleapp.features.composePDF.pdfUseCase.PDFActivity
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner.ScannerViewModel
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components.ScannerChooser
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 
 @Composable
 fun AllFeatureScreen(navController: NavController) {
+    val viewModel: ScannerViewModel = hiltViewModel()
+    val scannerDialog = remember { mutableStateOf(false) }
+    //For Qr and BarCode Scanner Dialog
+    ScannerChooser(viewModel = viewModel, scannerDialog = scannerDialog,navController = navController)
 
     Column(modifier = Modifier.fillMaxSize()) {
         val context = LocalContext.current
@@ -141,13 +150,9 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFF5A76D3),
                 Color(0xFFFFC793)
-            ), name = "Bar Code View"
+            ), name = "QR and Bar Code Scanner"
         ) {
-            navController?.navigate(ScreenDestinations.BarCodeViewScreen.route) {
-                popUpTo(ScreenDestinations.ViewScreen.route) {
-                    inclusive = false
-                }
-            }
+            scannerDialog.value = true
         }
 
         //Camera View
@@ -611,6 +616,30 @@ fun AllFeatureScreen(navController: NavController) {
             ), name = "Quiz App"
         ) {
             navController?.navigate(ScreenDestinations.QuizApp.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+        MyCard(
+            color = listOf(
+                Color(0xFF4CAF50),
+                Color(0xFF00BCD4)
+            ), name = "KoreoGraphy Animation"
+        ){
+            navController?.navigate(ScreenDestinations.Koreography.route) {
+              popUpTo(ScreenDestinations.ViewScreen.route) {
+                inclusive = false
+            }
+        }
+    }
+    MyCard(
+        color = listOf(
+                Color(0xFFFFEB3B),
+                Color(0xFF9C27B0)
+            ), name = "Screen Capture App"
+        ){
+            navController?.navigate(ScreenDestinations.ScreenShotCapture.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }

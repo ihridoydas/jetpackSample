@@ -9,7 +9,9 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -30,13 +32,16 @@ import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.composeImpressionTracker.demo.ComposeImpressionScreen
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepCanvas
+import com.ihridoydas.simpleapp.features.koreography.KoreoraphyScreen
 import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
+import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases.ScannerUIScreen
 import com.ihridoydas.simpleapp.features.quiz.QuizApp
 import com.ihridoydas.simpleapp.features.quiz.QuizScreen
 import com.ihridoydas.simpleapp.features.richEditor.RichEditorComposableScreen
+import com.ihridoydas.simpleapp.features.screenShotCapture.ScreenCaptureScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
 import com.ihridoydas.simpleapp.features.stepperLibrary.StepperScreen
 import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
@@ -203,7 +208,7 @@ fun MainAnimationNavHost(
             )
         }
         screen(ScreenDestinations.BarCodeViewScreen.route) {
-            BarCodeScreen(
+            ScannerUIScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 }
@@ -424,6 +429,22 @@ fun MainAnimationNavHost(
                 }
             )
         }
+        screen(ScreenDestinations.Koreography.route) {
+            KoreoraphyScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
+        screen(ScreenDestinations.ScreenShotCapture.route) {
+            ScreenCaptureScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                },
+                context
+            )
+        }
+
         screen(ScreenDestinations.ScrollBars.route) {
             ScrollBarScreen(
                 onBackPress = {

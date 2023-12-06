@@ -26,6 +26,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import com.ihridoydas.simpleapp.features.quiz.QuizApp
+import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.useCase.ColumnView
+import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.useCase.LazyColumnView
+import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.useCase.lazyGridView
 import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.data.getTheData
 import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.data.getTheIndexedData
 import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.doubleheader.ExampleDoubleHeaderList
@@ -34,7 +37,7 @@ import com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScroll
 
 
 //List of Screen
-val listOfPager = listOf("doubleHeader","indexLazyColumn","lazyColumnWithScrollBar")
+val listOfPager = listOf("doubleHeader","indexLazyColumn","lazyColumnWithScrollBar","LazyColumn","LazyGird","ColumnView")
 
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalAnimationApi::class,
@@ -50,8 +53,16 @@ fun ScrollBarsContent(pagerState: PagerState) {
         HorizontalPager(state = pagerState) { page ->
             when (page) {
                 0 -> ExampleDoubleHeaderList(getTheData())
-                1 -> ExampleIndexedLazyColumn(getTheIndexedData())
+                1 -> if(getTheIndexedData().isNotEmpty()){
+                        ExampleIndexedLazyColumn(getTheIndexedData())
+                    }else{
+                        Text(text = "SomeThing Wrong.. please Check Data!!")
+                    }
+
                 2 -> ExampleLazyColumnWithScrollbar(data = listOf(1,2,3,4,6,78,9,34,23,23,32,44,32,545,22,232,54,32,23,523,2,23,23,4,355,3456,878,9976,65,65,87,56,565,4,5,454,76,565,86,6,565,445,35))
+                3 -> LazyColumnView()
+                4 -> lazyGridView()
+                5 -> ColumnView()
             }
 
         }
@@ -61,7 +72,7 @@ fun ScrollBarsContent(pagerState: PagerState) {
 }
 
 @OptIn(
-    ExperimentalMaterial3Api::class, ExperimentalAnimationApi::class,
+    ExperimentalMaterial3Api::class,
     ExperimentalFoundationApi::class
 )
 @Composable

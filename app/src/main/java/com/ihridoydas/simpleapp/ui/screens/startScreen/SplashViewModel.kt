@@ -7,6 +7,7 @@ import com.ihridoydas.simpleapp.data.local.PrefDataStore
 import com.ihridoydas.simpleapp.navigation.animationNavHost.ScreenDestinations
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
@@ -21,9 +22,15 @@ class SplashViewModel @Inject constructor(
 
     ) : ViewModel() {
 
-    private val _isLoading = MutableStateFlow(true)
+    private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
+    init {
+        viewModelScope.launch {
+            delay(3000L)
+            _isLoading.value = true
+        }
+    }
 
     fun checkStartScreen(callback: (route: String) -> Unit = {}) {
 
