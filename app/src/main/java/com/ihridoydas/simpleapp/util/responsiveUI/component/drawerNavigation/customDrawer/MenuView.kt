@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ihridoydas.simpleapp.BuildConfig
 import com.ihridoydas.simpleapp.R
 import com.ihridoydas.simpleapp.ui.theme.md_theme_light_onPrimary
 import com.ihridoydas.simpleapp.ui.theme.md_theme_light_onPrimaryContainer
@@ -164,6 +165,9 @@ fun MenuView(
                             menuText = "LogOut",
                             onClick = logOutTap
                         )
+                        Spacer(modifier = Modifier.padding(top = 2.dp))
+                        
+                        Text(text = "${BuildConfig.VERSION_NAME}")
 
                     }
                 }

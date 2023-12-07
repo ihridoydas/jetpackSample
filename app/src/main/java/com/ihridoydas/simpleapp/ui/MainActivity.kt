@@ -4,14 +4,18 @@ package com.ihridoydas.simpleapp.ui
  * Created By Hridoy Chandra Das
  */
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.animation.OvershootInterpolator
 import android.widget.Toast
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -27,8 +31,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.glance.color.DynamicThemeColorProviders.background
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
@@ -83,17 +89,6 @@ class MainActivity : AppCompatActivity() {
         //----------------
 
         //---------------
-        // For Location Tracker
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(
-                android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ),
-            0
-        )
-        //---------------
-
 
         if (RootUtil.isDeviceRooted()) {
             Log.e(Tag, "onCreate - Rooted device.")
@@ -103,7 +98,32 @@ class MainActivity : AppCompatActivity() {
         Log.d(Tag, "onCreate")
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                splashViewModel.isLoading.value
+                !splashViewModel.isLoading.value
+            }
+            setOnExitAnimationListener{screen->
+                val zoomX = ObjectAnimator.ofFloat(
+                    screen.iconView,
+                    View.SCALE_X,
+                    0.4f,
+                    0.0f
+                )
+                zoomX.interpolator = OvershootInterpolator()
+                zoomX.duration = 500L
+                zoomX.doOnEnd { screen.remove() }
+
+                val zoomY = ObjectAnimator.ofFloat(
+                    screen.iconView,
+                    View.SCALE_Y,
+                    0.4f,
+                    0.0f
+                )
+                zoomY.interpolator = OvershootInterpolator()
+                zoomY.duration = 500L
+                zoomY.doOnEnd { screen.remove() }
+
+                zoomX.start()
+                zoomY.start()
+
             }
         }
         //Show FeedBack Review
@@ -171,10 +191,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        videoNode.player.stop()
-    }
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        videoNode.player.stop()
+//    }
 
     private var pressedTime: Long = 0
 
@@ -243,7 +263,6 @@ class MainActivity : AppCompatActivity() {
                             productId = productId,
                             productViewModel = productViewModel,
                             virtualTryOnViewModel = virtualTryOnViewModel
-
 
                         )
                     }

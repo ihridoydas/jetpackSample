@@ -18,6 +18,8 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <!--BioMatric Auth-->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
@@ -40,7 +42,7 @@
         android:label="${appLabel}"
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SimpleApp"
+        android:theme="@style/Theme.CustomSplashScreenTheme"
         android:hardwareAccelerated="true"
         tools:targetApi="31"
         android:windowSoftInputMode="adjustResize">
@@ -49,22 +51,153 @@
         <service
             android:name=".features.locationTracker.LocationService"
             android:foregroundServiceType="location" />
-
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.CustomSplashScreenTheme">
+            <!-- For MLKit -->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity-alias
+            android:name=".MainActivity"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- For MLKit -->
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity> <!-- Android 13 でUIテストするため(BootstrapActivityエラー解決ため) -->
+        </activity-alias> <!-- Android 13 でUIテストするため(BootstrapActivityエラー解決ため) -->
+
+        <!--Start For App Icon Changer-->
+        <activity-alias
+            android:name=".MainActivityA"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_a"
+            android:label="@string/app_name_a"
+            android:roundIcon="@mipmap/ic_launcher_a_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityB"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_b"
+            android:label="@string/app_name_b"
+            android:roundIcon="@mipmap/ic_launcher_b_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityC"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_c"
+            android:label="@string/app_name_c"
+            android:roundIcon="@mipmap/ic_launcher_c_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityD"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_d"
+            android:label="@string/app_name_d"
+            android:roundIcon="@mipmap/ic_launcher_d_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityE"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_e"
+            android:label="@string/app_name_e"
+            android:roundIcon="@mipmap/ic_launcher_e_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityF"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_f"
+            android:label="@string/app_name_f"
+            android:roundIcon="@mipmap/ic_launcher_f_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityG"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_g"
+            android:label="@string/app_name_g"
+            android:roundIcon="@mipmap/ic_launcher_g_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".MainActivityH"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_h"
+            android:label="@string/app_name_h"
+            android:roundIcon="@mipmap/ic_launcher_h_round"
+            android:targetActivity=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".StartActivity"
+            android:exported="true"
+            android:targetActivity=".ui.MainActivity">
+
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!--End For App Icon Changer-->
 
         <!--  For PDF View-->
         <provider
@@ -113,6 +246,16 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/counter_widget_info" />
+        </receiver>
+        <receiver
+            android:name=".widget.glance.DaysWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/days_widget_info" />
         </receiver>
         <!--  For workManager-->
         <provider

@@ -143,3 +143,36 @@ val P2PBackground: Color
 val TextColor: Color
     @Composable
     get() = if (isDarkThemeEnabled) Color.Black else Color.Black
+
+//For TimeLine Compose Feature
+val Gray200: Color = Color(0xFFEEEBF4)
+val Orange500: Color = Color(0xFFFF8700)
+val Green500: Color = Color(0xFF00FF86)
+
+val LightBlue: Color = Color(0xff12c2e9)
+val Purple: Color = Color(0xffc471ed)
+val Coral: Color = Color(0xfff64f59)
+val LightCoral: Color = Color(0xfffbaeb2)
+
+//Quiz app color
+val CodeeBlue = Color(0xff141A33)
+val CodeeRed = Color(0xffCE0E4B)
+val CodeeGreen = Color(0xff0CBA8D)
+val CodeeGray = Color(0xff666B86)
+
+//Pendulum
+val Honeydew = Color(0xfff1faee)
+val Desire = Color(0xffe63946)
+val Crystal = Color(0xffa8dadc)
+val JellyBeanBlue = Color(0xff457b9d)
+val SpaceCadet = Color(0xff1d3557)
+
+//For Qr Code
+val LightSurface = Color(0xFFFFFFFF)
+val LightYellow = Color(0xFFFFF3E0)
+val DarkYellow = Color(0xFFFFD152)
+val DarkSurface = Color(0xFF3C3E4B)
+val LightGrey = Color(0xFFCECECE)
+val DarkGrey = Color(0xFF3C3E4B)
+val LightText = Color(0xFFBEB083)
+val DarkText = Color(0xFF852E2E)

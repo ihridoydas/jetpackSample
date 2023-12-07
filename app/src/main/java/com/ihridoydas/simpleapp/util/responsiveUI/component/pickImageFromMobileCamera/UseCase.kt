@@ -1,32 +1,37 @@
 package com.ihridoydas.simpleapp.util.responsiveUI.component.pickImageFromMobileCamera
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.ihridoydas.simpleapp.features.countrypicker.SampleCountryPicker
+import com.ihridoydas.simpleapp.util.responsiveUI.component.shrineUserEducationAnimation.ShrineAnimationScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
+val listOfPager = listOf("ImagePicker", "countryPicker","ShrineAnimation")
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun PickImageFromMobile(onBackPress: ()-> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Bar Code Scan") },
+                title = { Text(text = "Pick Image and Country Picker") },
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -34,7 +39,7 @@ fun PickImageFromMobile(onBackPress: ()-> Unit) {
                         },
                         modifier = Modifier
                     ) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
             )
@@ -48,8 +53,20 @@ fun PickImageFromMobile(onBackPress: ()-> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                PickImageFromGallery()
-                PickImageFromCamera()
+                val pagerState =
+                    rememberPagerState(
+                        initialPage = 0,
+                        initialPageOffsetFraction = 0f,
+                        pageCount = { listOfPager.size })
+
+                HorizontalPager(state = pagerState) { page ->
+                    when (page) {
+                        0 -> ImagePicker()
+                        1 -> SampleCountryPicker()
+                        2 -> ShrineAnimationScreen() // ShrineAnimationWithRedirectRenderScreen()
+                    }
+
+                }
             }
         }
     )
