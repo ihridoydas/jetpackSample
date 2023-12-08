@@ -37,6 +37,7 @@ import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
+import com.ihridoydas.simpleapp.features.riveAnimation.RiveAnimationCompose
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases.ScannerUIScreen
 import com.ihridoydas.simpleapp.features.quiz.QuizApp
 import com.ihridoydas.simpleapp.features.quiz.QuizScreen
@@ -405,6 +406,11 @@ fun MainAnimationNavHost(
                 activity,
                 navController
             )
+        }
+        screen(ScreenDestinations.ComposeRiveAnimation.route) {
+            RiveAnimationCompose(onBackPress = {
+                navController.navigateTo(ScreenDestinations.ViewScreen.route)
+            })
         }
         screen(ScreenDestinations.RichEditor.route) {
             RichEditorComposableScreen(

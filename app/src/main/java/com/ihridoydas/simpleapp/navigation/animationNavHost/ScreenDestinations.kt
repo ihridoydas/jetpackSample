@@ -45,6 +45,7 @@ sealed class ScreenDestinations(val route: String) {
 
 
     //Others
+    object ComposeRiveAnimation : ScreenDestinations("compose_rive_animation")
     data object TabLayoutScreen : ScreenDestinations("tab_layout_view")
     data object PickImageScreen : ScreenDestinations("pick_Image_view")
     data object SortingVisualizerScreen : ScreenDestinations("sorting_visual_view")

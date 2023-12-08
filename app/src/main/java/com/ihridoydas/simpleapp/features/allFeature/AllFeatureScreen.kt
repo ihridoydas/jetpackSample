@@ -586,6 +586,18 @@ fun AllFeatureScreen(navController: NavController) {
         }
         MyCard(
             color = listOf(
+                Color(0xFF132069),
+                Color(0xFF4CAF50)
+            ), name = "Rive Animation"
+        ){
+            navController?.navigate(ScreenDestinations.ComposeRiveAnimation.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
+        MyCard(
+            color = listOf(
                 Color(0xFF3BCE3F),
                 Color(0xFF221D0D)
             ), name = "Rich Editor compose"
@@ -596,6 +608,7 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        //Others End
         MyCard(
             color = listOf(
                 Color(0xFF2196F3),

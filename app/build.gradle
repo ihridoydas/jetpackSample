@@ -120,6 +120,10 @@ dependencies {
     //Materials Icons
     implementation "androidx.compose.material:material-icons-extended"
 
+    // Rive
+    implementation("app.rive:rive-android:5.0.1")
+    implementation("androidx.startup:startup-runtime:1.1.1")
+
 
     // Compose dependencies
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose"

@@ -152,6 +152,18 @@ class MainActivity : AppCompatActivity() {
                    WindowCompat.setDecorFitsSystemWindows(window,false)
                    */
 
+               /* //Another Way full screen
+                val systemUiController = rememberSystemUiController()
+                SideEffect {
+                    // set transparent color so that our image is visible
+                    // behind the status bar
+                    systemUiController.setStatusBarColor(color = Color(0xFFd7e1e8))
+                    systemUiController.setNavigationBarColor(
+                        color = Color(0xFFd7e1e8)
+                    )
+                }*/
+
+
                 MyApp(
                     navController = navController,
                     systemUiController = systemUiController,
