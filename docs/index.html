@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>app</title>
     <link href="images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -18,12 +19,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="scripts/sourceset_dependencies.js" async="async"></script>
 <link href="styles/style.css" rel="Stylesheet">
-<link href="styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="styles/main.css" rel="Stylesheet">
 <link href="styles/prism.css" rel="Stylesheet">
 <link href="styles/logo-styles.css" rel="Stylesheet">
+<link href="styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="scripts/clipboard.js" async="async"></script>
 <script type="text/javascript" src="scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="scripts/platform-content-handler.js" async="async"></script>
@@ -32,28 +34,33 @@
 <script type="text/javascript" src="scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-            <a href="index.html">
-                    <span>app</span>
-            </a>
-    </div>
-    <div>
-    </div>
-    <div class="pull-right d-flex">
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="index.html">
+                            app
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
         <div class="filter-section" id="filter-section">
                 <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":app:dokkaHtml/stagingRelease">androidJvm</button>
         </div>
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-    <div id="main">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
 <div class="main-content" id="content" pageIds="app::////PointingToDeclaration//1666953606">
   <div class="breadcrumbs"></div>
   <div class="cover ">
@@ -68,6 +75,24 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/[root]/index.html">[root]</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1999595294%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="321950105%2FPackages%2F1666953606" anchor-label="com.dokar.chiptextfield" id="321950105%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.dokar.chiptextfield/index.html">com.dokar.chiptextfield</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="321950105%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -97,6 +122,132 @@
         <div><span class="brief-comment"><a data-name="-63564786%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp" id="-63564786%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
             <p class="paragraph">リポジトリ一覧</p>
           </span></div>
+      </div>
+    </div>
+<a data-name="1715134931%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.data" id="1715134931%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.data/index.html">com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1715134931%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="996140205%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.domain" id="996140205%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.domain/index.html">com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.domain</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="996140205%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1758278077%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation" id="-1758278077%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation/index.html">com.ihridoydas.simpleapp.ar.arEcommerce.productdescription.presentation</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1758278077%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1344404207%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.data" id="-1344404207%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.data/index.html">com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1344404207%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1463340949%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.domain" id="-1463340949%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.domain/index.html">com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.domain</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1463340949%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-778710143%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation" id="-778710143%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation/index.html">com.ihridoydas.simpleapp.ar.arEcommerce.virtualtryon.presentation</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-778710143%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="30469485%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.arMenu" id="30469485%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.ar.arMenu/index.html">com.ihridoydas.simpleapp.ar.arMenu</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="30469485%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
       </div>
     </div>
 <a data-name="-545212984%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.ar.augmentedImage" id="-545212984%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
@@ -441,6 +592,132 @@
         <div></div>
       </div>
     </div>
+<a data-name="361736240%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets" id="361736240%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets/index.html">com.ihridoydas.simpleapp.features.bottomSheets</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="361736240%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-136061012%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets.intentpicker" id="-136061012%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets.intentpicker/index.html">com.ihridoydas.simpleapp.features.bottomSheets.intentpicker</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-136061012%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1463553301%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets.material3Sheet" id="1463553301%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets.material3Sheet/index.html">com.ihridoydas.simpleapp.features.bottomSheets.material3Sheet</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1463553301%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-797568454%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets.materialSheet" id="-797568454%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets.materialSheet/index.html">com.ihridoydas.simpleapp.features.bottomSheets.materialSheet</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-797568454%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-309009979%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets.pager" id="-309009979%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets.pager/index.html">com.ihridoydas.simpleapp.features.bottomSheets.pager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-309009979%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-299872288%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets.sheetCore" id="-299872288%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets.sheetCore/index.html">com.ihridoydas.simpleapp.features.bottomSheets.sheetCore</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-299872288%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-715812526%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.bottomSheets.uitils" id="-715812526%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.bottomSheets.uitils/index.html">com.ihridoydas.simpleapp.features.bottomSheets.uitils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-715812526%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="1710060706%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.cameraScreen" id="1710060706%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -448,6 +725,96 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.features.cameraScreen/index.html">com.ihridoydas.simpleapp.features.cameraScreen</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1710060706%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1210229420%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.chipTextField" id="-1210229420%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.chipTextField/index.html">com.ihridoydas.simpleapp.features.chipTextField</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1210229420%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1105355883%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.chipTextField.chipStyle" id="1105355883%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.chipTextField.chipStyle/index.html">com.ihridoydas.simpleapp.features.chipTextField.chipStyle</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1105355883%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1667099000%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.chipTextField.data" id="-1667099000%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.chipTextField.data/index.html">com.ihridoydas.simpleapp.features.chipTextField.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1667099000%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-817778585%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.composeImpressionTracker.demo" id="-817778585%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.composeImpressionTracker.demo/index.html">com.ihridoydas.simpleapp.features.composeImpressionTracker.demo</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-817778585%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-976377039%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.composeImpressionTracker.utils" id="-976377039%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.composeImpressionTracker.utils/index.html">com.ihridoydas.simpleapp.features.composeImpressionTracker.utils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-976377039%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -837,6 +1204,114 @@
         <div></div>
       </div>
     </div>
+<a data-name="329856599%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.countrypicker" id="329856599%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.countrypicker/index.html">com.ihridoydas.simpleapp.features.countrypicker</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="329856599%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-272634222%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.countrypicker.model" id="-272634222%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.countrypicker.model/index.html">com.ihridoydas.simpleapp.features.countrypicker.model</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-272634222%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-617550538%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.expendableText" id="-617550538%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.expendableText/index.html">com.ihridoydas.simpleapp.features.expendableText</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-617550538%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1391513046%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.koreography" id="1391513046%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.koreography/index.html">com.ihridoydas.simpleapp.features.koreography</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1391513046%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1674315240%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.koreography.useCases" id="-1674315240%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.koreography.useCases/index.html">com.ihridoydas.simpleapp.features.koreography.useCases</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1674315240%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="737175966%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.koreography.util" id="737175966%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.koreography.util/index.html">com.ihridoydas.simpleapp.features.koreography.util</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="737175966%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="1182277494%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.locationTracker" id="1182277494%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -999,6 +1474,330 @@
         <div></div>
       </div>
     </div>
+<a data-name="-15430837%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.pendulum" id="-15430837%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.pendulum/index.html">com.ihridoydas.simpleapp.features.pendulum</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-15430837%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-949146889%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.data" id="-949146889%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.data/index.html">com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-949146889%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1071619392%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.model" id="1071619392%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.model/index.html">com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.model</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1071619392%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-343654763%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner" id="-343654763%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner/index.html">com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.scanner</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-343654763%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1793712391%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components" id="1793712391%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components/index.html">com.ihridoydas.simpleapp.features.qrCodeAndBarCode.scannercode.ui.components</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1793712391%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1225717402%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases" id="-1225717402%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases/index.html">com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1225717402%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-625123066%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.quiz" id="-625123066%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.quiz/index.html">com.ihridoydas.simpleapp.features.quiz</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-625123066%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1811246570%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.quiz.data" id="-1811246570%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.quiz.data/index.html">com.ihridoydas.simpleapp.features.quiz.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1811246570%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="948075264%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.quiz.ui" id="948075264%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.quiz.ui/index.html">com.ihridoydas.simpleapp.features.quiz.ui</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="948075264%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="843392986%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.richEditor" id="843392986%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.richEditor/index.html">com.ihridoydas.simpleapp.features.richEditor</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="843392986%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="277926241%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.richEditor.editor.ui" id="277926241%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.richEditor.editor.ui/index.html">com.ihridoydas.simpleapp.features.richEditor.editor.ui</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="277926241%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1004133733%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.richEditor.editor.ui.data" id="-1004133733%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.richEditor.editor.ui.data/index.html">com.ihridoydas.simpleapp.features.richEditor.editor.ui.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1004133733%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-632972772%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.richEditor.editor.ui.model" id="-632972772%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.richEditor.editor.ui.model/index.html">com.ihridoydas.simpleapp.features.richEditor.editor.ui.model</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-632972772%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1022655793%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.riveAnimation" id="1022655793%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.riveAnimation/index.html">com.ihridoydas.simpleapp.features.riveAnimation</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1022655793%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-293903589%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.riveAnimation.loginPage" id="-293903589%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.riveAnimation.loginPage/index.html">com.ihridoydas.simpleapp.features.riveAnimation.loginPage</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-293903589%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1939046893%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.screenShotCapture" id="-1939046893%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.screenShotCapture/index.html">com.ihridoydas.simpleapp.features.screenShotCapture</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1939046893%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="898254296%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.screenShotCapture.capturable" id="898254296%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.screenShotCapture.capturable/index.html">com.ihridoydas.simpleapp.features.screenShotCapture.capturable</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="898254296%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-238080010%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.screenShotCapture.capturable.controller" id="-238080010%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.screenShotCapture.capturable.controller/index.html">com.ihridoydas.simpleapp.features.screenShotCapture.capturable.controller</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-238080010%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="-1869977035%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.sortingVisualizer" id="-1869977035%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -1096,6 +1895,294 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.features.sortingVisualizer.ui.util/index.html">com.ihridoydas.simpleapp.features.sortingVisualizer.ui.util</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-799878941%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="634429042%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperCompose" id="634429042%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperCompose/index.html">com.ihridoydas.simpleapp.features.stepperCompose</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="634429042%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="709570251%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperCompose.screens" id="709570251%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperCompose.screens/index.html">com.ihridoydas.simpleapp.features.stepperCompose.screens</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="709570251%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1109541672%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperCompose.stepper_compose" id="1109541672%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperCompose.stepper_compose/index.html">com.ihridoydas.simpleapp.features.stepperCompose.stepper_compose</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1109541672%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1010614181%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperLibrary" id="-1010614181%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperLibrary/index.html">com.ihridoydas.simpleapp.features.stepperLibrary</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1010614181%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1643362271%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.components" id="1643362271%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.components/index.html">com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.components</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1643362271%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1888405081%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.ui.horizontal" id="1888405081%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.ui.horizontal/index.html">com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.ui.horizontal</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1888405081%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1986742293%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.ui.vertical" id="-1986742293%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.ui.vertical/index.html">com.ihridoydas.simpleapp.features.stepperLibrary.kotstep.ui.vertical</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1986742293%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="375857438%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.stepperLibrary.utils" id="375857438%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.stepperLibrary.utils/index.html">com.ihridoydas.simpleapp.features.stepperLibrary.utils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="375857438%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="668885837%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.ticTokToeGame" id="668885837%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.ticTokToeGame/index.html">com.ihridoydas.simpleapp.features.ticTokToeGame</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="668885837%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="912450607%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.ticTokToeGame.data" id="912450607%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.ticTokToeGame.data/index.html">com.ihridoydas.simpleapp.features.ticTokToeGame.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="912450607%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1480866340%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.timeLineCompose" id="1480866340%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.timeLineCompose/index.html">com.ihridoydas.simpleapp.features.timeLineCompose</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1480866340%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-887760580%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.timeLineCompose.composables" id="-887760580%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.timeLineCompose.composables/index.html">com.ihridoydas.simpleapp.features.timeLineCompose.composables</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-887760580%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1942298865%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.timeLineCompose.entities" id="-1942298865%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.timeLineCompose.entities/index.html">com.ihridoydas.simpleapp.features.timeLineCompose.entities</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1942298865%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-294597745%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.timeLineCompose.timeline" id="-294597745%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.timeLineCompose.timeline/index.html">com.ihridoydas.simpleapp.features.timeLineCompose.timeline</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-294597745%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1332716203%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.timeLineCompose.timeline.defaults" id="-1332716203%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.timeLineCompose.timeline.defaults/index.html">com.ihridoydas.simpleapp.features.timeLineCompose.timeline.defaults</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1332716203%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1324293037%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.features.timeLineCompose.timeline.models" id="1324293037%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.features.timeLineCompose.timeline.models/index.html">com.ihridoydas.simpleapp.features.timeLineCompose.timeline.models</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1324293037%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -1521,6 +2608,24 @@
         <div></div>
       </div>
     </div>
+<a data-name="-1234026710%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animaticingSectionWithShape" id="-1234026710%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animaticingSectionWithShape/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.animaticingSectionWithShape</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1234026710%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="884491951%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel" id="884491951%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -1528,6 +2633,24 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.autoSlidingCarousel</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="884491951%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1023091161%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.composeFancyClock" id="-1023091161%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.composeFancyClock/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.composeFancyClock</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1023091161%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -1564,6 +2687,60 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1914176642%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1260404670%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign" id="1260404670%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1260404670%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1926351425%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign.utils" id="1926351425%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign.utils/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign.utils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1926351425%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1946304492%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.simpleDragAndDrop" id="-1946304492%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.simpleDragAndDrop/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.simpleDragAndDrop</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1946304492%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -1708,6 +2885,24 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.flippable/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.flippable</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1104656339%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1790387919%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.animations.loadingAnimation.shimmerLoading" id="-1790387919%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.animations.loadingAnimation.shimmerLoading/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.animations.loadingAnimation.shimmerLoading</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1790387919%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -1899,6 +3094,42 @@
         <div></div>
       </div>
     </div>
+<a data-name="256652503%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger" id="256652503%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="256652503%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1410479974%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.utils" id="-1410479974%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.utils/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.appIconChanger.utils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1410479974%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="-1739077219%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation" id="-1739077219%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -1906,6 +3137,24 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.bottom_navigation</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1739077219%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="700753705%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.buttonShake" id="700753705%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.buttonShake/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.buttonShake</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="700753705%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -2079,6 +3328,60 @@
         <div></div>
       </div>
     </div>
+<a data-name="-392125951%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu" id="-392125951%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-392125951%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2125504955%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.layout" id="2125504955%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.layout/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.layout</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2125504955%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-347984316%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.utils" id="-347984316%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.utils/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.utils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-347984316%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="116483040%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.drawerNavigation.customDrawer" id="116483040%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -2133,6 +3436,24 @@
         <div></div>
       </div>
     </div>
+<a data-name="792041503%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.dropDownMenu" id="792041503%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.dropDownMenu/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.dropDownMenu</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="792041503%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="-1554408153%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.galleryTransitionHorizontalPager" id="-1554408153%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -2151,6 +3472,24 @@
         <div></div>
       </div>
     </div>
+<a data-name="-1046501825%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.horizontalPagerIndicator" id="-1046501825%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.horizontalPagerIndicator/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.horizontalPagerIndicator</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1046501825%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="1026298841%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions" id="1026298841%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -2158,6 +3497,258 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1026298841%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1626874842%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.slider" id="1626874842%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.slider/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.slider</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1626874842%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1633495389%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.slider.utils" id="1633495389%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.slider.utils/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.illuminatingInteractions.slider.utils</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1633495389%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="830831428%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.indicator" id="830831428%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.indicator/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.indicator</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="830831428%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1501162037%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.compose" id="1501162037%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.compose/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.compose</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1501162037%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1265055162%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.useCase" id="1265055162%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.useCase/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnScrollbar.useCase</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1265055162%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-437366421%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar" id="-437366421%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-437366421%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1044977873%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.data" id="1044977873%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.data/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.data</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1044977873%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-2085893947%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.doubleheader" id="-2085893947%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.doubleheader/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.doubleheader</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2085893947%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1374028718%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.indexed" id="1374028718%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.indexed/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.indexed</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1374028718%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1283427779%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.scrollBar" id="1283427779%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.scrollBar/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.lazyColumnWithScrollbar.scrollBar</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1283427779%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="425386950%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.matrixCompose" id="425386950%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.matrixCompose/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.matrixCompose</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="425386950%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-2110931241%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.modifierCustom" id="-2110931241%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.modifierCustom/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.modifierCustom</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2110931241%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1326818517%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.motionLayout.dynamicisland" id="1326818517%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.motionLayout.dynamicisland/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.motionLayout.dynamicisland</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1326818517%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-813455099%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.pager.animatedViewPager" id="-813455099%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.pager.animatedViewPager/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.pager.animatedViewPager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-813455099%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -2241,6 +3832,24 @@
         <div></div>
       </div>
     </div>
+<a data-name="-1926837703%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.shrineUserEducationAnimation" id="-1926837703%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.shrineUserEducationAnimation/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.shrineUserEducationAnimation</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1926837703%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="1987655950%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.stickyTabHeader" id="1987655950%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -2248,6 +3857,42 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.stickyTabHeader/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.stickyTabHeader</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1987655950%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1214868564%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout" id="1214868564%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1214868564%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-269987042%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.multiSelector" id="-269987042%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.multiSelector/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.tabLayout.multiSelector</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-269987042%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -2302,6 +3947,60 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.textField/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.textField</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1813744514%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-2143153983%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.component.thumbnailOfStory" id="-2143153983%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.component.thumbnailOfStory/index.html">com.ihridoydas.simpleapp.util.responsiveUI.component.thumbnailOfStory</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2143153983%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1961732980%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.drawShape" id="-1961732980%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.drawShape/index.html">com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.drawShape</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1961732980%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1189741901%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.flowLayout" id="1189741901%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.flowLayout/index.html">com.ihridoydas.simpleapp.util.responsiveUI.customLayoutCompose.flowLayout</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1189741901%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -2385,6 +4084,24 @@
         <div></div>
       </div>
     </div>
+<a data-name="-779777624%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.widget" id="-779777624%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.widget/index.html">com.ihridoydas.simpleapp.widget</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-779777624%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
 <a data-name="-1178421606%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.widget.counterWidget" id="-1178421606%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
     <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
       <div>
@@ -2392,6 +4109,42 @@
           <div class=""><span class="inline-flex">
               <div><a href="app/com.ihridoydas.simpleapp.widget.counterWidget/index.html">com.ihridoydas.simpleapp.widget.counterWidget</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1178421606%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="969605182%2FPackages%2F1666953606" anchor-label="com.ihridoydas.simpleapp.widget.glance" id="969605182%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.ihridoydas.simpleapp.widget.glance/index.html">com.ihridoydas.simpleapp.widget.glance</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="969605182%2FPackages%2F1666953606"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">androidJvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="420900320%2FPackages%2F1666953606" anchor-label="com.rwmobi.composepager.ui" id="420900320%2FPackages%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+    <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="app/com.rwmobi.composepager.ui/index.html">com.rwmobi.composepager.ui</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="420900320%2FPackages%2F1666953606"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div class="pull-right">
@@ -2428,7 +4181,8 @@
                 class="pull-right"><span>Generated by </span><a
                 href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>
