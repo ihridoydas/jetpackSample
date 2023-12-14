@@ -34,6 +34,7 @@ import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepCanvas
 import com.ihridoydas.simpleapp.features.koreography.KoreoraphyScreen
 import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
+import com.ihridoydas.simpleapp.features.movingLetter.usecase.MovingTextScreen
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
 import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
@@ -465,6 +466,13 @@ fun MainAnimationNavHost(
                     }
                 )
             }
+        screen(ScreenDestinations.MovingAnimationText.route) {
+            MovingTextScreen(
+                onBackPress = {
+                    navController.navigateTo(ScreenDestinations.ViewScreen.route)
+                }
+            )
+        }
     }
 
 

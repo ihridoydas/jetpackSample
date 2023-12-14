@@ -113,6 +113,13 @@
     <string name="developer">Developer</string>
     <string name="scan_value">Scan Code - </string>
     <string name="exit">Exit</string>
+    <string name="code">Code</string>
+    <string name="effect">Effect %1$d</string>
+    <string name="text">The quick brown fox jumps over the lazy dog!</string>
+    <string name="resume">Resume</string>
+    <string name="start">Start</string>
+    <string name="state">State</string>
+    <string name="stop">Stop</string>
 
 
 

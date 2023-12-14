@@ -685,6 +685,18 @@ fun AllFeatureScreen(navController: NavController) {
                 }
             }
         }
+        MyCard(
+            color = listOf(
+                Color(0xFF673AB7),
+                Color(0xFF4C9108)
+            ), name = "Moving Animation Text"
+        ) {
+            navController?.navigate(ScreenDestinations.MovingAnimationText.route) {
+                popUpTo(ScreenDestinations.ViewScreen.route) {
+                    inclusive = false
+                }
+            }
+        }
     }
         //Others End
 
