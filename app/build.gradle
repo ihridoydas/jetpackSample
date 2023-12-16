@@ -101,7 +101,7 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation 'androidx.activity:activity-compose:1.8.0'
+    implementation 'androidx.activity:activity-compose:1.8.1'
     implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.compose.ui:ui-graphics'
@@ -114,7 +114,7 @@ dependencies {
 
     //material 3
     implementation "androidx.compose.material3:material3"
-    implementation "androidx.compose.material3:material3:1.2.0-alpha07"
+    implementation "androidx.compose.material3:material3:1.2.0-alpha12"
     implementation "androidx.compose.material3:material3-window-size-class"
 
     //Materials Icons
@@ -127,7 +127,7 @@ dependencies {
 
     // Compose dependencies
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose"
-    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+    implementation "androidx.hilt:hilt-navigation-compose:1.1.0"
 
 
     //Room
@@ -167,24 +167,24 @@ dependencies {
     //dagger hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     ksp "com.google.dagger:hilt-compiler:$hilt_version"
-    ksp "androidx.hilt:hilt-compiler:1.0.0"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    ksp "androidx.hilt:hilt-compiler:1.1.0"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.1.0'
 
     // Kotlin + coroutines (Work Manager)
     implementation("androidx.work:work-runtime-ktx:$work_version")
-    implementation("androidx.hilt:hilt-work:1.0.0")
+    implementation("androidx.hilt:hilt-work:1.1.0")
 
 
     ksp("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
 
     //kotlin Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ktx_coroutine_version"
 
     // android ktx
-    implementation 'androidx.activity:activity-ktx:1.7.2'
+    implementation 'androidx.activity:activity-ktx:1.8.1'
 
     //hilt viewmodel
     //implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
@@ -194,11 +194,11 @@ dependencies {
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
 
     //navigation
-    implementation("androidx.navigation:navigation-compose:2.7.4")
+    implementation("androidx.navigation:navigation-compose:2.7.5")
     implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_version"
 
     // Coil Compose Image Dependency
-    implementation("io.coil-kt:coil-compose:1.3.2")
+    implementation("io.coil-kt:coil-compose:2.3.0")
     implementation("io.coil-kt:coil-compose:2.1.0")
 
     // Coil
@@ -209,9 +209,9 @@ dependencies {
     implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
 
     //LiveData
-    implementation("androidx.compose.runtime:runtime:1.6.0-alpha05")
-    implementation("androidx.compose.runtime:runtime-livedata:1.6.0-alpha05")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.6.0-alpha05")
+    implementation("androidx.compose.runtime:runtime:1.6.0-beta02")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.0-beta02")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.6.0-beta02")
 
     //Gson
     implementation 'com.google.code.gson:gson:2.10.1'
@@ -240,15 +240,15 @@ dependencies {
 
     //Jetpack Compose Permissions
     implementation "com.google.accompanist:accompanist-permissions:$accompanist_version"
-    implementation "com.google.accompanist:accompanist-permissions:0.28.0"
+    implementation "com.google.accompanist:accompanist-permissions:0.30.0"
 
     implementation "androidx.savedstate:savedstate-ktx:1.1.0"
 
     //Constraint Layout Compose
-    implementation "androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha12"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha13"
 
     //Google Fonts in Jetpack Compose
-    implementation "androidx.compose.ui:ui-text-google-fonts:1.6.0-alpha05"
+    implementation "androidx.compose.ui:ui-text-google-fonts:1.6.0-beta02"
 
     //Support palette //https://medium.com/jetpack-composers/how-to-use-palette-api-with-jetpack-compose-a7028143d3c2
     implementation('androidx.palette:palette-ktx:1.0.0')
@@ -263,12 +263,12 @@ dependencies {
     implementation 'com.google.android.play:review-ktx:2.0.1'
 
     //video player
-    implementation 'androidx.media3:media3-exoplayer:1.1.1'
-    implementation 'androidx.media3:media3-ui:1.1.1'
+    implementation 'androidx.media3:media3-exoplayer:1.2.0'
+    implementation 'androidx.media3:media3-ui:1.2.0'
 
     //Maps　
     implementation 'com.google.maps.android:maps-compose:2.10.0'
-    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
 
     //  <!--With MLKit-->
     //bar code scanner
@@ -317,10 +317,10 @@ dependencies {
     testImplementation "io.mockk:mockk:1.13.2"
     // Mockk
     androidTestImplementation "io.mockk:mockk-android:1.12.0"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:1.6.0-alpha05"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:1.6.0-beta02"
 
     // Instrumentation tests
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44.2'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.48.1'
     kspAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
     androidTestImplementation "junit:junit"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$ktx_coroutine_version"
