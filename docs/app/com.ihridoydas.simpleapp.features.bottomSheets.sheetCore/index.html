@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.ihridoydas.simpleapp.features.bottomSheets.sheetCore</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../index.html">
+                            app
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":app:dokkaHtml/stagingRelease">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="app::com.ihridoydas.simpleapp.features.bottomSheets.sheetCore////PointingToDeclaration//1666953606">
+  <div class="breadcrumbs"><a href="../../index.html">app</a><span class="delimiter">/</span><span class="current">com.ihridoydas.simpleapp.features.bottomSheets.sheetCore</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1705877859%2FClasslikes%2F1666953606" anchor-label="BottomSheetState" id="1705877859%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-bottom-sheet-state/index.html"><span>Bottom</span><wbr></wbr><span>Sheet</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1705877859%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable.html"><span class="token annotation builtin">Stable</span></a></div></div><span class="token keyword">class </span><a href="-bottom-sheet-state/index.html">BottomSheetState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initialValue<span class="token operator">: </span><a href="-bottom-sheet-value/index.html">BottomSheetValue</a><span class="token operator"> = </span>BottomSheetValue.Collapsed<span class="token punctuation">, </span></span><span class="parameter ">confirmValueChange<span class="token operator">: </span><a href="-confirm-value-change/index.html">ConfirmValueChange</a><span class="token operator"> = </span>{ true }</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Provides the access to the bottom sheet states (<a href="-bottom-sheet-state/visible.html">visible</a>, <a href="-bottom-sheet-state/value.html">value</a>, etc) and the ability to manually change the <a href="-bottom-sheet-state/value.html">value</a> by calling <a href="-bottom-sheet-state/peek.html">peek</a>, <a href="-bottom-sheet-state/expand.html">expand</a> and <a href="-bottom-sheet-state/collapse.html">collapse</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-384692093%2FClasslikes%2F1666953606" anchor-label="BottomSheetValue" id="-384692093%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-bottom-sheet-value/index.html"><span>Bottom</span><wbr></wbr><span>Sheet</span><wbr></wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-384692093%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-bottom-sheet-value/index.html">BottomSheetValue</a> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-bottom-sheet-value/index.html">BottomSheetValue</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">The value represents one of three sheet values (expanded, peek, and collapsed).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1312919681%2FClasslikes%2F1666953606" anchor-label="ConfirmValueChange" id="-1312919681%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-confirm-value-change/index.html"><span>Confirm</span><wbr></wbr><span>Value</span><wbr></wbr><span><span>Change</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1312919681%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword">typealias </span><a href="-confirm-value-change/index.html">ConfirmValueChange</a><span class="token operator"> = </span><span class="token punctuation">(</span><span class="token keyword"></span>value<span class="token operator">: </span><a href="-bottom-sheet-value/index.html">BottomSheetValue</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Callback for confirming the next bottom sheet value (state).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1001454757%2FClasslikes%2F1666953606" anchor-label="CoreBottomSheetDefaults" id="-1001454757%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-core-bottom-sheet-defaults/index.html"><span>Core</span><wbr></wbr><span>Bottom</span><wbr></wbr><span>Sheet</span><wbr></wbr><span><span>Defaults</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1001454757%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword">object </span><a href="-core-bottom-sheet-defaults/index.html">CoreBottomSheetDefaults</a></div><div class="brief "><p class="paragraph">Default values used by <a href="-core-bottom-sheet.html">CoreBottomSheet</a> and <a href="-core-bottom-sheet-layout.html">CoreBottomSheetLayout</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-911068074%2FClasslikes%2F1666953606" anchor-label="DialogSheetBehaviors" id="-911068074%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-dialog-sheet-behaviors/index.html"><span>Dialog</span><wbr></wbr><span>Sheet</span><wbr></wbr><span><span>Behaviors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-911068074%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html"><span class="token annotation builtin">Immutable</span></a></div></div><span class="token keyword">class </span><a href="-dialog-sheet-behaviors/index.html">DialogSheetBehaviors</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>collapseOnBackPress<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>collapseOnClickOutside<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>extendsIntoStatusBar<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>extendsIntoNavigationBar<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dialogSecurePolicy<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/window/SecureFlagPolicy.html">SecureFlagPolicy</a><span class="token operator"> = </span>SecureFlagPolicy.Inherit<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dialogWindowSoftInputMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span>WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>lightStatusBar<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>lightNavigationBar<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>statusBarColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.Transparent<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>navigationBarColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.Transparent</span></span><span class="token punctuation">)</span> : <a href="-sheet-behaviors/index.html">SheetBehaviors</a></div><div class="brief "><p class="paragraph">The behaviors of the dialog sheet, for the bottom sheet. This includes some extra properties to control the dialog window.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="410950878%2FClasslikes%2F1666953606" anchor-label="PeekHeight" id="410950878%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-peek-height/index.html"><span>Peek</span><wbr></wbr><span><span>Height</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="410950878%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html"><span class="token annotation builtin">Immutable</span></a></div></div><span class="token keyword">interface </span><a href="-peek-height/index.html">PeekHeight</a></div><div class="brief "><p class="paragraph">The height of a sheet when it's fully peeked, could be pixels or friction.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1623716350%2FClasslikes%2F1666953606" anchor-label="SheetBehaviors" id="1623716350%2FClasslikes%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sheet-behaviors/index.html"><span>Sheet</span><wbr></wbr><span><span>Behaviors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1623716350%2FClasslikes%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html"><span class="token annotation builtin">Immutable</span></a></div></div><span class="token keyword">open </span><span class="token keyword">class </span><a href="-sheet-behaviors/index.html">SheetBehaviors</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>collapseOnBackPress<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>collapseOnClickOutside<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>extendsIntoStatusBar<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>extendsIntoNavigationBar<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Basic behaviors of the sheet, for the <span data-unresolved-link="com.ihridoydas.simpleapp.features.bottomSheets.sheetCore//SheetContentLayout/#androidx.compose.ui.Modifier#com.ihridoydas.simpleapp.features.bottomSheets.sheetCore.SheetContentLayoutState#kotlin.Function1[androidx.compose.ui.unit.IntSize,kotlin.Int]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/">SheetContentLayout</span>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1511639956%2FFunctions%2F1666953606" anchor-label="CoreBottomSheet" id="1511639956%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-core-bottom-sheet.html"><span>Core</span><wbr></wbr><span>Bottom</span><wbr></wbr><span><span>Sheet</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1511639956%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-core-bottom-sheet.html"><span class="token function">CoreBottomSheet</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">state<span class="token operator">: </span><a href="-bottom-sheet-state/index.html">BottomSheetState</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a><span class="token operator"> = </span>Modifier<span class="token punctuation">, </span></span><span class="parameter ">skipPeeked<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">peekHeight<span class="token operator">: </span><a href="-peek-height/index.html">PeekHeight</a><span class="token operator"> = </span>PeekHeight.fraction(0.5f)<span class="token punctuation">, </span></span><span class="parameter ">shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp)<span class="token punctuation">, </span></span><span class="parameter ">backgroundColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.White<span class="token punctuation">, </span></span><span class="parameter ">dimColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.Black<span class="token punctuation">, </span></span><span class="parameter ">maxDimAmount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span>CoreBottomSheetDefaults.MaxDimAmount<span class="token punctuation">, </span></span><span class="parameter ">behaviors<span class="token operator">: </span><a href="-dialog-sheet-behaviors/index.html">DialogSheetBehaviors</a><span class="token operator"> = </span>CoreBottomSheetDefaults.dialogSheetBehaviors()<span class="token punctuation">, </span></span><span class="parameter ">dragHandle<span class="token operator">: </span><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{ CoreBottomSheetDragHandle() }<span class="token punctuation">, </span></span><span class="parameter ">content<span class="token operator">: </span><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A bottom sheet will be displayed in a dialog window.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="781548638%2FFunctions%2F1666953606" anchor-label="CoreBottomSheetDragHandle" id="781548638%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-core-bottom-sheet-drag-handle.html"><span>Core</span><wbr></wbr><span>Bottom</span><wbr></wbr><span>Sheet</span><wbr></wbr><span>Drag</span><wbr></wbr><span><span>Handle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="781548638%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-core-bottom-sheet-drag-handle.html"><span class="token function">CoreBottomSheetDragHandle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">modifier<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a><span class="token operator"> = </span>Modifier<span class="token punctuation">, </span></span><span class="parameter ">color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.Gray.copy(alpha = 0.3f)<span class="token punctuation">, </span></span><span class="parameter ">height<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp.html">Dp</a><span class="token operator"> = </span>24.dp<span class="token punctuation">, </span></span><span class="parameter ">barWidth<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp.html">Dp</a><span class="token operator"> = </span>32.dp<span class="token punctuation">, </span></span><span class="parameter ">barHeight<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp.html">Dp</a><span class="token operator"> = </span>4.dp</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A bottom sheet drag handle will be displayed as a rounded rectangle.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1205059142%2FFunctions%2F1666953606" anchor-label="CoreBottomSheetLayout" id="1205059142%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-core-bottom-sheet-layout.html"><span>Core</span><wbr></wbr><span>Bottom</span><wbr></wbr><span>Sheet</span><wbr></wbr><span><span>Layout</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1205059142%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-core-bottom-sheet-layout.html"><span class="token function">CoreBottomSheetLayout</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">state<span class="token operator">: </span><a href="-bottom-sheet-state/index.html">BottomSheetState</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a><span class="token operator"> = </span>Modifier<span class="token punctuation">, </span></span><span class="parameter ">skipPeeked<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">peekHeight<span class="token operator">: </span><a href="-peek-height/index.html">PeekHeight</a><span class="token operator"> = </span>PeekHeight.fraction(0.5f)<span class="token punctuation">, </span></span><span class="parameter ">shape<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape.html">Shape</a><span class="token operator"> = </span>RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp)<span class="token punctuation">, </span></span><span class="parameter ">backgroundColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.White<span class="token punctuation">, </span></span><span class="parameter ">dimColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token operator"> = </span>Color.Black<span class="token punctuation">, </span></span><span class="parameter ">maxDimAmount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span>CoreBottomSheetDefaults.MaxDimAmount<span class="token punctuation">, </span></span><span class="parameter ">behaviors<span class="token operator">: </span><a href="-sheet-behaviors/index.html">SheetBehaviors</a><span class="token operator"> = </span>SheetBehaviors()<span class="token punctuation">, </span></span><span class="parameter ">dragHandle<span class="token operator">: </span><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{ CoreBottomSheetDragHandle() }<span class="token punctuation">, </span></span><span class="parameter ">content<span class="token operator">: </span><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A bottom sheet layout will be embedded in the composable directly.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="4121899%2FFunctions%2F1666953606" anchor-label="rememberBottomSheetState" id="4121899%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remember-bottom-sheet-state.html"><span>remember</span><wbr></wbr><span>Bottom</span><wbr></wbr><span>Sheet</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="4121899%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="remember-bottom-sheet-state.html"><span class="token function">rememberBottomSheetState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initialValue<span class="token operator">: </span><a href="-bottom-sheet-value/index.html">BottomSheetValue</a><span class="token operator"> = </span>BottomSheetValue.Collapsed<span class="token punctuation">, </span></span><span class="parameter ">confirmValueChange<span class="token operator">: </span><a href="-confirm-value-change/index.html">ConfirmValueChange</a><span class="token operator"> = </span>{ true }</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-bottom-sheet-state/index.html">BottomSheetState</a></div><div class="brief "><p class="paragraph">Create and remember a <a href="-bottom-sheet-state/index.html">BottomSheetState</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

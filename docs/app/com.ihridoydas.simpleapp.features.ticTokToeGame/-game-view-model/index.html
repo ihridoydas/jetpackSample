@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>GameViewModel</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            app
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":app:dokkaHtml/stagingRelease">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="app::com.ihridoydas.simpleapp.features.ticTokToeGame/GameViewModel///PointingToDeclaration//1666953606">
+  <div class="breadcrumbs"><a href="../../../index.html">app</a><span class="delimiter">/</span><a href="../index.html">com.ihridoydas.simpleapp.features.ticTokToeGame</a><span class="delimiter">/</span><span class="current">GameViewModel</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Game</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">GameViewModel</a> : <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html">ViewModel</a></div><p class="paragraph">GameViewModel is a ViewModel that manages and stores UI-related data for the game. It exposes both the game setup and board state for observers to react to changes.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1304532244%2FConstructors%2F1666953606" anchor-label="GameViewModel" id="-1304532244%2FConstructors%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-game-view-model.html"><span>Game</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1304532244%2FConstructors%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1128156657%2FProperties%2F1666953606" anchor-label="boardState" id="1128156657%2FProperties%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="board-state.html"><span>board</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1128156657%2FProperties%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="board-state.html">boardState</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-board-state/index.html">BoardState</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="585404275%2FProperties%2F1666953606" anchor-label="gameSetup" id="585404275%2FProperties%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="game-setup.html"><span>game</span><wbr></wbr><span><span>Setup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="585404275%2FProperties%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="game-setup.html">gameSetup</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-game-setup/index.html">GameSetup</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="264516373%2FFunctions%2F1666953606" anchor-label="addCloseable" id="264516373%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.ihridoydas.simpleapp.util.showcase.onBoarding/-on-boarding-view-model/index.html#264516373%2FFunctions%2F1666953606"><span>add</span><wbr></wbr><span><span>Closeable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="264516373%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../com.ihridoydas.simpleapp.util.showcase.onBoarding/-on-boarding-view-model/index.html#264516373%2FFunctions%2F1666953606"><span class="token function">addCloseable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a> </span>p0<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/Closeable.html">Closeable</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-491431512%2FFunctions%2F1666953606" anchor-label="currentTurn" id="-491431512%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="current-turn.html"><span>current</span><wbr></wbr><span><span>Turn</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-491431512%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="current-turn.html"><span class="token function">currentTurn</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.ihridoydas.simpleapp.features.ticTokToeGame.data/-player/index.html">Player</a></div><div class="brief "><p class="paragraph">Returns the player whose turn it is.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-79986391%2FFunctions%2F1666953606" anchor-label="getWinner" id="-79986391%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-winner.html"><span>get</span><wbr></wbr><span><span>Winner</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-79986391%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-winner.html"><span class="token function">getWinner</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Returns the winner of the game, or &quot;TIE!&quot; if the game is a tie.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="358590145%2FFunctions%2F1666953606" anchor-label="handleMove" id="358590145%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="handle-move.html"><span>handle</span><wbr></wbr><span><span>Move</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="358590145%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="handle-move.html"><span class="token function">handleMove</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">i<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Handles a move made by a player.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1722907570%2FFunctions%2F1666953606" anchor-label="isGameFinished" id="-1722907570%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-game-finished.html"><span>is</span><wbr></wbr><span>Game</span><wbr></wbr><span><span>Finished</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1722907570%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-game-finished.html"><span class="token function">isGameFinished</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks if the game is finished.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1872515000%2FFunctions%2F1666953606" anchor-label="isXPlayerOneMark" id="1872515000%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-x-player-one-mark.html"><span>is</span><wbr></wbr><span>XPlayer</span><wbr></wbr><span>One</span><wbr></wbr><span><span>Mark</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1872515000%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-x-player-one-mark.html"><span class="token function">isXPlayerOneMark</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks if Player One's mark is X.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-286938329%2FFunctions%2F1666953606" anchor-label="onPlayerOneNameChange" id="-286938329%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-player-one-name-change.html"><span>on</span><wbr></wbr><span>Player</span><wbr></wbr><span>One</span><wbr></wbr><span>Name</span><wbr></wbr><span><span>Change</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-286938329%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-player-one-name-change.html"><span class="token function">onPlayerOneNameChange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Updates the name of Player One.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1158407411%2FFunctions%2F1666953606" anchor-label="onPlayerTwoNameChange" id="-1158407411%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-player-two-name-change.html"><span>on</span><wbr></wbr><span>Player</span><wbr></wbr><span>Two</span><wbr></wbr><span>Name</span><wbr></wbr><span><span>Change</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1158407411%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-player-two-name-change.html"><span class="token function">onPlayerTwoNameChange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Updates the name of Player Two.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1816469501%2FFunctions%2F1666953606" anchor-label="resetGame" id="1816469501%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reset-game.html"><span>reset</span><wbr></wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1816469501%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="reset-game.html"><span class="token function">resetGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Resets the game by resetting both the game setup and the board state.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1745708291%2FFunctions%2F1666953606" anchor-label="restartGame" id="-1745708291%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="restart-game.html"><span>restart</span><wbr></wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1745708291%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="restart-game.html"><span class="token function">restartGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Restarts the game by resetting the board state.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2055825974%2FFunctions%2F1666953606" anchor-label="startGame" id="-2055825974%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-game.html"><span>start</span><wbr></wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2055825974%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="start-game.html"><span class="token function">startGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Starts the game if both player names are valid.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1261613554%2FFunctions%2F1666953606" anchor-label="updatePlayerMarks" id="1261613554%2FFunctions%2F1666953606" data-filterable-set=":app:dokkaHtml/stagingRelease"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/stagingRelease" data-filterable-set=":app:dokkaHtml/stagingRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="update-player-marks.html"><span>update</span><wbr></wbr><span>Player</span><wbr></wbr><span><span>Marks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1261613554%2FFunctions%2F1666953606"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/stagingRelease"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="update-player-marks.html"><span class="token function">updatePlayerMarks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">playerOneMark<span class="token operator">: </span><a href="../../com.ihridoydas.simpleapp.features.ticTokToeGame.data/-mark/index.html">Mark</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Updates the marks of the players.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

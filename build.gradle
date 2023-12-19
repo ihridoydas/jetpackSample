@@ -11,7 +11,7 @@ buildscript {
         ktx_coroutine_version = '1.7.3'
         camerax_version = '1.2.3'
         work_version = "2.9.0"
-        dokka_version = "1.8.20"
+        dokka_version = "1.9.10"
     }
 
     dependencies {
@@ -22,6 +22,7 @@ buildscript {
 //        classpath 'com.google.gms:google-services:4.4.0'
         classpath 'com.karumi:shot:5.10.3'
         classpath "org.jetbrains.dokka:android-documentation-plugin:$dokka_version"
+        classpath("org.jetbrains.dokka:dokka-base:$dokka_version")
 
     }
     repositories {
