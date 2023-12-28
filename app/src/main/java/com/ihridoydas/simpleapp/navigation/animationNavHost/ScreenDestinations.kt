@@ -61,6 +61,7 @@ sealed class ScreenDestinations(val route: String) {
     data object ScreenShotCapture : ScreenDestinations("ScreenShot_capture")
     data object ScrollBars : ScreenDestinations("scroll_bars")
     data object Widget : ScreenDestinations("widget_glance")
+    data object MovingAnimationText : ScreenDestinations("moving_animation_text")
 
 
 }
