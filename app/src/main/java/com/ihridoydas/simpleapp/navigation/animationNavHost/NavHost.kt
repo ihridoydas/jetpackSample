@@ -9,9 +9,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -26,13 +24,13 @@ import com.ihridoydas.simpleapp.ar.augmentedImage.AugmentedImageARScreen
 import com.ihridoydas.simpleapp.ar.augmentedModelView.ARModelViewer
 import com.ihridoydas.simpleapp.ar.augmentedPlacement.PlacementView
 import com.ihridoydas.simpleapp.ar.arMenu.ARMenuUseCase
-import com.ihridoydas.simpleapp.features.barCodeScanner.BarCodeScreen
 import com.ihridoydas.simpleapp.features.bottomSheets.pager.MainPagerWithBottomSheets
 import com.ihridoydas.simpleapp.features.cameraScreen.CameraScreen
 import com.ihridoydas.simpleapp.features.composeImpressionTracker.demo.ComposeImpressionScreen
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepAnimation
 import com.ihridoydas.simpleapp.features.composibleSheep.MainSheepCanvas
 import com.ihridoydas.simpleapp.features.koreography.KoreoraphyScreen
+import com.ihridoydas.simpleapp.features.layoutScaffold.LayoutScaffoldScreen
 import com.ihridoydas.simpleapp.features.locationTracker.LocationTracker
 import com.ihridoydas.simpleapp.features.movingLetter.usecase.MovingTextScreen
 import com.ihridoydas.simpleapp.features.multiLanguage.MultiLanguage
@@ -40,13 +38,11 @@ import com.ihridoydas.simpleapp.features.newTonsTimer.timer.NewtonsTimerScreen
 import com.ihridoydas.simpleapp.features.ocr.OCRScreen
 import com.ihridoydas.simpleapp.features.riveAnimation.RiveAnimationCompose
 import com.ihridoydas.simpleapp.features.qrCodeAndBarCode.useCases.ScannerUIScreen
-import com.ihridoydas.simpleapp.features.quiz.QuizApp
 import com.ihridoydas.simpleapp.features.quiz.QuizScreen
 import com.ihridoydas.simpleapp.features.richEditor.RichEditorComposableScreen
 import com.ihridoydas.simpleapp.features.screenShotCapture.ScreenCaptureScreen
 import com.ihridoydas.simpleapp.features.sortingVisualizer.SortingVisualizer
 import com.ihridoydas.simpleapp.features.stepperLibrary.StepperScreen
-import com.ihridoydas.simpleapp.features.twoPaneSample.TwoPaneScreen
 import com.ihridoydas.simpleapp.features.webView.WebBrowser
 import com.ihridoydas.simpleapp.ui.MainActivity
 import com.ihridoydas.simpleapp.ui.demo.handling_events_with_sealed_classes.ui.CounterScreen
@@ -380,8 +376,8 @@ fun MainAnimationNavHost(
             )
         }
 
-        screen(ScreenDestinations.TwoPaneScreen.route) {
-            TwoPaneScreen(
+        screen(ScreenDestinations.LayoutDevicesScreen.route) {
+            LayoutScaffoldScreen(
                 onBackPress = {
                     navController.navigateTo(ScreenDestinations.ViewScreen.route)
                 },
