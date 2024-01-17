@@ -50,7 +50,8 @@
         <!--  For Location Tracker-->
         <service
             android:name=".features.locationTracker.LocationService"
-            android:foregroundServiceType="location" />
+            android:foregroundServiceType="location"
+            tools:ignore="ForegroundServicePermission" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

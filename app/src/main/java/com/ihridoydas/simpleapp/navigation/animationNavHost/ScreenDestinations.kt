@@ -50,7 +50,7 @@ sealed class ScreenDestinations(val route: String) {
     data object PickImageScreen : ScreenDestinations("pick_Image_view")
     data object SortingVisualizerScreen : ScreenDestinations("sorting_visual_view")
     data object LocationTrackerScreen : ScreenDestinations("location_tracker_view")
-    data object TwoPaneScreen : ScreenDestinations("two_pane_view")
+    data object LayoutDevicesScreen : ScreenDestinations("two_pane_view")
     data object IlluminationInteractionsScreen : ScreenDestinations("illumination_interactions_view")
     data object BottomSheetsAndPager : ScreenDestinations("bottom_sheets_and_pager")
     data object ComposeImpressionTracker : ScreenDestinations("compose_impression_tracker")

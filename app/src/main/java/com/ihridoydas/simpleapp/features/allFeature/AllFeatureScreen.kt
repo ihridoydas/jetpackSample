@@ -537,9 +537,9 @@ fun AllFeatureScreen(navController: NavController) {
             color = listOf(
                 Color(0xFF643747),
                 Color(0xFF948E2C)
-            ), name = "Two Pane layout"
+            ), name = "Layout Customization"
         ) {
-            navController?.navigate(ScreenDestinations.TwoPaneScreen.route) {
+            navController?.navigate(ScreenDestinations.LayoutDevicesScreen.route) {
                 popUpTo(ScreenDestinations.ViewScreen.route) {
                     inclusive = false
                 }
