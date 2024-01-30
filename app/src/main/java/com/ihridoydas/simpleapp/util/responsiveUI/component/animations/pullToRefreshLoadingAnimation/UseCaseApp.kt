@@ -36,11 +36,27 @@ import com.ihridoydas.simpleapp.ui.theme.SimpleAppTheme
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.draggableMenu.DraggableMenuUse
 import com.ihridoydas.simpleapp.util.responsiveUI.component.compose_ProgressIndicator.useCases.ProgressIndicatorDemo
+import com.ihridoydas.simpleapp.util.responsiveUI.component.constraintLayoutSampleMatarial.ConstraintLayoutAnimationTest
+import com.ihridoydas.simpleapp.util.responsiveUI.component.linear_interpolation.RadiusChangeLerpAnimationTes
+import com.ihridoydas.simpleapp.util.responsiveUI.component.menu.MainMenuCanvas
+import com.ihridoydas.simpleapp.util.responsiveUI.component.modifierCustom.CustomModifier1Preview
+import com.ihridoydas.simpleapp.util.responsiveUI.component.motionLayoutDSLSample.AttributesRotationXY
+import com.ihridoydas.simpleapp.util.responsiveUI.component.motionLayoutDSLSample.MotionLayoutButtonTest
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 //List of Screen
-val list = listOf("CustomPull", "FancyPull","DraggableMenu","ProgressIndicatorDemo")
+val list = listOf("CustomPull",
+    "FancyPull",
+    "DraggableMenu",
+    "ProgressIndicatorDemo",
+    "MainMenuCanvas",
+    "CustomModifier1Preview",
+    "RadiusChangeLerpAnimationTes",
+    "ConstraintLayoutAnimationTest",
+    "MotionLayoutButtonTest",
+    "AttributesRotationXY"
+)
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -71,6 +87,13 @@ fun PullToRefreshAnimationTabsContent(pagerState: PagerState) {
                     3 -> Column {
                         ProgressIndicatorDemo()
                     }
+                    4 -> MainMenuCanvas()
+                    5 -> CustomModifier1Preview()
+                    6 -> RadiusChangeLerpAnimationTes()
+                    7 -> ConstraintLayoutAnimationTest()
+                    8 -> MotionLayoutButtonTest()
+                    9 -> AttributesRotationXY()
+
                 }
 
             }

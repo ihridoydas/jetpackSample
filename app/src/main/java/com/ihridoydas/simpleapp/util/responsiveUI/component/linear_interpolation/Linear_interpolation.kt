@@ -32,7 +32,7 @@ import kotlin.math.sin
 
 @Preview
 @Composable
-private fun RadiusChangeLerpAnimationTes() {
+fun RadiusChangeLerpAnimationTes() {
 
     val outerCircleRadius = 450f
     val innerCircleRadius = 250f
