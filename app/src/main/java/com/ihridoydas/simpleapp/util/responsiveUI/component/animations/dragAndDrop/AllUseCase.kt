@@ -25,13 +25,14 @@ import androidx.compose.foundation.pager.PagerDefaults
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.remember
 import com.ihridoydas.simpleapp.features.chipTextField.ChipTextFieldScreen
+import com.ihridoydas.simpleapp.features.spinner.SpinView
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.businessCardDesign.BusinessCardDragAndDropContent
 import com.ihridoydas.simpleapp.util.responsiveUI.component.animations.dragAndDrop.simpleDragAndDrop.SimpleDragAndDrop
 
 
 //List of Screen
-val list = listOf("SimpleDragDrop", "BusinessDragAndDrop","ChipInCompose")
+val list = listOf("SimpleDragDrop", "BusinessDragAndDrop","ChipInCompose","Spinner")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -61,6 +62,7 @@ fun DragAndDropTabsContent(pagerState: androidx.compose.foundation.pager.PagerSt
                     0 -> SimpleDragAndDrop()
                     1 -> BusinessCardDragAndDropContent()
                     2 -> ChipTextFieldScreen()
+                    3 -> SpinView()
                 }
 
             }
