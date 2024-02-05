@@ -297,6 +297,10 @@ dependencies {
     //location services
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
+    //For Data Preview
+    implementation("io.github.vram-voskanyan.kmp:PreviewGenerator:1.0.0") // take latest from Maven central
+    ksp("io.github.vram-voskanyan.kmp:PreviewGenerator:1.0.0")
+
     // Local unit tests
     testImplementation "androidx.test:core:1.5.0"
     testImplementation "androidx.arch.core:core-testing:2.2.0"
