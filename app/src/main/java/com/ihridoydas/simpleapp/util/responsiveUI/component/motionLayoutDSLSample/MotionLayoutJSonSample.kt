@@ -126,7 +126,7 @@ fun MotionLayoutSample1() {
 
 @Preview
 @Composable
-private fun MotionLayoutButtonTest() {
+fun MotionLayoutButtonTest() {
     // on below line we are creating a box
     Box(
         // in this box we are specifying a modifier

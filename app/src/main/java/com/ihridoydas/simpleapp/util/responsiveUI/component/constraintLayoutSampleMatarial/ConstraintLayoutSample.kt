@@ -68,7 +68,7 @@ private fun decoupledConstraints(margin: Dp): ConstraintSet {
 
 @Preview
 @Composable
-private fun ConstraintLayoutGuidlineSample() {
+fun ConstraintLayoutGuidlineSample() {
     ConstraintLayout(
         modifier = Modifier.fillMaxSize().border(2.dp, Color.Red)
     ) {
@@ -146,7 +146,7 @@ fun ConstraintLayoutDemo() {
 
 @Preview
 @Composable
-private fun ConstraintLayoutAnimationTest() {
+fun ConstraintLayoutAnimationTest() {
 
     /*
         height = Dimension.value(10.dp)
