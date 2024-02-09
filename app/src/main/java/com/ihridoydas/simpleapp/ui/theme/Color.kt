@@ -1,5 +1,7 @@
 package com.ihridoydas.simpleapp.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
@@ -128,6 +130,20 @@ object SheepColor {
 }
 //=-------------------
 
+val Translucent = Color(0x9E1F1F1F)
+
+//Rive Animation
+val isDarkThemeEnabled : Boolean
+    @Composable
+    get() = isSystemInDarkTheme()
+val P2PBackground: Color
+    @Composable
+    get() = if (isDarkThemeEnabled) Color(0xFFd7e1e8) else Color(0xFFd7e1e8)
+
+val TextColor: Color
+    @Composable
+    get() = if (isDarkThemeEnabled) Color.Black else Color.Black
+
 //For TimeLine Compose Feature
 val Gray200: Color = Color(0xFFEEEBF4)
 val Orange500: Color = Color(0xFFFF8700)
@@ -137,12 +153,26 @@ val LightBlue: Color = Color(0xff12c2e9)
 val Purple: Color = Color(0xffc471ed)
 val Coral: Color = Color(0xfff64f59)
 val LightCoral: Color = Color(0xfffbaeb2)
-//
-
-val Translucent = Color(0x9E1F1F1F)
 
 //Quiz app color
 val CodeeBlue = Color(0xff141A33)
 val CodeeRed = Color(0xffCE0E4B)
 val CodeeGreen = Color(0xff0CBA8D)
 val CodeeGray = Color(0xff666B86)
+
+//Pendulum
+val Honeydew = Color(0xfff1faee)
+val Desire = Color(0xffe63946)
+val Crystal = Color(0xffa8dadc)
+val JellyBeanBlue = Color(0xff457b9d)
+val SpaceCadet = Color(0xff1d3557)
+
+//For Qr Code
+val LightSurface = Color(0xFFFFFFFF)
+val LightYellow = Color(0xFFFFF3E0)
+val DarkYellow = Color(0xFFFFD152)
+val DarkSurface = Color(0xFF3C3E4B)
+val LightGrey = Color(0xFFCECECE)
+val DarkGrey = Color(0xFF3C3E4B)
+val LightText = Color(0xFFBEB083)
+val DarkText = Color(0xFF852E2E)

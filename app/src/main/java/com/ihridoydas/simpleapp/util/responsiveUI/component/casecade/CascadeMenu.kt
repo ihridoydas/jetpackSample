@@ -67,7 +67,7 @@ fun <T : Any> CascadeMenu(
                 } else {
                     animateToNext()
                 }
-            }
+            }, label = ""
         ) { targetMenu ->
             CascadeMenuContent(
                 state = state,

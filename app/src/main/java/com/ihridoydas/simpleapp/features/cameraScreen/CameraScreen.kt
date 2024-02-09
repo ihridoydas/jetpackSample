@@ -1,6 +1,7 @@
 package com.ihridoydas.simpleapp.features.cameraScreen
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.os.Build
 import android.widget.Toast
 import androidx.camera.view.PreviewView
@@ -30,6 +31,7 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.ihridoydas.simpleapp.R
 
 
+@SuppressLint("SuspiciousIndentation")
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CameraScreen(

@@ -75,6 +75,52 @@
     <string name="search_text">Search</string>
     <string name="select_country_text">Select country</string>
 
+    <string name="player_2_name_label">Player 2 Name</string>
+    <string name="player_1_name_label">Player 1 Name</string>
+    <string name="choose_mark">Choose Player 1\'s Mark</string>
+    <string name="start_game">Start Game</string>
+
+
+    <!-- Scan screen -->
+    <string name="scan_message">Scan 5 QR or bar code</string>
+    <string name="scan_share_value">Share content</string>
+    <string name="scan_value_copied">Content copied</string>
+
+    <!-- Bottom scan panel -->
+    <string name="scan_sheet_web_action">Website</string>
+
+    <!-- Camera request dialog -->
+    <string name="camera_required_message">The application requires permission to the camera to work.</string>
+    <string name="camera_required_continue_btn">Continue</string>
+    <string name="camera_required_back_btn">Back</string>
+
+    <!-- Scan format -->
+    <string name="scan_format_qr_code">QR code</string>
+    <string name="scan_format_aztec">Aztec code</string>
+    <string name="scan_format_data_matrix">Data matrix code</string>
+    <string name="scan_format_pdf">PDF417 code</string>
+    <string name="scan_format_barcode">Barcode</string>
+    <string name="scan_format_code_128">Barcode (128)</string>
+    <string name="scan_format_code_93">Barcode (93)</string>
+    <string name="scan_format_code_39">Barcode (39)</string>
+    <string name="scan_format_ean_13">Barcode EAN-13</string>
+    <string name="scan_format_ean_8">Barcode EAN-8</string>
+    <string name="scan_format_itf">Barcode ITF</string>
+    <string name="scan_format_upc_a">Barcode UPC-A</string>
+    <string name="scan_format_upc_e">Barcode UPC-E</string>
+    <string name="scan_format_unknown">Code</string>
+
+    <string name="developer">Developer</string>
+    <string name="scan_value">Scan Code - </string>
+    <string name="exit">Exit</string>
+    <string name="code">Code</string>
+    <string name="effect">Effect %1$d</string>
+    <string name="text">The quick brown fox jumps over the lazy dog!</string>
+    <string name="resume">Resume</string>
+    <string name="start">Start</string>
+    <string name="state">State</string>
+    <string name="stop">Stop</string>
+
 
 
 </resources>

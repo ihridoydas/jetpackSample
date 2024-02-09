@@ -45,17 +45,23 @@ sealed class ScreenDestinations(val route: String) {
 
 
     //Others
+    object ComposeRiveAnimation : ScreenDestinations("compose_rive_animation")
     data object TabLayoutScreen : ScreenDestinations("tab_layout_view")
     data object PickImageScreen : ScreenDestinations("pick_Image_view")
     data object SortingVisualizerScreen : ScreenDestinations("sorting_visual_view")
     data object LocationTrackerScreen : ScreenDestinations("location_tracker_view")
-    data object TwoPaneScreen : ScreenDestinations("two_pane_view")
+    data object LayoutDevicesScreen : ScreenDestinations("two_pane_view")
     data object IlluminationInteractionsScreen : ScreenDestinations("illumination_interactions_view")
     data object BottomSheetsAndPager : ScreenDestinations("bottom_sheets_and_pager")
     data object ComposeImpressionTracker : ScreenDestinations("compose_impression_tracker")
     data object RichEditor : ScreenDestinations("rich_editor_compose")
     data object StepperComposable : ScreenDestinations("stepper_compose")
     data object QuizApp : ScreenDestinations("quiz_app")
+    data object Koreography : ScreenDestinations("koreography")
+    data object ScreenShotCapture : ScreenDestinations("ScreenShot_capture")
+    data object ScrollBars : ScreenDestinations("scroll_bars")
+    data object Widget : ScreenDestinations("widget_glance")
+    data object MovingAnimationText : ScreenDestinations("moving_animation_text")
 
 
 }

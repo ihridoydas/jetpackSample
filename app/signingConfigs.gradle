@@ -1,0 +1,21 @@
+signingConfigs {
+
+    develop {
+        storeFile file("jks/simpleApp-keystore.jks")
+        storePassword "simpleApp4791"
+        keyAlias "simpleApp-develop"
+        keyPassword "simpleApp4791"
+    }
+    staging {
+        storeFile file("jks/simpleApp-keystore.jks")
+        storePassword "simpleApp4791"
+        keyAlias "simpleApp-staging"
+        keyPassword "simpleApp4791"
+    }
+    production {
+        storeFile file("jks/simpleApp-keystore.jks")
+        storePassword "simpleApp4791"
+        keyAlias "simpleApp-production"
+        keyPassword "simpleApp4791"
+    }
+}

@@ -12,12 +12,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.ihridoydas.simpleapp.features.stepperCompose.screens.MaterialStepperScreen
 import com.ihridoydas.simpleapp.features.stepperCompose.screens.StateStepperScreen
+import com.ihridoydas.simpleapp.features.ticTokToeGame.TicTacToeApp
 
 @Preview(showSystemUi = true)
 @Composable
 fun StepperComposablePreview() {
     var tabIndex by remember { mutableStateOf(0) }
-    val tabTitles = listOf("Material", "State")
+    val tabTitles = listOf("Material", "State","TicTokToe")
     Column {
         TabRow(selectedTabIndex = tabIndex) {
             tabTitles.forEachIndexed { index, title ->
@@ -29,6 +30,7 @@ fun StepperComposablePreview() {
         when (tabIndex) {
             0 -> MaterialStepperScreen()
             1 -> StateStepperScreen()
+            2->  TicTacToeApp()
         }
     }
 }
