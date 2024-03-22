@@ -10,6 +10,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
+import com.ihridoydas.simpleapp.features.globeAnimation.GloveAnimation
+import com.ihridoydas.simpleapp.features.globeAnimation.GlovoLikeAnimation
 import com.ihridoydas.simpleapp.features.stepperCompose.screens.MaterialStepperScreen
 import com.ihridoydas.simpleapp.features.stepperCompose.screens.StateStepperScreen
 import com.ihridoydas.simpleapp.features.ticTokToeGame.TicTacToeApp
@@ -18,7 +20,7 @@ import com.ihridoydas.simpleapp.features.ticTokToeGame.TicTacToeApp
 @Composable
 fun StepperComposablePreview() {
     var tabIndex by remember { mutableStateOf(0) }
-    val tabTitles = listOf("Material", "State","TicTokToe")
+    val tabTitles = listOf("Material", "State","TicTokToe","GlovoLike")
     Column {
         TabRow(selectedTabIndex = tabIndex) {
             tabTitles.forEachIndexed { index, title ->
@@ -31,6 +33,7 @@ fun StepperComposablePreview() {
             0 -> MaterialStepperScreen()
             1 -> StateStepperScreen()
             2->  TicTacToeApp()
+            3->  GloveAnimation()
         }
     }
 }
