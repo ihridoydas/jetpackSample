@@ -26,12 +26,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.ihridoydas.simpleapp.features.containerTransform.ContainerTransformHomeScreen
 import com.ihridoydas.simpleapp.features.riveAnimation.loginPage.LoginUI
 import com.ihridoydas.simpleapp.ui.theme.P2PBackground
 import com.ihridoydas.simpleapp.ui.theme.ThemeColor
 
 //List of Screen
-val list = listOf("RiveAnimationLogin")
+val list = listOf("RiveAnimationLogin","ContainerTransformHomeScreen")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -44,6 +45,7 @@ fun PagerContent(pagerState: PagerState) {
         HorizontalPager(state = pagerState) { page ->
             when (page) {
                 0 -> LoginUI()
+                1 -> ContainerTransformHomeScreen()
             }
 
         }
