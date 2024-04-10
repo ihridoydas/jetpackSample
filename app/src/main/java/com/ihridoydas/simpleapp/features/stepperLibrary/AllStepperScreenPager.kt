@@ -30,6 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.ihridoydas.simpleapp.features.funWithUI.components.baseclock.Clock
+import com.ihridoydas.simpleapp.features.funWithUI.components.genderpicker.GenderPicker
+import com.ihridoydas.simpleapp.features.funWithUI.components.tictactoe.TicTacToeGame
+import com.ihridoydas.simpleapp.features.funWithUI.components.weightpicker.ScaleStyle
+import com.ihridoydas.simpleapp.features.funWithUI.components.weightpicker.WeightPicker
 import com.ihridoydas.simpleapp.features.stepperCompose.StepperComposablePreview
 import com.ihridoydas.simpleapp.features.timeLineCompose.HireingScreenContent
 import com.ihridoydas.simpleapp.features.timeLineCompose.TimeLineViewModel
@@ -38,12 +43,17 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
 //List of Screen
-val listOfPager = listOf("KotStepper", "StepperCompose","HiringStepper")
+val listOfPager = listOf(
+    "KotStepper", "StepperCompose", "HiringStepper", "Clock",
+    "WeightPicker",
+    "TicTacToe",
+    "GenderPicker"
+)
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun StepperLayoutContent(pagerState: PagerState,timeLineViewModel: TimeLineViewModel) {
+fun StepperLayoutContent(pagerState: PagerState, timeLineViewModel: TimeLineViewModel) {
     val screenState = timeLineViewModel.hiringProcessState.collectAsState(initial = arrayOf())
     Surface(
         modifier = Modifier
@@ -55,6 +65,15 @@ fun StepperLayoutContent(pagerState: PagerState,timeLineViewModel: TimeLineViewM
                 0 -> MainStepper()
                 1 -> StepperComposablePreview()
                 2 -> HireingScreenContent(screenState.value)
+                3 -> Clock(50.dp, modifier = Modifier.fillMaxSize())
+                4 -> WeightPicker(
+                    modifier = Modifier.fillMaxSize(),
+                    style = ScaleStyle(200.dp, 20.dp),
+                    onWeightChanged = { }
+                )
+
+                5 -> TicTacToeGame()
+                6 -> GenderPicker(modifier = Modifier.fillMaxSize()) {}
 
 
             }
@@ -126,7 +145,7 @@ fun StepperScreen(
                         initialPage = 0,
                         initialPageOffsetFraction = 0f,
                         pageCount = { listOfPager.size })
-                StepperLayoutContent(pagerState = pagerState,timeLineViewModel = timeLineViewModel)
+                StepperLayoutContent(pagerState = pagerState, timeLineViewModel = timeLineViewModel)
             }
         }
     )
